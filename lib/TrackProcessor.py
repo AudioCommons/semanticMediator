@@ -35,6 +35,11 @@ class TrackProcessor(web.RequestHandler):
         
         # read the search pattern
         # NOTE: the user may specify multiple patterns and this must be handled somehow
+        if not "pattern" in self.request.arguments:
+            msg = "You MUST specify a pattern if you want to search for something!"
+            logging.error(msg)
+            self.write(json.dumps({"status":"failure", "cause":msg}))            
+            return            
         patternList = [t.decode("utf-8") for t in self.request.arguments["pattern"]]
         patternString = "+".join(patternList)
         
