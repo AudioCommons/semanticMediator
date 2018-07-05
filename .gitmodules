@@ -1,0 +1,9 @@
+[submodule "lib/mappings/europeana-to-audiocommons"]
+	path = lib/mappings/europeana-to-audiocommons
+	url = https://gitlab.com/desmovalvo/europeana-to-audiocommons
+[submodule "lib/mappings/freesound-to-audiocommons"]
+	path = lib/mappings/freesound-to-audiocommons
+	url = https://github.com/miguel76/freesound-to-audiocommons
+[submodule "lib/mappings/jamendo-to-audiocommons"]
+	path = lib/mappings/jamendo-to-audiocommons
+	url = https://gitlab.com/desmovalvo/jamendo-to-audiocommons
