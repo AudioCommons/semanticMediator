@@ -26,6 +26,13 @@ class ConfigManager:
             self.tools["sepa"]["subscribe"] = self.config["sepa"]["URIs"]["subscribe"]
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong SEPA Configuration!")
+
+        # read SEPA URIs
+        try:
+            self.tools["sparqlgen"] = self.config["sparql-generate"]["URI"]
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Wrong SPARQL-generate Configuration!")
+
         
         # read the mappings
         try:

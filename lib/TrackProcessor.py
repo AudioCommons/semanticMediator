@@ -52,7 +52,7 @@ class TrackProcessor(web.RequestHandler):
             # do the request to SPARQL-Generate
             try:
                 data = {"query":sg_query}
-                sg_req = requests.post("http://wot.arces.unibo.it:5000/sparqlgen", data=data)
+                sg_req = requests.post(self.conf.tools["sparqlgen"], data=data)
             except Exception as e:
                 logging.error("Exception during request to SPARQL-Generate server")
                 print(traceback.print_exc())
