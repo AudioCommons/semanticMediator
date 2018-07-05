@@ -58,7 +58,10 @@ class TrackProcessor(web.RequestHandler):
             update = QueryUtils.getInsertDataFromTriples(triples)
 
             # put data in SEPA
-            self.kp.update(self.conf.tools["sepa"]["update"], update)
+            try:
+                self.kp.update(self.conf.tools["sepa"]["update"], update)
+            except:
+                logging.error("Error while connecting to SEPA")
             logging.debug("Process %s completed!" % cp)
             
                     
@@ -87,7 +90,13 @@ class TrackProcessor(web.RequestHandler):
         SELECT ?audioClip ?title
         WHERE {?audioClip rdf:type ac:AudioClip .
         ?audioClip dc:title ?title }"""
-        status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
+        try:
+            status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
+        except:
+            msg = "Error while connecting to SEPA"
+            logging.error(msg)
+            self.write(json.dumps({"status":"failure", "cause":msg}))
+            return
         
         # return
         self.write(json.dumps({"status":"ok", "results":results}))
