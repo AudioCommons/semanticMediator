@@ -1,0 +1,6 @@
+mediator:
+  baseUri: "http://localhost:9027"
+  routes:  
+    trackSearch:
+      path: "/tracks/search"
+      args: ["pattern"]
