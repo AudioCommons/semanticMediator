@@ -29,6 +29,8 @@ class MediatorTests(unittest.TestCase):
         self.mediatorBaseURI = ym["mediator"]["baseUri"]
         self.trackSearchPath = ym["mediator"]["routes"]["trackSearch"]["path"]
         self.trackSearchArgs = ym["mediator"]["routes"]["trackSearch"]["args"]
+        self.collectionSearchPath = ym["mediator"]["routes"]["collectionSearch"]["path"]
+        self.collectionSearchArgs = ym["mediator"]["routes"]["collectionSearch"]["args"]
 
         # close file
         yf.close()
@@ -49,6 +51,28 @@ class MediatorTests(unittest.TestCase):
 
         # make the request
         r = requests.get(self.mediatorBaseURI + self.trackSearchPath + params)
+        msg = json.loads(r.text)
+        
+        # check that returns 200
+        self.assertEqual(200, r.status_code)
+        self.assertEqual("ok", msg["status"])
+
+
+    def test_01_successful_collection_search(self):
+
+        # request configuration
+        reqConf = {"pattern": "barking"}
+        params = None
+
+        # build URI
+        for arg in self.collectionSearchArgs:
+            if not params:
+                params = "?%s=%s" % (arg, reqConf[arg])
+            else:
+                params += "&%s=%s" % (arg, reqConf[arg])
+
+        # make the request
+        r = requests.get(self.mediatorBaseURI + self.collectionSearchPath + params)
         msg = json.loads(r.text)
         
         # check that returns 200

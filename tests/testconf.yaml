@@ -4,3 +4,8 @@ mediator:
     trackSearch:
       path: "/tracks/search"
       args: ["pattern"]
+
+    collectionSearch:
+      path: "/collections/search"
+      args: ["pattern"]
+      

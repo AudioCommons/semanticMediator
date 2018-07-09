@@ -13,7 +13,8 @@ import pdb
 # local requirements
 from .QueryUtils import *
 
-class TrackProcessor(web.RequestHandler):
+
+class CollectionProcessor(web.RequestHandler):
 
     def initialize(self, conf, stats):
 
@@ -40,7 +41,7 @@ class TrackProcessor(web.RequestHandler):
     def search(self):
 
         # debug print
-        logging.debug("New track search request")
+        logging.debug("New collection search request")
 
         # update stats
         self.stats.requests["total"] += 1
@@ -89,11 +90,11 @@ class TrackProcessor(web.RequestHandler):
                     
         # read the mappings
         results = {}
-        for cp in self.conf.mappings["tracks"]["search"]:
+        for cp in self.conf.mappings["collections"]["search"]:
             logging.debug("Searching for %s on %s" % (patternString, cp))
 
             # build the SPARQL-generate query
-            sg_query = self.conf.mappings["tracks"]["search"][cp].replace("$pattern", patternString)
+            sg_query = self.conf.mappings["collections"]["search"][cp].replace("$pattern", patternString)
 
             # for every mapping spawn a thread
             t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
@@ -124,25 +125,3 @@ class TrackProcessor(web.RequestHandler):
         # return
         self.stats.requests["successful"] += 1
         self.write(json.dumps({"status":"ok", "results":results}))    
-
-
-    def analyse(self):
-       
-        # debug print
-        logging.debug("New track analysis request")
-
-        # update stats
-        self.stats.requests["total"] += 1        
-        
-        # generate an UUID for the request
-        req_id = str(uuid4())
-
-        # read parameters
-        in_id = self.request.arguments["id"]
-        in_provider = self.request.arguments["provider"]
-        in_transform = self.request.arguments["transform"]
-
-        # invoke johan's service
-        self.stats.requests["failure"] += 1
-        logging.error("Not implemented")
-        

@@ -12,6 +12,7 @@ import sys
 from lib.ConfigManager import *
 from lib.TrackProcessor import *
 from lib.StatsProcessor import *
+from lib.CollectionProcessor import *
 
 # initialize app
 app = None
@@ -58,6 +59,7 @@ if __name__ == "__main__":
     app = web.Application([
         ("/tracks/search", TrackProcessor, dict(conf=conf, stats=sm)),
         ("/tracks/analyse", TrackProcessor, dict(conf=conf, stats=sm)),
+        ("/collections/search", CollectionProcessor, dict(conf=conf, stats=sm)),
         ("/stats", StatsProcessor, dict(stats=sm))
     ])
     
