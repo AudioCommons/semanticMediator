@@ -41,10 +41,14 @@ class TrackProcessor(web.RequestHandler):
 
         # debug print
         logging.debug("New track search request")
+        logging.debug(self.stats.requests)
 
         # update stats
+        if not self.request.path in self.stats.requests["paths"]:
+            self.stats.requests["paths"][self.request.path] = {"total":0, "failed":0, "successful":0}
         self.stats.requests["total"] += 1
-        
+        self.stats.requests["paths"][self.request.path]["total"] += 1
+                    
         # generate an UUID for the request
         req_id = str(uuid4())
         
@@ -54,6 +58,7 @@ class TrackProcessor(web.RequestHandler):
             msg = "You MUST specify a pattern if you want to search for something!"
             logging.error(msg)
             self.stats.requests["failed"] += 1
+            self.stats.requests["paths"][self.request.path]["failed"] += 1
             self.write(json.dumps({"status":"failure", "cause":msg}))            
             return            
         patternList = [t.decode("utf-8") for t in self.request.arguments["pattern"]]
@@ -72,6 +77,7 @@ class TrackProcessor(web.RequestHandler):
             except Exception as e:
                 logging.error("Exception during request to SPARQL-Generate server")
                 self.stats.requests["failed"] += 1
+                self.stats.requests["paths"][self.request.path]["failed"] += 1
                 print(traceback.print_exc())
                 return
 
@@ -118,11 +124,14 @@ class TrackProcessor(web.RequestHandler):
             msg = "Error while connecting to SEPA"
             logging.error(msg)
             self.stats.requests["failed"] += 1
+            self.stats.requests["paths"][self.request.path]["failed"] += 1
             self.write(json.dumps({"status":"failure", "cause":msg}))
             return
         
         # return
+        logging.info("Increment")
         self.stats.requests["successful"] += 1
+        self.stats.requests["paths"][self.request.path]["successful"] += 1
         self.write(json.dumps({"status":"ok", "results":results}))    
 
 

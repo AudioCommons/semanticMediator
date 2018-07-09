@@ -18,7 +18,8 @@ class StatsManager:
     requests["total"] = 0
     requests["failed"] = 0
     requests["successful"] = 0
-    requests["avg_time"] = 0    
+    requests["avg_time"] = 0
+    requests["paths"] = {}
 
     
     def __init__(self, conf):

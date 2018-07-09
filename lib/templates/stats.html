@@ -72,12 +72,22 @@
        <div class="col s12">
 	 <div class="card blue-grey lighten-5">
            <div class="card-content cyan-text text-darken-4">
-             <span class="card-title"><i class="small material-icons">insert_chart</i>&nbsp;Requests</span>
-	     <br>
+             <span class="card-title"><i class="small material-icons">insert_chart</i>&nbsp;Requests summary</span>
+	     <br><b>Total</b>
 	     <ul class="collection">
 	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;Total:</b>&nbsp;{{ stats["requests"]["total"] }}</li>
 	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">check</i>&nbsp;Successful:</b>&nbsp;{{ stats["requests"]["successful"] }}</li>
 	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">close</i>&nbsp;Failed:</b>&nbsp;{{ stats["requests"]["failed"] }}</li>
+	     </ul>
+	     
+	     {% for p in stats["requests"]["paths"] %}
+	     <b>{{ p }}</b>
+	     <ul class="collection">
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;Total:</b>&nbsp;{{ stats["requests"]["paths"][p]["total"] }}</li>
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;Successful:</b>&nbsp;{{ stats["requests"]["paths"][p]["successful"] }}</li>
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;Failed:</b>&nbsp;{{ stats["requests"]["paths"][p]["failed"] }}</li>
+	     </ul>
+	     {% end %}
 	     </ul>	     
            </div>
 	 </div>
