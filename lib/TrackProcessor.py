@@ -16,10 +16,11 @@ from .QueryUtils import *
 
 class TrackProcessor(web.RequestHandler):
 
-    def initialize(self, conf):
+    def initialize(self, conf, stats):
 
-        # save the configManager variable
-        self.conf = conf
+        # save the parameters
+        self.stats = stats
+        self.conf = conf        
 
         # create a KP
         self.kp = SEPAClient()
@@ -27,9 +28,21 @@ class TrackProcessor(web.RequestHandler):
         
     def get(self):
 
+        # determine the requested action
+        action = self.request.path.split("/")[-1]
+
+        # invoke the proper handler
+        if action == "search":
+            self.search()
+        if action == "analyse":
+            self.analyse()
+            
+            
+    def search(self):
+
         # debug print
         logging.debug("New track search request")
-
+        
         # generate an UUID for the request
         req_id = str(uuid4())
         
@@ -105,3 +118,21 @@ class TrackProcessor(web.RequestHandler):
         
         # return
         self.write(json.dumps({"status":"ok", "results":results}))
+
+
+    def analyse(self):
+       
+        # debug print
+        logging.debug("New track analysis request")
+        
+        # generate an UUID for the request
+        req_id = str(uuid4())
+
+        # read parameters
+        in_id = self.request.arguments["id"]
+        in_provider = self.request.arguments["provider"]
+        in_transform = self.request.arguments["transform"]
+
+        # invoke johan's service
+        logging.error("Not implemented")
+        

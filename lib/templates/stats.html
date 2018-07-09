@@ -1,0 +1,102 @@
+<html>
+   <head>
+     <title>Semantic Mediator statistics</title>
+
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+     <!-- Icons -->
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+            
+   </head>
+   <body class="white darken-3">
+
+     <div class="container blue-grey lighten-4">
+     <div class="row">
+       <div class="col s12">
+	 <div class="card cyan darken-4">
+           <div class="card-content white-text darken-3">
+             <span class="card-title">Semantic Mediator</span>
+	     <i>A semantic mediator for the <a href="https://www.audiocommons.org/about/" class="white-text"><b>Audio Commons Initiative</b></a>.</i>
+           </div>
+	 </div>
+       </div>
+     </div>
+
+     <div class="row">
+       <div class="col s12">
+	 <div class="card white darken-4">
+           <div class="card-content cyan-text text-darken-4">
+             <span class="card-title"><i class="small material-icons">insert_chart</i>&nbsp;General stats</span>
+	     <br>
+	     <ul class="collection">
+	       <li class="collection-item white lighten-4 black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;Uptime:</b>&nbsp;{{ stats["upTime"] }}</li>
+	     </ul>	     
+           </div>
+	 </div>
+       </div>
+     </div>
+
+     <div class="row">
+       <div class="col s6">
+	 <div class="card white darken-4">
+           <div class="card-content cyan-text text-darken-4">
+             <span class="card-title"><i class="small material-icons">insert_chart</i>&nbsp;SPARQL-Generate</span>
+	     <br>
+	     <ul class="collection">
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;URI:</b>&nbsp;{{ stats["config"]["sparqlgen"] }}</li>
+	     </ul>	     
+           </div>
+	 </div>
+       </div>
+       <div class="col s6">
+	 <div class="card white darken-4">
+           <div class="card-content cyan-text text-darken-4">
+             <span class="card-title"><i class="small material-icons">insert_chart</i>&nbsp;SEPA</span>
+	     <br>
+	     <ul class="collection">
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">file_upload</i>&nbsp;Update URI:</b>&nbsp;{{ stats["config"]["sepa"]["query"] }}</li>
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">file_download</i>&nbsp;Query URI:</b>&nbsp;{{ stats["config"]["sepa"]["update"] }}</li>
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">flash_on</i>&nbsp;Subscribe URI:</b>&nbsp;{{ stats["config"]["sepa"]["subscribe"] }}</li>
+	     </ul>	     
+           </div>
+	 </div>
+       </div>
+     </div>
+
+     <div class="row">
+       <div class="col s12">
+	 <div class="card white darken-4">
+           <div class="card-content cyan-text text-darken-4">
+             <span class="card-title"><i class="small material-icons">insert_chart</i>&nbsp;Requests</span>
+	     <br>
+	     <ul class="collection">
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">timer</i>&nbsp;Total:</b>&nbsp;{{ stats["requests"]["total"] }}</li>
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">check</i>&nbsp;Successful:</b>&nbsp;{{ stats["requests"]["successful"] }}</li>
+	       <li class="collection-item white black-text lighten-3"><b><i class="tiny material-icons">close</i>&nbsp;Failed:</b>&nbsp;{{ stats["requests"]["failed"] }}</li>
+	     </ul>	     
+           </div>
+	 </div>
+       </div>       
+     </div>
+
+     
+     <div class="row">
+       <div class="col s12">
+	 <div class="card cyan darken-4">
+           <div class="card-content white-text darken-3">
+             <span class="card-title"><i class="small material-icons">info</i>&nbsp;About</span>
+	     <br>
+	     Semantic Mediator is a GPLv3 software framed in the <a href="https://www.audiocommons.org/about/" class="white-text"><b>Audio Commons Initiative</b></a>.
+           </div>
+	 </div>
+       </div>
+     </div>
+     
+     </div> <!-- END container -->
+     
+   </body>
+ </html>

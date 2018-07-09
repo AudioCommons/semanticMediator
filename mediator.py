@@ -11,6 +11,7 @@ import sys
 # local requirements
 from lib.ConfigManager import *
 from lib.TrackProcessor import *
+from lib.StatsProcessor import *
 
 # initialize app
 app = None
@@ -49,10 +50,15 @@ if __name__ == "__main__":
     else:
         logging.error("You MUST specify a configuration file!")
         sys.exit()
+
+    # initialize a StatsManager
+    sm = StatsManager(conf)
         
     # define routes
     app = web.Application([
-        ("/tracks/search", TrackProcessor, dict(conf=conf))        
+        ("/tracks/search", TrackProcessor, dict(conf=conf, stats=sm)),
+        ("/tracks/analyse", TrackProcessor, dict(conf=conf, stats=sm)),
+        ("/stats", StatsProcessor, dict(stats=sm))
     ])
     
     # start the server
