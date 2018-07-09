@@ -5,6 +5,10 @@ mediator:
       path: "/tracks/search"
       args: ["pattern"]
 
+    trackShow:
+      path: "/tracks/%s"
+      args: ["source"]
+
     collectionSearch:
       path: "/collections/search"
       args: ["pattern"]

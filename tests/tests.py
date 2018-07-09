@@ -29,6 +29,8 @@ class MediatorTests(unittest.TestCase):
         self.mediatorBaseURI = ym["mediator"]["baseUri"]
         self.trackSearchPath = ym["mediator"]["routes"]["trackSearch"]["path"]
         self.trackSearchArgs = ym["mediator"]["routes"]["trackSearch"]["args"]
+        self.trackShowPath = ym["mediator"]["routes"]["trackShow"]["path"]
+        self.trackShowArgs = ym["mediator"]["routes"]["trackShow"]["args"]
         self.collectionSearchPath = ym["mediator"]["routes"]["collectionSearch"]["path"]
         self.collectionSearchArgs = ym["mediator"]["routes"]["collectionSearch"]["args"]
 
@@ -57,8 +59,31 @@ class MediatorTests(unittest.TestCase):
         self.assertEqual(200, r.status_code)
         self.assertEqual("ok", msg["status"])
 
+        
+    def test_01_successful_track_show(self):
 
-    def test_01_successful_collection_search(self):
+        # request configuration
+        reqConf = {"source": "freesound"}
+        params = None
+
+        # build URI
+        for arg in self.trackShowArgs:
+            if not params:
+                params = "?%s=%s" % (arg, reqConf[arg])
+            else:
+                params += "&%s=%s" % (arg, reqConf[arg])
+
+        # make the request
+        uri = self.mediatorBaseURI + self.trackShowPath % "418106"
+        r = requests.get(uri + params)
+        msg = json.loads(r.text)
+        
+        # check that returns 200
+        self.assertEqual(200, r.status_code)
+        self.assertEqual("ok", msg["status"])
+
+
+    def test_02_successful_collection_search(self):
 
         # request configuration
         reqConf = {"pattern": "barking"}

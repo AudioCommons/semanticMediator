@@ -25,11 +25,11 @@ contentProviders:
     collections:
       search:
         jamendo:
-          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/playlist-search-by-text.rq"
-          args: ["pattern", "token"]
+          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/playlist-search-by-id.rq"
+          args: ["trackId", "token"]
         freesound:
-          file: "lib/mappings/freesound-to-audiocommons/data-adapters/pack-search-by-text.rq"
-          args: ["pattern", "token"] 
+          file: "lib/mappings/freesound-to-audiocommons/data-adapters/pack-search-by-id.rq"
+          args: ["trackId", "token"] 
           
 analysisTools:
 

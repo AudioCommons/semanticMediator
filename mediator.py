@@ -87,6 +87,29 @@ if __name__ == "__main__":
         # return
         return results
     
+
+    @app.route("/tracks/<track_id>")
+    def trackShow(track_id):
+
+        # read arguments
+        source = request.args.get("source")
+        
+        # see if the request is present in cache
+        cacheEntry = cm.getEntry(request.path, track_id)
+        if cacheEntry and not request.args.get("nocache"):            
+            logging.debug("Entry found in cache")        
+
+        # invoke the TrackProcessor
+        tp = TrackProcessor(conf, sm)
+        results, req_id = tp.show(request.path, track_id, source, cacheEntry)
+
+        # store entry in cache
+        if not cacheEntry:
+            cm.setEntry(request.path, track_id, req_id)
+
+        # return
+        return results
+        
     
     ###########################################
     #
@@ -117,7 +140,7 @@ if __name__ == "__main__":
         # return
         return results
 
-    
+
     ###########################################
     #
     # routes for the stats
