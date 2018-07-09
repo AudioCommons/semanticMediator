@@ -57,7 +57,7 @@ if __name__ == "__main__":
     sm = StatsManager(conf)
 
     # initialize a CacheManager
-    cm = CacheManager()
+    cm = CacheManager(conf)
     
     ###########################################
     #
@@ -92,6 +92,7 @@ if __name__ == "__main__":
         # see if the request is present in cache
         print(cm.entries)
         if cm.getEntry(request.path, pattern) and not request.args.get("nocache"):
+            
             logging.debug("Entry found in cache")        
 
         # invoke the TrackProcessor

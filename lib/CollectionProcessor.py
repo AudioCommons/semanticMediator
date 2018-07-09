@@ -74,7 +74,6 @@ class CollectionProcessor:
                 # put data in SEPA
                 try:
                     self.kp.update(self.conf.tools["sepa"]["update"], update)
-                    print(update)
                 except:
                     logging.error("Error while connecting to SEPA")
                 logging.debug("Process %s completed!" % cp)
@@ -105,7 +104,6 @@ class CollectionProcessor:
         SELECT ?audioClip ?title
         WHERE { GRAPH <%s> { ?audioClip rdf:type ac:AudioCollection .
         ?audioClip dc:title ?title } }"""
-        print(query % graphURI)
         try:
             status, results = self.kp.query(self.conf.tools["sepa"]["query"], query % graphURI)
         except:
