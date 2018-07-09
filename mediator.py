@@ -71,10 +71,22 @@ if __name__ == "__main__":
         # read arguments
         pattern = request.args.get("pattern")
 
+        # see if the request is present in cache
+        cacheEntry = cm.getEntry(request.path,pattern)
+        if cacheEntry and not request.args.get("nocache"):            
+            logging.debug("Entry found in cache")        
+
         # invoke the TrackProcessor
         tp = TrackProcessor(conf, sm)
-        return tp.search(request.path, pattern)
+        results, req_id = tp.search(request.path, pattern, cacheEntry)
+        
+        # store entry in cache
+        if not cacheEntry:
+            cm.setEntry(request.path, pattern, req_id)
 
+        # return
+        return results
+    
     
     ###########################################
     #
@@ -90,17 +102,17 @@ if __name__ == "__main__":
         pattern = request.args.get("pattern")
 
         # see if the request is present in cache
-        print(cm.entries)
-        if cm.getEntry(request.path, pattern) and not request.args.get("nocache"):
-            
+        cacheEntry = cm.getEntry(request.path, pattern)
+        if cacheEntry and not request.args.get("nocache"):            
             logging.debug("Entry found in cache")        
 
         # invoke the TrackProcessor
         tp = CollectionProcessor(conf, sm)
-        results, req_id = tp.search(request.path, pattern, cm.getEntry(request.path,pattern))
+        results, req_id = tp.search(request.path, pattern, cacheEntry)
 
         # store entry in cache
-        cm.setEntry(request.path, pattern, req_id)
+        if not cacheEntry:
+            cm.setEntry(request.path, pattern, req_id)
 
         # return
         return results

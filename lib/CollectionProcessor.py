@@ -50,7 +50,7 @@ class CollectionProcessor:
             self.stats.requests["total"] += 1
             self.stats.requests["paths"][path]["total"] += 1
             
-            # initialization
+            # init a thread list
             threads = []
     
             # define the worker function
