@@ -1,3 +1,6 @@
+mediator:
+  port: 9027
+  
 contentProviders:
 
   keys:

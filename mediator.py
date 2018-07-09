@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # system-wide requirements
-from tornado import websocket, web, ioloop
+from flask import Flask, render_template, request
 import threading
 import logging
 import getopt
@@ -9,13 +9,14 @@ import yaml
 import sys
 
 # local requirements
+from lib.CacheManager import *
 from lib.ConfigManager import *
 from lib.TrackProcessor import *
 from lib.StatsProcessor import *
 from lib.CollectionProcessor import *
 
 # initialize app
-app = None
+app = Flask(__name__)
 
 # main
 if __name__ == "__main__":
@@ -54,20 +55,74 @@ if __name__ == "__main__":
 
     # initialize a StatsManager
     sm = StatsManager(conf)
-        
-    # define routes
-    app = web.Application([
-        ("/tracks/search", TrackProcessor, dict(conf=conf, stats=sm)),
-        ("/tracks/analyse", TrackProcessor, dict(conf=conf, stats=sm)),
-        ("/collections/search", CollectionProcessor, dict(conf=conf, stats=sm)),
-        ("/stats", StatsProcessor, dict(stats=sm))
-    ])
+
+    # initialize a CacheManager
+    cm = CacheManager()
     
-    # start the server
-    try:
-        logging.debug("Starting semantic mediator...")
-        app.listen(9027)
-        ioloop.IOLoop.instance().start()
-    except KeyboardInterrupt:
-        logging.debug("Bye!")
-        sys.exit(0)
+    ###########################################
+    #
+    # routes for the tracks
+    #
+    ###########################################
+    
+    @app.route("/tracks/search")
+    def trackSearch():
+
+        # read arguments
+        pattern = request.args.get("pattern")
+
+        # invoke the TrackProcessor
+        tp = TrackProcessor(conf, sm)
+        return tp.search(request.path, pattern)
+
+    
+    ###########################################
+    #
+    # routes for the collections
+    #
+    ###########################################
+
+
+    @app.route("/collections/search")
+    def collectionSearch():
+        
+        # read pattern
+        pattern = request.args.get("pattern")
+
+        # see if the request is present in cache
+        print(cm.entries)
+        if cm.getEntry(request.path, pattern) and not request.args.get("nocache"):
+            logging.debug("Entry found in cache")        
+
+        # invoke the TrackProcessor
+        tp = CollectionProcessor(conf, sm)
+        results, req_id = tp.search(request.path, pattern, cm.getEntry(request.path,pattern))
+
+        # store entry in cache
+        cm.setEntry(request.path, pattern, req_id)
+
+        # return
+        return results
+
+    
+    ###########################################
+    #
+    # routes for the stats
+    #
+    ###########################################
+    
+    @app.route("/stats")
+    def stats():
+        sp = StatsProcessor(sm)
+        res = sp.getStats()
+        return render_template("stats.html", stats=res)
+
+    
+    ###########################################
+    #
+    # start the app!
+    #
+    ###########################################
+    
+    app.run(port=conf.server["port"], threaded=True)
+        

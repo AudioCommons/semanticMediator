@@ -39,12 +39,18 @@ class StatsManager:
         self.successful_requests = 0
     
 
-class StatsProcessor(web.RequestHandler):
+class StatsProcessor():
     
-    def initialize(self, stats):
+    def __init__(self, stats):
         self.stats = stats
         self.logger = logging.getLogger("mediatorLogger")
         self.template = os.path.join(os.path.dirname(__file__), "templates/stats.html")
+
+    def getStats(self):
+
+        # get stats
+        return self.stats.getStats()
+
     
     def get(self):
 

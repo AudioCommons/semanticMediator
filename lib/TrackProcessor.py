@@ -2,20 +2,22 @@
 
 # system-wide requirements
 from sepy.SEPAClient import *
-from tornado import web
 from uuid import uuid4
 import threading
 import requests
 import logging
 import json
+
+# debug requirements
+import traceback
 import pdb
 
 # local requirements
 from .QueryUtils import *
 
-class TrackProcessor(web.RequestHandler):
+class TrackProcessor:
 
-    def initialize(self, conf, stats):
+    def __init__(self, conf, stats):
 
         # save the parameters
         self.stats = stats
@@ -24,48 +26,23 @@ class TrackProcessor(web.RequestHandler):
         # create a KP
         self.kp = SEPAClient()
 
+
+    def search(self, path, pattern):
         
-    def get(self):
-
-        # determine the requested action
-        action = self.request.path.split("/")[-1]
-
-        # invoke the proper handler
-        if action == "search":
-            self.search()
-        if action == "analyse":
-            self.analyse()
-            
-            
-    def search(self):
-
         # debug print
         logging.debug("New track search request")
-        logging.debug(self.stats.requests)
 
-        # update stats
-        if not self.request.path in self.stats.requests["paths"]:
-            self.stats.requests["paths"][self.request.path] = {"total":0, "failed":0, "successful":0}
-        self.stats.requests["total"] += 1
-        self.stats.requests["paths"][self.request.path]["total"] += 1
-                    
+        # initialization
+        threads = []
+
         # generate an UUID for the request
         req_id = str(uuid4())
         
-        # read the search pattern
-        # NOTE: the user may specify multiple patterns and this must be handled somehow
-        if not "pattern" in self.request.arguments:
-            msg = "You MUST specify a pattern if you want to search for something!"
-            logging.error(msg)
-            self.stats.requests["failed"] += 1
-            self.stats.requests["paths"][self.request.path]["failed"] += 1
-            self.write(json.dumps({"status":"failure", "cause":msg}))            
-            return            
-        patternList = [t.decode("utf-8") for t in self.request.arguments["pattern"]]
-        patternString = "+".join(patternList)
-        
-        # initialization
-        threads = []
+        # update stats
+        if not path in self.stats.requests["paths"]:
+            self.stats.requests["paths"][path] = {"total":0, "failed":0, "successful":0}
+        self.stats.requests["total"] += 1
+        self.stats.requests["paths"][path]["total"] += 1
 
         # define the worker function
         def worker(conf, sg_query, cp):
@@ -77,7 +54,7 @@ class TrackProcessor(web.RequestHandler):
             except Exception as e:
                 logging.error("Exception during request to SPARQL-Generate server")
                 self.stats.requests["failed"] += 1
-                self.stats.requests["paths"][self.request.path]["failed"] += 1
+                self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
                 return
 
@@ -90,16 +67,15 @@ class TrackProcessor(web.RequestHandler):
                 self.kp.update(self.conf.tools["sepa"]["update"], update)
             except:
                 logging.error("Error while connecting to SEPA")
-            logging.debug("Process %s completed!" % cp)
-            
+            logging.debug("Process %s completed!" % cp)            
                     
         # read the mappings
         results = {}
         for cp in self.conf.mappings["tracks"]["search"]:
-            logging.debug("Searching for %s on %s" % (patternString, cp))
+            logging.debug("Searching for %s on %s" % (pattern, cp))
 
             # build the SPARQL-generate query
-            sg_query = self.conf.mappings["tracks"]["search"][cp].replace("$pattern", patternString)
+            sg_query = self.conf.mappings["tracks"]["search"][cp].replace("$pattern", pattern)
 
             # for every mapping spawn a thread
             t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
@@ -124,15 +100,12 @@ class TrackProcessor(web.RequestHandler):
             msg = "Error while connecting to SEPA"
             logging.error(msg)
             self.stats.requests["failed"] += 1
-            self.stats.requests["paths"][self.request.path]["failed"] += 1
+            self.stats.requests["paths"][path]["failed"] += 1
             self.write(json.dumps({"status":"failure", "cause":msg}))
             return
         
         # return
-        logging.info("Increment")
-        self.stats.requests["successful"] += 1
-        self.stats.requests["paths"][self.request.path]["successful"] += 1
-        self.write(json.dumps({"status":"ok", "results":results}))    
+        return(json.dumps({"status":"ok", "results":results}))    
 
 
     def analyse(self):

@@ -41,7 +41,7 @@ class QueryUtils:
         bgp = ".".join(triples)
         
         # skeleton
-        insertData = """INSERT DATA { %s }""" % bgp
+        insertData = """INSERT DATA { GRAPH <%s> { %s }}""" % (graph, bgp)
 
         # return
         return insertData

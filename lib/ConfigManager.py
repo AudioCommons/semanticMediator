@@ -10,6 +10,7 @@ class ConfigManager:
 
     mappings = {}
     tools = {"sepa": {}, "sparql-generate": {}}
+    server = {"port": None}
     
     def __init__(self, configFile):
 
@@ -19,6 +20,13 @@ class ConfigManager:
         except FileNotFoundError:
             raise MediatorConfigManagerException("File not found!")
 
+        # read server conf
+        try:
+            self.server["port"] = self.config["mediator"]["port"]
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Wrong Port Configuration!")
+
+        
         # read SEPA URIs
         try:
             self.tools["sepa"]["query"] = self.config["sepa"]["URIs"]["query"] 
@@ -27,7 +35,7 @@ class ConfigManager:
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong SEPA Configuration!")
 
-        # read SEPA URIs
+        # read SPARQL-Generate URIs
         try:
             self.tools["sparqlgen"] = self.config["sparql-generate"]["URI"]
         except (KeyError, TypeError):
