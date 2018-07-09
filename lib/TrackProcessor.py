@@ -42,6 +42,9 @@ class TrackProcessor(web.RequestHandler):
 
         # debug print
         logging.debug("New track search request")
+
+        # update stats
+        self.stats.requests["total"] += 1
         
         # generate an UUID for the request
         req_id = str(uuid4())
@@ -51,6 +54,7 @@ class TrackProcessor(web.RequestHandler):
         if not "pattern" in self.request.arguments:
             msg = "You MUST specify a pattern if you want to search for something!"
             logging.error(msg)
+            self.stats.requests["failed"] += 1
             self.write(json.dumps({"status":"failure", "cause":msg}))            
             return            
         patternList = [t.decode("utf-8") for t in self.request.arguments["pattern"]]
@@ -68,6 +72,7 @@ class TrackProcessor(web.RequestHandler):
                 sg_req = requests.post(self.conf.tools["sparqlgen"], data=data)
             except Exception as e:
                 logging.error("Exception during request to SPARQL-Generate server")
+                self.stats.requests["failed"] += 1
                 print(traceback.print_exc())
                 return
 
@@ -113,17 +118,22 @@ class TrackProcessor(web.RequestHandler):
         except:
             msg = "Error while connecting to SEPA"
             logging.error(msg)
+            self.stats.requests["failed"] += 1
             self.write(json.dumps({"status":"failure", "cause":msg}))
             return
         
         # return
-        self.write(json.dumps({"status":"ok", "results":results}))
+        self.stats.requests["successful"] += 1
+        self.write(json.dumps({"status":"ok", "results":results}))    
 
 
     def analyse(self):
        
         # debug print
         logging.debug("New track analysis request")
+
+        # update stats
+        self.stats.requests["total"] += 1        
         
         # generate an UUID for the request
         req_id = str(uuid4())
@@ -134,5 +144,6 @@ class TrackProcessor(web.RequestHandler):
         in_transform = self.request.arguments["transform"]
 
         # invoke johan's service
+        self.stats.requests["failure"] += 1
         logging.error("Not implemented")
         
