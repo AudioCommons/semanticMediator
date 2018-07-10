@@ -40,7 +40,14 @@ class ConfigManager:
             self.tools["sparqlgen"] = self.config["sparql-generate"]["URI"]
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong SPARQL-generate Configuration!")
-
+        
+        # read Analysis tool configuration
+        try:
+            self.tools["ac-analysis"] = {}
+            self.tools["ac-analysis"]["baseURI"] = self.config["analysisTools"]["baseURI"]
+            self.tools["ac-analysis"]["plugins"] = self.config["analysisTools"]["plugins"]
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Wrong ac-analysis Configuration!")
         
         # read the mappings
         try:

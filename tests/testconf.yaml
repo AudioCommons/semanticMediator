@@ -1,14 +1,18 @@
 mediator:
   baseUri: "http://localhost:9027"
   routes:  
-    trackSearch:
-      path: "/tracks/search"
+    audioclipSearch:
+      path: "/audioclips/search"
       args: ["pattern"]
 
-    trackShow:
-      path: "/tracks/%s"
+    audioclipShow:
+      path: "/audioclips/%s"
       args: ["source"]
 
+    audioclipAnalyse:
+      path: "/audioclips/analyse/%s"
+      args: ["source", "plugin"]
+      
     collectionSearch:
       path: "/collections/search"
       args: ["pattern"]

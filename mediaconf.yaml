@@ -10,7 +10,7 @@ contentProviders:
   
   mappings:
     
-    tracks:
+    audioclips:
       search:
         jamendo:
           file: "lib/mappings/jamendo-to-audiocommons/data-adapters/track-search-by-text.rq"
@@ -33,7 +33,8 @@ contentProviders:
           
 analysisTools:
 
-  baseURI: "http://something"
+  baseURI: "http://localhost:8081/function/ac-analysis"
+  plugins: ["chord-estimator", "sonic-annotator", "instrument-identifier"]
   
 
 sparql-generate:

@@ -11,7 +11,7 @@ import sys
 # local requirements
 from lib.CacheManager import *
 from lib.ConfigManager import *
-from lib.TrackProcessor import *
+from lib.AudioClipProcessor import *
 from lib.StatsProcessor import *
 from lib.CollectionProcessor import *
 
@@ -61,12 +61,12 @@ if __name__ == "__main__":
     
     ###########################################
     #
-    # routes for the tracks
+    # routes for the audioclips
     #
     ###########################################
     
-    @app.route("/tracks/search")
-    def trackSearch():
+    @app.route("/audioclips/search")
+    def audioclipSearch():
 
         # read arguments
         pattern = request.args.get("pattern")
@@ -76,8 +76,8 @@ if __name__ == "__main__":
         if cacheEntry and not request.args.get("nocache"):            
             logging.debug("Entry found in cache")        
 
-        # invoke the TrackProcessor
-        tp = TrackProcessor(conf, sm)
+        # invoke the AudioClipProcessor
+        tp = AudioClipProcessor(conf, sm)
         results, req_id = tp.search(request.path, pattern, cacheEntry)
         
         # store entry in cache
@@ -88,28 +88,52 @@ if __name__ == "__main__":
         return results
     
 
-    @app.route("/tracks/<track_id>")
-    def trackShow(track_id):
+    @app.route("/audioclips/<audioclip_id>/analyse")
+    def audioclipAnalyse(audioclip_id):
+
+        # read arguments
+        source = request.args.get("source")
+        descriptor = request.args.get("descriptor")
+        
+        # see if the request is present in cache
+        cacheEntry = cm.getEntry(request.path, audioclip_id, descriptor)
+        if cacheEntry and not request.args.get("nocache"):            
+            logging.debug("Entry found in cache")        
+
+        # invoke the AudioClipProcessor
+        tp = AudioClipProcessor(conf, sm)
+        results, req_id = tp.show(request.path, audioclip_id, source, cacheEntry)
+
+        # store entry in cache
+        if not cacheEntry:
+            cm.setEntry(request.path, audioclip_id, req_id)
+
+        # return
+        return results
+
+
+    @app.route("/audioclips/<audioclip_id>")
+    def audioclipShow(audioclip_id):
 
         # read arguments
         source = request.args.get("source")
         
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path, track_id)
+        cacheEntry = cm.getEntry(request.path, audioclip_id)
         if cacheEntry and not request.args.get("nocache"):            
             logging.debug("Entry found in cache")        
 
-        # invoke the TrackProcessor
-        tp = TrackProcessor(conf, sm)
-        results, req_id = tp.show(request.path, track_id, source, cacheEntry)
+        # invoke the AudioClipProcessor
+        tp = AudioClipProcessor(conf, sm)
+        results, req_id = tp.show(request.path, audioclip_id, source, cacheEntry)
 
         # store entry in cache
         if not cacheEntry:
-            cm.setEntry(request.path, track_id, req_id)
+            cm.setEntry(request.path, audioclip_id, req_id)
 
         # return
         return results
-        
+
     
     ###########################################
     #
@@ -129,7 +153,7 @@ if __name__ == "__main__":
         if cacheEntry and not request.args.get("nocache"):            
             logging.debug("Entry found in cache")        
 
-        # invoke the TrackProcessor
+        # invoke the AudioClipProcessor
         tp = CollectionProcessor(conf, sm)
         results, req_id = tp.search(request.path, pattern, cacheEntry)
 
