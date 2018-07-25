@@ -7,6 +7,11 @@ contentProviders:
     jamendo: "PUT_YOUR_KEY_HERE"
     europeana: "PUT_YOUR_KEY_HERE"
     freesound: "PUT_YOUR_KEY_HERE"
+
+  uris:
+    jamendo: "http://jamendo.com"
+    freesound: "http://freesound.org"
+    europeana: "http://europeana.eu"
   
   mappings:
     
@@ -21,6 +26,14 @@ contentProviders:
         europeana:
           file: "lib/mappings/europeana-to-audiocommons/data-adapters/audio-search-by-text.rq"
           args: ["pattern", "token"]
+      show:
+        jamendo:
+          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/track-search-by-id.rq"
+          args: ["trackId", "token"]
+        freesound:
+          file: "lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-id.rq"
+          args: ["trackId", "token"]         
+
           
     collections:
       search:
