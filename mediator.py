@@ -148,7 +148,8 @@ if __name__ == "__main__":
         
         # read pattern
         pattern = request.args.get("pattern")
-
+        sources = request.args.get("source").split(",") if request.args.get("source") else None
+        
         # see if the request is present in cache
         cacheEntry = cm.getEntry(request.path, pattern)
         if cacheEntry and not request.args.get("nocache"):            
@@ -156,7 +157,7 @@ if __name__ == "__main__":
 
         # invoke the AudioClipProcessor
         tp = CollectionProcessor(conf, sm)
-        results, req_id = tp.search(request.path, pattern, cacheEntry)
+        results, req_id = tp.search(request.path, pattern, cacheEntry, sources)
 
         # store entry in cache
         if not cacheEntry:

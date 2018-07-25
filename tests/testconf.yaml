@@ -10,7 +10,7 @@ mediator:
       args: ["source"]
 
     audioclipAnalyse:
-      path: "/audioclips/analyse/%s"
+      path: "/audioclips/%s/analyse"
       args: ["source", "plugin"]
       
     collectionSearch:
