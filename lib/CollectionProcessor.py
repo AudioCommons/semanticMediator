@@ -27,7 +27,7 @@ class CollectionProcessor:
         self.kp = SEPAClient()
 
         
-    def search(self, path, pattern, cacheEntry):
+    def search(self, path, pattern, cacheEntry, sources):
 
         # debug print
         logging.debug("New collection search request")
@@ -82,30 +82,40 @@ class CollectionProcessor:
             # read the mappings
             results = {}
             for cp in self.conf.mappings["collections"]["search"]:
-                logging.debug("Searching for %s on %s" % (pattern, cp))
-    
-                # build the SPARQL-generate query
-                sg_query = self.conf.mappings["collections"]["search"][cp].replace("$pattern", pattern)
-    
-                # for every mapping spawn a thread
-                t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
-                threads.append(t)
-                t.start()
-    
+
+                if (sources and cp in sources) or (not sources):
+                
+                    logging.debug("Searching for %s on %s" % (pattern, cp))
+        
+                    # build the SPARQL-generate query
+                    sg_query = self.conf.mappings["collections"]["search"][cp].replace("$pattern", pattern)
+        
+                    # for every mapping spawn a thread
+                    t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
+                    threads.append(t)
+                    t.start()
+        
             # wait for results
             for t in threads:
                 t.join()
             logging.debug("Ready to query SEPA")
             
         # assembly results
-        query = """PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#> 
-        PREFIX dc: <http://purl.org/dc/elements/1.1/> 
-        PREFIX ac: <http://audiocommons.org/ns/audiocommons#> 
-        SELECT ?audioClip ?title
-        WHERE { GRAPH <%s> { ?audioClip rdf:type ac:AudioCollection .
-        ?audioClip dc:title ?title } }"""
+        query = None
+        if not sources:
+            query = """PREFIX prov: <http://www.w3.org/ns/prov#>
+            CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }"""
+        else:            
+            filters = []            
+            for s in sources:
+                filters.append(" ?pp = <%s> " % self.conf.cps[s])
+            query = """PREFIX prov: <http://www.w3.org/ns/prov#>
+            CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o . ?s prov:wasAttributedTo ?pp . FILTER( %s ) } }"""  % (graphURI, " || ".join(filters))
+            print(query)
+        
         try:
             status, results = self.kp.query(self.conf.tools["sepa"]["query"], query % graphURI)
+            jres = QueryUtils.getJsonLD(results)
         except:
             msg = "Error while connecting to SEPA"
             logging.error(msg)
@@ -118,6 +128,6 @@ class CollectionProcessor:
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
         if cacheEntry:
-            return json.dumps({"status":"ok", "results":results}), cacheEntry
+            return json.dumps({"status":"ok", "results":json.loads(jres)}), cacheEntry
         else:
-            return json.dumps({"status":"ok", "results":results}), req_id
+            return json.dumps({"status":"ok", "results":json.loads(jres)}), req_id

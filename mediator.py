@@ -70,15 +70,16 @@ if __name__ == "__main__":
 
         # read arguments
         pattern = request.args.get("pattern")
-
+        sources = request.args.get("source").split(",") if request.args.get("source") else None
+        
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path,pattern)
+        cacheEntry = cm.getEntry(request.path, pattern)
         if cacheEntry and not request.args.get("nocache"):            
             logging.debug("Entry found in cache")        
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
-        results, req_id = tp.search(request.path, pattern, cacheEntry)
+        results, req_id = tp.search(request.path, pattern, cacheEntry, sources)
         
         # store entry in cache
         if not cacheEntry:
@@ -93,16 +94,16 @@ if __name__ == "__main__":
 
         # read arguments
         source = request.args.get("source")
-        descriptor = request.args.get("descriptor")
+        descriptor = request.args.get("plugin")
         
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path, audioclip_id, descriptor)
+        cacheEntry = cm.getEntry(request.path, audioclip_id)
         if cacheEntry and not request.args.get("nocache"):            
             logging.debug("Entry found in cache")        
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
-        results, req_id = tp.show(request.path, audioclip_id, source, cacheEntry)
+        results, req_id = tp.analyse(request.path, audioclip_id, source, descriptor, cacheEntry)
 
         # store entry in cache
         if not cacheEntry:

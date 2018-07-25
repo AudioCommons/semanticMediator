@@ -1,9 +1,10 @@
 #!/usr/bin/python
 
 # system-wide requirements
+from rdflib import Graph, plugin, URIRef, Literal, BNode
 import rdflib
 import json
-
+import traceback
 
 class QueryUtils:
 
@@ -45,3 +46,27 @@ class QueryUtils:
 
         # return
         return insertData
+
+
+    @staticmethod
+    def getJsonLD(queryResults):
+
+        try:
+            res = queryResults
+            g = Graph()
+            for triple in res["results"]["bindings"]:
+                t = []
+                for field in ["subject", "predicate", "object"]:
+                    if triple[field]["type"] == "uri":
+                        t.append(URIRef(triple[field]["value"]))                
+                    elif triple[field]["type"] == "bnode":
+                        t.append(BNode(triple[field]["value"]))
+                    else:
+                        t.append(Literal(triple[field]["value"]))
+                g.add(t)
+                    
+            # return
+            jld = g.serialize(format="json-ld")
+            return jld.decode()
+        except:
+            print(traceback.print_exc())

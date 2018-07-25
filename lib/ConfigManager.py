@@ -8,6 +8,7 @@ class MediatorConfigManagerException(Exception):
 
 class ConfigManager:
 
+    cps = {}
     mappings = {}
     tools = {"sepa": {}, "sparql-generate": {}}
     server = {"port": None}
@@ -48,6 +49,12 @@ class ConfigManager:
             self.tools["ac-analysis"]["plugins"] = self.config["analysisTools"]["plugins"]
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong ac-analysis Configuration!")
+
+        # read CPs' URIS
+        try:
+            self.cps = self.config["contentProviders"]["uris"]
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Wrong Content Providers URI Configuration!")                
         
         # read the mappings
         try:
