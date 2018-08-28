@@ -1,6 +1,6 @@
 mediator:
   port: 9027
-  
+
 contentProviders:
 
   keys:
@@ -12,9 +12,9 @@ contentProviders:
     jamendo: "http://jamendo.com"
     freesound: "http://freesound.org"
     europeana: "http://europeana.eu"
-  
+
   mappings:
-    
+
     audioclips:
       search:
         jamendo:
@@ -22,7 +22,7 @@ contentProviders:
           args: ["pattern", "token"]
         freesound:
           file: "lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-text.rq"
-          args: ["pattern", "token"] 
+          args: ["pattern", "token"]
         europeana:
           file: "lib/mappings/europeana-to-audiocommons/data-adapters/audio-search-by-text.rq"
           args: ["pattern", "token"]
@@ -32,28 +32,27 @@ contentProviders:
           args: ["trackId", "token"]
         freesound:
           file: "lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-id.rq"
-          args: ["trackId", "token"]         
+          args: ["trackId", "token"]
 
-          
     collections:
       search:
         jamendo:
-          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/playlist-search-by-id.rq"
+          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/playlist-search-by-text.rq"
           args: ["trackId", "token"]
         freesound:
-          file: "lib/mappings/freesound-to-audiocommons/data-adapters/pack-search-by-id.rq"
-          args: ["trackId", "token"] 
-          
+          file: "lib/mappings/freesound-to-audiocommons/data-adapters/pack-search-by-text.rq"
+          args: ["trackId", "token"]
+
 analysisTools:
 
   baseURI: "http://localhost:8081/function/ac-analysis"
   plugins: ["chord-estimator", "sonic-annotator", "instrument-identifier"]
-  
+
 
 sparql-generate:
 
   URI: "http://wot.arces.unibo.it:5000/sparqlgen"
-  
+
 sepa:
 
   URIs:
