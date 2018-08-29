@@ -104,7 +104,7 @@ class AudioClipProcessor:
         query = None
         if not sources:
             query = """PREFIX prov: <http://www.w3.org/ns/prov#>
-            CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }"""
+            CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }""" % graphURI
         else:
             filters = []
             for s in sources:
