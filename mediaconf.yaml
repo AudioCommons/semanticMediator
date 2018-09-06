@@ -1,6 +1,21 @@
 mediator:
   port: 9027
 
+resources:
+  jsonld-context:
+    file: "output-context.jsonld"
+  jsonld-frames:
+    audioclips:
+      search:
+        file: "jsonld-frames/audioclip.jsonld"
+      show:
+        file: "jsonld-frames/audioclip.jsonld"
+    collections:
+      search:
+        file: "jsonld-frames/collection.jsonld"
+      show:
+        file: "jsonld-frames/collection.jsonld"
+
 contentProviders:
 
   keys:

@@ -1,0 +1,6 @@
+{
+  "@context": {
+    "ac": "http://audiocommons.org/ns/audiocommons#"
+  },
+  "@type": "ac:AudioClip"
+}

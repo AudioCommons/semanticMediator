@@ -115,7 +115,9 @@ class AudioClipProcessor:
 
         try:
             status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
-            jres = QueryUtils.getJsonLD(results)
+            frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
+            context = json.loads(self.conf.resources["jsonld-context"])
+            jres = QueryUtils.getJsonLD(results, frame, context)
         except:
             msg = "Error while connecting to SEPA"
             logging.error(msg)

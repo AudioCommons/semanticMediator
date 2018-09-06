@@ -21,12 +21,12 @@ class CollectionProcessor:
 
         # save the parameters
         self.stats = stats
-        self.conf = conf        
+        self.conf = conf
 
         # create a KP
         self.kp = SEPAClient()
 
-        
+
     def search(self, path, pattern, cacheEntry, sources):
 
         # debug print
@@ -37,25 +37,25 @@ class CollectionProcessor:
             graphURI = "http://ns#%s" % cacheEntry
         else:
             graphURI = None
-        
+
         if not cacheEntry:
-        
+
             # generate an UUID for the request
             req_id = str(uuid4())
             graphURI = "http://ns#%s" % req_id
-    
+
             # update stats
             if not path in self.stats.requests["paths"]:
                 self.stats.requests["paths"][path] = {"total":0, "failed":0, "successful":0}
             self.stats.requests["total"] += 1
             self.stats.requests["paths"][path]["total"] += 1
-            
+
             # init a thread list
             threads = []
-    
+
             # define the worker function
             def worker(conf, sg_query, cp):
-    
+
                 # do the request to SPARQL-Generate
                 try:
                     data = {"query":sg_query}
@@ -66,56 +66,58 @@ class CollectionProcessor:
                     self.stats.requests["paths"][path]["failed"] += 1
                     print(traceback.print_exc())
                     return
-    
+
                 # from the turtle output create a SPARQL INSERT DATA
                 triples = QueryUtils.getTriplesFromTurtle(sg_req.text)
                 update = QueryUtils.getInsertDataFromTriples(triples, graphURI)
-    
+
                 # put data in SEPA
                 try:
                     self.kp.update(self.conf.tools["sepa"]["update"], update)
                 except:
                     logging.error("Error while connecting to SEPA")
                 logging.debug("Process %s completed!" % cp)
-                
-                        
+
+
             # read the mappings
             results = {}
             for cp in self.conf.mappings["collections"]["search"]:
 
                 if (sources and cp in sources) or (not sources):
-                
+
                     logging.debug("Searching for %s on %s" % (pattern, cp))
-        
+
                     # build the SPARQL-generate query
                     sg_query = self.conf.mappings["collections"]["search"][cp].replace("$pattern", pattern)
-        
+
                     # for every mapping spawn a thread
                     t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
                     threads.append(t)
                     t.start()
-        
+
             # wait for results
             for t in threads:
                 t.join()
             logging.debug("Ready to query SEPA")
-            
+
         # assembly results
         query = None
         if not sources:
             query = """PREFIX prov: <http://www.w3.org/ns/prov#>
             CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }"""
-        else:            
-            filters = []            
+        else:
+            filters = []
             for s in sources:
                 filters.append(" ?pp = <%s> " % self.conf.cps[s])
             query = """PREFIX prov: <http://www.w3.org/ns/prov#>
             CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o . ?s prov:wasAttributedTo ?pp . FILTER( %s ) } }"""  % (graphURI, " || ".join(filters))
             print(query)
-        
+
         try:
             status, results = self.kp.query(self.conf.tools["sepa"]["query"], query % graphURI)
-            jres = QueryUtils.getJsonLD(results)
+            frame = json.loads(self.conf.resources["jsonld-frames"]["collections"]["search"])
+            context = json.loads(self.conf.resources["jsonld-context"])
+            jres = QueryUtils.getJsonLD(results, frame, context)
         except:
             msg = "Error while connecting to SEPA"
             logging.error(msg)
@@ -123,7 +125,7 @@ class CollectionProcessor:
             self.stats.requests["paths"][path]["failed"] += 1
             self.write(json.dumps({"status":"failure", "cause":msg}))
             return
-        
+
         # return
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1

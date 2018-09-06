@@ -3,3 +3,4 @@ rdflib==4.2.2
 requests==2.18.1
 PyYAML==3.13
 rdflib-jsonld
+PyLD

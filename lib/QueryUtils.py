@@ -5,12 +5,14 @@ from rdflib import Graph, plugin, URIRef, Literal, BNode
 import rdflib
 import json
 import traceback
+import logging
+from pyld import jsonld
 
 class QueryUtils:
 
     @staticmethod
     def getTriplesFromTurtle(turtle):
-        
+
         # # parse turtle file
         # jturtle = json.loads(turtle)
 
@@ -30,7 +32,7 @@ class QueryUtils:
                 else:
                     triple_string += " '%s' " % field.replace("'", "\\'")
             triples.append(triple_string)
-        
+
         # return
         return triples
 
@@ -40,7 +42,7 @@ class QueryUtils:
 
         # build the bgp
         bgp = ".".join(triples)
-        
+
         # skeleton
         insertData = """INSERT DATA { GRAPH <%s> { %s }}""" % (graph, bgp)
 
@@ -49,7 +51,7 @@ class QueryUtils:
 
 
     @staticmethod
-    def getJsonLD(queryResults):
+    def getJsonLD(queryResults, frame, context):
 
         try:
             res = queryResults
@@ -58,15 +60,17 @@ class QueryUtils:
                 t = []
                 for field in ["subject", "predicate", "object"]:
                     if triple[field]["type"] == "uri":
-                        t.append(URIRef(triple[field]["value"]))                
+                        t.append(URIRef(triple[field]["value"]))
                     elif triple[field]["type"] == "bnode":
                         t.append(BNode(triple[field]["value"]))
                     else:
                         t.append(Literal(triple[field]["value"]))
                 g.add(t)
-                    
+
             # return
             jld = g.serialize(format="json-ld")
-            return jld.decode()
+            framedResults = jsonld.frame(json.loads(jld), frame)
+            compactedResults = jsonld.compact(framedResults, context)
+            return compactedResults["@graph"]
         except:
             print(traceback.print_exc())
