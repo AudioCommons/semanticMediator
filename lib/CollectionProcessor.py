@@ -123,13 +123,13 @@ class CollectionProcessor:
             logging.error(msg)
             self.stats.requests["failed"] += 1
             self.stats.requests["paths"][path]["failed"] += 1
-            self.write(json.dumps({"status":"failure", "cause":msg}))
+            self.write(json.dumps({"status": "failure", "cause": msg}))
             return
 
         # return
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
         if cacheEntry:
-            return json.dumps({"status":"ok", "results":json.loads(jres)}), cacheEntry
+            return json.dumps({"status": "ok", "results": jres}), cacheEntry
         else:
-            return json.dumps({"status":"ok", "results":json.loads(jres)}), req_id
+            return json.dumps({"status": "ok", "results": jres}), req_id
