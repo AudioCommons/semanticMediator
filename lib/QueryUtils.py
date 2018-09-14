@@ -71,6 +71,11 @@ class QueryUtils:
             jld = g.serialize(format="json-ld")
             framedResults = jsonld.frame(json.loads(jld), frame)
             compactedResults = jsonld.compact(framedResults, context)
-            return compactedResults["@graph"]
+            if "@graph" in compactedResults:
+                return compactedResults["@graph"]
+            else:
+                if "@context" in compactedResults:
+                    del compactedResults["@context"]
+                return compactedResults
         except:
             print(traceback.print_exc())

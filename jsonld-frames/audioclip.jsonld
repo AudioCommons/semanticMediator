@@ -1,6 +1,7 @@
 {
   "@context": {
-    "ac": "http://audiocommons.org/ns/audiocommons#"
+    "ac": "http://audiocommons.org/ns/audiocommons#",
+    "schema": "http://schema.org/"
   },
-  "@type": "ac:AudioClip"
+  "@type": "schema:SearchAction"
 }
