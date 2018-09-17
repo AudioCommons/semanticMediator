@@ -3,5 +3,10 @@
     "ac": "http://audiocommons.org/ns/audiocommons#",
     "schema": "http://schema.org/"
   },
-  "@type": "schema:SearchAction"
+  "@type": "schema:SearchAction",
+  "schema:result": {
+    "ac:memberNode": {
+      "@order": "ac:nodeIndex"
+    }
+  }
 }
