@@ -7,6 +7,7 @@ import threading
 import requests
 import logging
 import json
+import datetime
 
 # debug requirements
 import traceback
@@ -51,6 +52,9 @@ class AudioClipProcessor:
             # define the worker function
             def worker(conf, sg_query, cp):
 
+                logging.debug("Sending query to SPARQL Generate")
+                logging.debug(sg_query)
+
                 # do the request to SPARQL-Generate
                 try:
                     data = {"query":sg_query}
@@ -65,12 +69,17 @@ class AudioClipProcessor:
                     print(traceback.print_exc())
                     return
 
+                logging.debug("Result from SPARQL Generate")
+                logging.debug(sg_req.text)
+
                 # from the turtle output create a SPARQL INSERT DATA
+                logging.debug("Creating INSERT DATA query")
                 triples = QueryUtils.getTriplesFromTurtle(sg_req.text)
                 update = QueryUtils.getInsertDataFromTriples(triples, graphURI)
 
                 # put data in SEPA
                 try:
+                    logging.debug("Sending INSERT DATA query to SEPA")
                     self.kp.update(self.conf.tools["sepa"]["update"], update)
                 except:
                     logging.error("Error while connecting to SEPA")
@@ -84,8 +93,10 @@ class AudioClipProcessor:
 
                     logging.debug("Searching for %s on %s" % (pattern, cp))
 
+                    datetimeNow = "\"" + datetime.datetime.now().isoformat() + "\"" + "^^<http://www.w3.org/2001/XMLSchema#dateTime>"
+
                     # build the SPARQL-generate query
-                    sg_query = self.conf.mappings["audioclips"]["search"][cp].replace("$pattern", pattern)
+                    sg_query = self.conf.mappings["audioclips"]["search"][cp].replace("$pattern", pattern).replace("$startTime", datetimeNow)
 
                     # for every mapping spawn a thread
                     t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
