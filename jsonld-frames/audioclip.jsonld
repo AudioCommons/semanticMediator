@@ -1,6 +1,6 @@
 {
   "@context": {
-    "ac": "http://audiocommons.org/ns/audiocommons#",
+    "ac": "https://w3id.org/ac-ontology/aco#",
     "schema": "http://schema.org/"
   },
   "@type": "schema:SearchAction",
