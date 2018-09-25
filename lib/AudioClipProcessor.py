@@ -8,6 +8,8 @@ import requests
 import logging
 import json
 import datetime
+import rdflib
+from .GraphStoreClient import GraphStoreClient
 
 # debug requirements
 import traceback
@@ -27,6 +29,8 @@ class AudioClipProcessor:
         # create a KP
         self.kp = SEPAClient()
 
+        if self.conf.tools['graphstore'] is not None:
+            self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
     def search(self, path, pattern, cacheEntry, sources):
 
@@ -72,18 +76,28 @@ class AudioClipProcessor:
                 logging.debug("Result from SPARQL Generate")
                 logging.debug(sg_req.text)
 
-                # from the turtle output create a SPARQL INSERT DATA
-                logging.debug("Creating INSERT DATA query")
-                triples = QueryUtils.getTriplesFromTurtle(sg_req.text)
-                update = QueryUtils.getInsertDataFromTriples(triples, graphURI)
+                if self.gs is not None:
+                    try:
+                        logging.debug("Posting data to graphstore")
+                        self.gs.insertRDF(sg_req.text, graphURI)
+                    except Exception as e:
+                        msg = "Error while posting RDF data on graphstore"
+                        logging.error(msg)
+                        print(traceback.print_exc())
+                        logging.debug("Process %s completed!" % cp)
+                else:
+                    # from the turtle output create a SPARQL INSERT DATA
+                    logging.debug("Creating INSERT DATA query")
+                    triples = QueryUtils.getTriplesFromTurtle(sg_req.text)
+                    update = QueryUtils.getInsertDataFromTriples(triples, graphURI)
 
-                # put data in SEPA
-                try:
-                    logging.debug("Sending INSERT DATA query to SEPA")
-                    self.kp.update(self.conf.tools["sepa"]["update"], update)
-                except:
-                    logging.error("Error while connecting to SEPA")
-                    logging.debug("Process %s completed!" % cp)
+                    # put data in SEPA
+                    try:
+                        logging.debug("Sending INSERT DATA query to SEPA")
+                        self.kp.update(self.conf.tools["sepa"]["update"], update)
+                    except:
+                        logging.error("Error while connecting to SEPA")
+                        logging.debug("Process %s completed!" % cp)
 
             # read the mappings
             results = {}
@@ -111,31 +125,49 @@ class AudioClipProcessor:
         else:
             graphURI = "http://ns#%s" % cacheEntry
 
-        # assembly results
-        query = None
-        if not sources:
-            query = """PREFIX prov: <http://www.w3.org/ns/prov#>
-            CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }""" % graphURI
-        else:
-            filters = []
-            for s in sources:
-                filters.append(" ?pp = <%s> " % self.conf.cps[s])
-            query = """PREFIX prov: <http://www.w3.org/ns/prov#>
-            CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o . ?s prov:wasAttributedTo ?pp . FILTER( %s ) } }"""  % (graphURI, " || ".join(filters))
-            print(query)
+        if self.gs is not None:
+            try:
+                resultsTurtle = self.gs.getGraph(graphURI)
+                g = rdflib.Graph()
+                g.parse(data=resultsTurtle, format="n3")
+                resultsJsonLd = g.serialize(format="json-ld")
+                logging.debug(resultsJsonLd)
+                frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
+                context = json.loads(self.conf.resources["jsonld-context"])
+                jres = QueryUtils.frameAndCompact(json.loads(resultsJsonLd), frame, context)
+            except Exception as e:
+                msg = "Error while getting RDF data as JSON-LD: " + e.text
+                logging.error(msg)
+                self.stats.requests["failed"] += 1
+                self.stats.requests["paths"][path]["failed"] += 1
+                print(traceback.print_exc())
+                return json.dumps({"status": "failure", "cause": msg}), -1
 
-        try:
-            status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
-            frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
-            context = json.loads(self.conf.resources["jsonld-context"])
-            jres = QueryUtils.getJsonLD(results, frame, context)
-        except:
-            msg = "Error while connecting to SEPA"
-            logging.error(msg)
-            self.stats.requests["failed"] += 1
-            self.stats.requests["paths"][path]["failed"] += 1
-            self.write(json.dumps({"status": "failure", "cause": msg}))
-            return
+        else:
+            # assembly results
+            query = None
+            # if not sources:
+            query = """PREFIX prov: <http://www.w3.org/ns/prov#>
+                CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }""" % graphURI
+            # else:
+            #     filters = []
+            #     for s in sources:
+            #         filters.append(" ?pp = <%s> " % self.conf.cps[s])
+            #     query = """PREFIX prov: <http://www.w3.org/ns/prov#>
+            #     CONSTRUCT { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o . ?s prov:wasAttributedTo ?pp . FILTER( %s ) } }"""  % (graphURI, " || ".join(filters))
+            #     print(query)
+
+            try:
+                status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
+                frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
+                context = json.loads(self.conf.resources["jsonld-context"])
+                jres = QueryUtils.getJsonLD(results, frame, context)
+            except:
+                msg = "Error while connecting to SEPA"
+                logging.error(msg)
+                self.stats.requests["failed"] += 1
+                self.stats.requests["paths"][path]["failed"] += 1
+                return json.dumps({"status": "failure", "cause": msg}), -1
 
         # return
         self.stats.requests["successful"] += 1
@@ -210,7 +242,7 @@ class AudioClipProcessor:
         try:
             status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
         except:
-            msg = "Error while connecting to SEPA"
+            msg = "Error while getting RDF data as JSON-LD: " + exception.text
             logging.error(msg)
             self.stats.requests["failed"] += 1
             self.stats.requests["paths"][path]["failed"] += 1

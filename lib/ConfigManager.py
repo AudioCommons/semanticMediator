@@ -65,6 +65,16 @@ class ConfigManager:
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong SPARQL-generate Configuration!")
 
+        # read graphstore configuration
+        if self.config["use-graphstore"]:
+            try:
+                self.tools["graphstore"] = {}
+                self.tools["graphstore"]["sparql-endpoint"] = self.config["graphstore"]["sparql-endpoint"]
+                self.tools["graphstore"]["insert-rdf-url"] = self.config["graphstore"]["insert-rdf-url"]
+                self.tools["graphstore"]["insert-rdf-graphParam"] = self.config["graphstore"]["insert-rdf-graphParam"]
+            except (KeyError, TypeError):
+                raise MediatorConfigManagerException("Wrong ac-analysis Configuration!")
+
         # read Analysis tool configuration
         try:
             self.tools["ac-analysis"] = {}

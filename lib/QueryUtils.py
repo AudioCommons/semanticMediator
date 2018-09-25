@@ -87,7 +87,7 @@ class QueryUtils:
     @staticmethod
     def frameAndCompact(input, frame, context):
         orderStruct = QueryUtils.getOrderFromFrame(frame)
-        framedResults = jsonld.frame(json.loads(input), frame)
+        framedResults = jsonld.frame(input, frame)
         compactedResults = jsonld.compact(framedResults, context)
         if "@graph" in compactedResults:
             results = compactedResults["@graph"]
@@ -123,6 +123,6 @@ class QueryUtils:
 
             # return
             jld = g.serialize(format="json-ld")
-            return QueryUtils.frameAndCompact(jld, frame, context)
+            return QueryUtils.frameAndCompact(json.loads(jld), frame, context)
         except:
             print(traceback.print_exc())
