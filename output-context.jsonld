@@ -3,7 +3,17 @@
   "dc": "http://purl.org/dc/elements/1.1/",
   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+  "xsd": "http://www.w3.org/2001/XMLSchema#",
   "prov": "http://www.w3.org/ns/prov#",
   "foaf": "http://xmlns.com/foaf/0.1/",
-  "schema": "http://schema.org/"
+  "schema": "http://schema.org/",
+  "actionStatus": {"@id": "schema:actionStatus", "@type": "@id"},
+  "object": {"@id": "schema:object", "@type": "@id"},
+  "query": "schema:query",
+  "result": {"@id": "schema:result", "@type": "@id"},
+  "startTime": {"@id": "schema:startTime", "@type": "xsd:dateTime"},
+  "endTime": {"@id": "schema:endTime", "@type": "xsd:dateTime"},
+  "members": {"@id": "ac:memberNode", "@type": "@id"},
+  "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
+  "content": {"@id": "ac:nodeContent", "@type": "@id"}
 }
