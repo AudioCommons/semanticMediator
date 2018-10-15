@@ -19,9 +19,9 @@ resources:
 contentProviders:
 
   keys:
-    jamendo: "d8d459e8"
-    europeana: "6NPvpkHH4"
-    freesound: "2aL7UlMAoppS0oDzypXExHjv1PR4UekV7rT6NKQF"
+    jamendo: "PUT_YOUR_KEY_HERE"
+    europeana: "PUT_YOUR_KEY_HERE"
+    freesound: "PUT_YOUR_KEY_HERE"
 
   uris:
     jamendo: "http://jamendo.com"
@@ -63,17 +63,10 @@ analysisTools:
   baseURI: "http://localhost:8081/function/ac-analysis"
   plugins: ["chord-estimator", "sonic-annotator", "instrument-identifier"]
 
-use-graphstore: true
 
 sparql-generate:
 
-  URI: "http://localhost:6060/transform"
-
-graphstore:
-
-  sparql-endpoint: "http://localhost:9999/blazegraph/namespace/kb/sparql"
-  insert-rdf-url: "http://localhost:9999/blazegraph/namespace/kb/sparql"
-  insert-rdf-graphParam: "context-uri"
+  URI: "http://wot.arces.unibo.it:5000/sparqlgen"
 
 sepa:
 

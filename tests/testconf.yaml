@@ -2,6 +2,8 @@ mediator:
   baseUri: "http://localhost:9027"
   routes:  
     audioclipSearch:
+      # curl -v -H "Content-Type: application/ld+json" -X GET http://localhost:9027/audioclips/search?pattern=whale
+      # curl -v -H "Content-Type: application/json" -X GET http://localhost:9027/audioclips/search?pattern=whale
       path: "/audioclips/search"
       args: ["pattern"]
 

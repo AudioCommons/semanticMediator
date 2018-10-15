@@ -4,3 +4,6 @@ requests==2.18.1
 PyYAML==3.13
 rdflib-jsonld
 PyLD
+flask==1.0.2
+# check README.md for sepy
+# sepy, https://github.com/arces-wot/SEPA-python3-APIs
