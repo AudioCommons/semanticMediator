@@ -21,10 +21,11 @@ from .QueryUtils import *
 class AudioClipProcessor:
 
     def __init__(self, conf, stats):
-
         # save the parameters
         self.stats = stats
-        self.conf = conf
+        self.conf = conf # configuration
+
+        self.gs = None # Graphstore
 
         # create a KP
         self.kp = SEPAClient()
@@ -33,6 +34,14 @@ class AudioClipProcessor:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
     def search(self, path, pattern, cacheEntry, sources):
+        """
+        Performs search for audioclips
+        :param path: 
+        :param pattern: what we are searching against
+        :param cacheEntry: a string reference to a cache entry stored in a graphstore (it forms: `graphURI = "http://ns#%s" % cacheEntry`)
+        :param sources: sources we should search against, can be None (=all)
+        :return: value of ac_field_name for the given result
+        """
 
         # debug print
         logging.debug("New audioclip search request")
@@ -54,6 +63,7 @@ class AudioClipProcessor:
             threads = []
 
             # define the worker function
+
             def worker(conf, sg_query, cp):
 
                 logging.debug("Sending query to SPARQL Generate")
@@ -78,7 +88,7 @@ class AudioClipProcessor:
 
                 if self.gs is not None:
                     try:
-                        logging.debug("Posting data to graphstore")
+                        logging.debug("Posting data to graphstore for req_id: %s" % (req_id))
                         self.gs.insertRDF(sg_req.text, graphURI)
                     except Exception as e:
                         msg = "Error while posting RDF data on graphstore"

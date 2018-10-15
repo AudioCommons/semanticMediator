@@ -22,7 +22,7 @@ app = Flask(__name__)
 if __name__ == "__main__":
 
     # basic initialization
-    configFile = None
+    configFileName = None
     logLevel = None
     conf = None
     
@@ -32,23 +32,29 @@ if __name__ == "__main__":
     # load configuration
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hc:l:", ["help", "conf=", "loglevel="])
-        for o,a in opts:
-            if o in ("-h", "--help"):
-                print("Help message")
+        for name,value in opts:
+            if name in ("-h", "--help"):
+                print("Parameters")
+                print("\t-c (--conf)  configuration file")
+                print("\t-l (--loglevel)  setting up the logging level (optional")
+                print("\t-h (--help)  provides this help")
+                print("Example:")
+                print("\tpython3 mediator.py -c mediaconf.yaml")
                 sys.exit()
-            elif o in ("-c", "--conf"):
-                configFile = a
-            elif o in ("-l", "--loglevel"):
-                logLevel = a
+            elif name in ("-c", "--conf"):
+                configFileName = value
+            elif name in ("-l", "--loglevel"):
+                logLevel = value
             else:
-                logging.error("Unknown option %s!" % o)
+                logging.error("Unknown option %s!" % name)
                 sys.exit()                            
     except getopt.GetoptError as err:
+        print("Error: %s" %(err))
         sys.exit()
 
     # open configuration file
-    if configFile:
-        conf = ConfigManager(configFile)
+    if configFileName:
+        conf = ConfigManager(configFileName)
     else:
         logging.error("You MUST specify a configuration file!")
         sys.exit()
@@ -62,11 +68,21 @@ if __name__ == "__main__":
     ###########################################
     #
     # routes for the audioclips
+    # curl -v -H "Content-Type: application/ld+json" -X GET http://localhost:9027/audioclips/search?pattern=whale
+    # curl -v -H "Content-Type: application/json" -X GET http://localhost:9027/audioclips/search?pattern=whale
     #
     ###########################################
     
     @app.route("/audioclips/search")
     def audioclipSearch():
+        """
+        Performs search for audioclips
+
+        Arguments:
+        pattern - what we are searching for
+        source - what sources from
+        nocache - avoid cache
+        """
 
         # read arguments
         pattern = request.args.get("pattern")
@@ -187,4 +203,3 @@ if __name__ == "__main__":
     ###########################################
     
     app.run(port=conf.server["port"], threaded=True)
-        
