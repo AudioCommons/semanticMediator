@@ -40,7 +40,8 @@ class AudioClipProcessor:
         :param pattern: what we are searching against
         :param cacheEntry: a string reference to a cache entry stored in a graphstore (it forms: `graphURI = "http://ns#%s" % cacheEntry`)
         :param sources: sources we should search against, can be None (=all)
-        :return: value of ac_field_name for the given result
+        :return results: a JSON response of metadata and results
+        :return req_id: UUID of the request
         """
 
         # debug print
