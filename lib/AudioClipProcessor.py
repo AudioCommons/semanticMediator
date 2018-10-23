@@ -30,7 +30,7 @@ class AudioClipProcessor:
         # create a KP
         self.kp = SEPAClient()
 
-        if self.conf.tools['graphstore'] is not None:
+        if 'graphstore' in self.conf.tools:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
     def search(self, path, pattern, cacheEntry, sources):
