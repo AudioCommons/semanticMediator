@@ -12,6 +12,7 @@ class ConfigManager:
     cps = {}
     mappings = {}
     tools = {"sepa": {}, "sparql-generate": {}}
+    extensions = {}
     server = {"port": None}
 
     def readResources(self, resDict):
@@ -64,6 +65,24 @@ class ConfigManager:
             self.tools["sparqlgen"] = self.config["sparql-generate"]["URI"]
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong SPARQL-generate Configuration!")
+
+        # read extensions
+        try:
+            if 'extensions' in self.config:
+                for extensionName in self.config["extensions"]:
+                    extensionConfig = self.config["extensions"][extensionName]
+                    if 'general' not in extensionConfig:
+                        raise MediatorConfigManagerException("Extension '%s' config should have 'general' key!" % (extensionName))
+                    generalExtensionConfig = extensionConfig['general']
+                    if 'exists' not in generalExtensionConfig:
+                        raise MediatorConfigManagerException("Extension '%s' config should have 'general.exists' key!" % (extensionName))
+                    if 'active' not in generalExtensionConfig:
+                        raise MediatorConfigManagerException("Extension '%s' config should have 'general.active' key!" % (extensionName))
+                    
+                    self.extensions[extensionName] = self.config["extensions"][extensionName];
+
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Problem with loading mediator extensions configuration!")
 
         # read graphstore configuration
         if self.config["use-graphstore"]:
@@ -130,3 +149,31 @@ class ConfigManager:
 
         self.resources = self.config["resources"]
         self.readResources(self.resources)
+
+    def getExtensionConfig(self, extensionName):
+        try:
+            if extensionName in self.extensions:
+                return self.extensions[extensionName]
+            else:
+                return None;
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Problem accessing '%s' extension in configuration file: " % extensionName)
+
+    def isExtensionExisting(self, extensionName):
+        try:
+            if extensionName in self.extensions:
+                return self.extensions[extensionName]['general']['exists']
+            else:
+                return False;
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Problem accessing '%s' extension in configuration file: " % extensionName)
+
+    def isExtensionActive(self, extensionName):
+        try:
+            if extensionName in self.extensions:
+                return self.extensions[extensionName]['general']['exists'] and self.extensions[extensionName]['general']['active']
+            else:
+                return False;
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Problem accessing '%s' extension in configuration file: " % extensionName)
+        

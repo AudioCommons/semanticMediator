@@ -1,3 +1,24 @@
+# Java
+
+***NOTE***: It seems that BlazeGraph has problem with Java v10.0.0
++ https://github.com/blazegraph/database/issues/89
++ https://sourceforge.net/p/bigdata/discussion/676946/thread/771a036f/
+
+Downgrading Java version will help:
+
+[How can I see all versions of a package that are available in the archive?](https://askubuntu.com/questions/447/how-can-i-see-all-versions-of-a-package-that-are-available-in-the-archive)
+[How To Install Java with `apt` on Ubuntu 18.04](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04)
+
+```sh
+java -version
+sudo apt install openjdk-8-jre
+sudo apt install openjdk-8-jdk
+java -version
+sudo update-alternatives --config java
+# choose the version you want (1.8.0)
+java -version
+```
+
 # Before running the mediator
 
 Ensure you have a running instance of Blazegraph and SEPA. They can be downloaded from [GitHub](https://github.com/desmovalvo/FFSEPABins.git).
@@ -38,6 +59,7 @@ cd /var/services
 source /var/services/qmul-infrastructure-2-env/bin/activate
 cd /var/repos/semanticMediator-ng/
 pip3 install -r requirements.txt
+# pip3 install rpyc
 ```
 
 ## Installing sparqlGenerate

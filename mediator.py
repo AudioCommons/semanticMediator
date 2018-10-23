@@ -70,8 +70,10 @@ if __name__ == "__main__":
     import sys
     import rpyc
 
-    rpcConn = rpyc.connect("158.37.63.127", 12374)
-    rpcService = rpcConn.root
+    searchExtensionConfig = conf.getExtensionConfig("space.colabo.search_extension")
+    if conf.isExtensionActive("space.colabo.search_extension"):
+        rpcConn = rpyc.connect(searchExtensionConfig['host'], searchExtensionConfig['port'])
+        rpcService = rpcConn.root
 
 
     ###########################################
@@ -96,15 +98,16 @@ if __name__ == "__main__":
         # read arguments
         pattern = request.args.get("pattern")
         
-        flow = request.args.get("flow")
-        print("[/audioclips/search]parameters pattern: %s" %(pattern));
-        print("[/audioclips/search]parameters flow: %s" %(flow));
-        print("[/audioclips/search]parameters source: %s" %(request.args.get("source")));
-        if(flow == 'extended'):
-            # r = ['dog', 'cat']
-            r = rpcService.get_synonyms(pattern)
-            pattern = (',').join(r)
-            print("[/audioclips/search] extended pattern: %s" %(pattern));
+        if conf.isExtensionActive("space.colabo.search_extension"):
+            flow = request.args.get("flow")
+            print("[/audioclips/search]parameters pattern: %s" %(pattern));
+            print("[/audioclips/search]parameters flow: %s" %(flow));
+            print("[/audioclips/search]parameters source: %s" %(request.args.get("source")));
+            if(flow == 'extended'):
+                # r = ['dog', 'cat']
+                r = rpcService.get_synonyms(pattern)
+                pattern = (',').join(r)
+                print("[/audioclips/search] extended pattern: %s" %(pattern));
        
         sources = request.args.get("source").split(",") if request.args.get("source") else None
         
