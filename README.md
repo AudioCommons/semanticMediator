@@ -4,13 +4,16 @@ Ensure you have a running instance of Blazegraph and SEPA. They can be downloade
 To run blazegraph, enter in folder `Endpoints` and run:
 
 ```sh
+cd SEPA
 java -jar blazegraph.jar
 ```
 
 To run SEPA, enter in folder `Engine`, rename `endpoint-blazegraph.jpar` to `endpoint.jpar` and run:
 
 ```sh
-java -jar SEPAEngine_0.8.4.jar
+cd SEPA
+# java -jar SEPAEngine_0.8.4.jar
+java -jar engine-v0.9.1.jar
 ```
 
 # Installing
@@ -26,7 +29,14 @@ sudo -H python -m pip install -r requirements.txt
 
 ## Installing dependencies
 
-```
+```sh
+pip3 install virtualenv
+ /home/mprinc/.local/bin/virtualenv
+# probably some better place later
+cd /var/services
+/home/mprinc/.local/bin/virtualenv qmul-infrastructure-2-env
+source /var/services/qmul-infrastructure-2-env/bin/activate
+cd /var/repos/semanticMediator-ng/
 pip3 install -r requirements.txt
 ```
 
@@ -49,6 +59,9 @@ mvn package -Drat.numUnapprovedLicenses=100 -DskipTests
 ```sh
 git clone https://github.com/miguel76/sparql-generate-ws
 cd sparql-generate-ws/
+java -jar target/sparql-generate-ws.jar 6060
+# cd /var/services/sparqlGenerate-ws
+# java -jar sparql-generate-ws.jar 6060
 ```
 
 ### Building Local repo
@@ -108,7 +121,8 @@ mvn package
 You should be able to run it now:
 
 ```sh
-java -jar target/sparql-generate-ws 6060
+cd sparql-generate-ws
+java -jar target/sparql-generate-ws.jar 6060
 ```
 
 ## Install external git mappings
@@ -123,6 +137,9 @@ git submodule update
 ```sh
 git clone https://github.com/arces-wot/SEPA-python3-APIs
 cd SEPA-python3-APIs/
+# cd /var/repos/SEPA-python3-APIs
+source /var/services/qmul-infrastructure-2-env/bin/activate
+cd /var/repos/semanticMediator-ng/
 python3 setup.py build
 # this you might to run as sudo if you do not use virtual environment
 python3 setup.py install
@@ -139,12 +156,19 @@ If needed, change the URIs of the underlying services (SEPA, SPARQL-Generate) as
 # Running the mediator
 
 ```sh
+cd semanticMediator-ng
+# cd /var/repos/semanticMediator-ng/
+# source /var/services/qmul-infrastructure-2-env/bin/activate
+
 python3 mediator.py -c <CONFIG_FILE.yaml>
 # for example
 # python3 mediator.py -c mediaconf.yaml
 ```
 
 # Tests
+
+# from local machine
+curl -v -H "Content-Type: application/json" -X GET http://localhost:9027/audioclips/search?pattern=dog
 
 http://localhost:9027/audioclips/search?pattern=dog
 
