@@ -101,7 +101,8 @@ if __name__ == "__main__":
         print("[/audioclips/search]parameters flow: %s" %(flow));
         print("[/audioclips/search]parameters source: %s" %(request.args.get("source")));
         if(flow == 'extended'):
-            r = ['dog', 'cat']; # rpcService.get_synonyms(pattern)
+            # r = ['dog', 'cat']
+            r = rpcService.get_synonyms(pattern)
             pattern = (',').join(r)
             print("[/audioclips/search] extended pattern: %s" %(pattern));
        
