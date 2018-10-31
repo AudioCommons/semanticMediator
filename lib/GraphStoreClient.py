@@ -18,6 +18,14 @@ class GraphStoreClient:
         response.raise_for_status()
         return response.json() if contentType == 'application/ld+json' else response.text
 
+    def sparqlUpdate(self, updateStr, defaultGraphURI=None):
+        logging.debug("Update query: " + updateStr)
+        params = {'update': updateStr}
+        if defaultGraphURI is not None:
+            params['default-graph-uri'] = defaultGraphURI
+        response = requests.post(self.conf['sparql-endpoint'], params)
+        response.raise_for_status()
+
     def getGraph(self, graphURI=None, contentType='text/turtle'):
         return self.sparqlQuery('CONSTRUCT WHERE {?s ?p ?o}', graphURI, contentType)
 

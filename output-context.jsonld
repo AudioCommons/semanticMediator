@@ -15,5 +15,7 @@
   "endTime": {"@id": "schema:endTime", "@type": "xsd:dateTime"},
   "members": {"@id": "ac:memberNode", "@type": "@id"},
   "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
-  "content": {"@id": "ac:nodeContent", "@type": "@id"}
+  "content": {"@id": "ac:nodeContent", "@type": "@id"},
+  "from": {"@reverse": "schema:result"},
+  "raisedBy": {"@reverse": "schema:error"}
 }

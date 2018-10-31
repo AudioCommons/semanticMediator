@@ -1,12 +1,25 @@
 {
   "@context": {
+    "@version": 1.1,
     "ac": "https://w3id.org/ac-ontology/aco#",
-    "schema": "http://schema.org/"
+    "schema": "http://schema.org/",
+    "schema:object": {"@type": "@id"},
+    "from": {"@reverse": "schema:result"},
+    "raisedBy": {"@reverse": "schema:error"}
   },
-  "@type": "schema:SearchAction",
+  "@requireAll": true,
+  "@id": "$mainAction",
   "schema:result": {
     "ac:memberNode": {
       "@order": "ac:nodeIndex"
+    },
+    "from": {
+      "@explicit": true,
+      "@type": {},
+      "schema:object": {"@embed": "@never"},
+      "schema:actionStatus": {},
+      "schema:startTime": {},
+      "schema:endTime": {}
     }
   }
 }

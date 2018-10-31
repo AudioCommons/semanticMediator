@@ -33,10 +33,20 @@ class AudioClipProcessor:
         if 'graphstore' in self.conf.tools:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
+    def error(pattern, msg):
+        return {
+            "@type": "schema:SearchAction",
+            "schema:query": pattern ,
+            # "schema:startTime": startTime ,
+            # "schema:endTime": endTime ,
+            "schema:actionStatus": "schema:FailedActionStatus" ,
+            "schema:error": msg
+        }
+
     def search(self, path, pattern, cacheEntry, sources):
         """
         Performs search for audioclips
-        :param path: 
+        :param path:
         :param pattern: what we are searching against
         :param cacheEntry: a string reference to a cache entry stored in a graphstore (it forms: `graphURI = "http://ns#%s" % cacheEntry`)
         :param sources: sources we should search against, can be None (=all)
@@ -58,7 +68,8 @@ class AudioClipProcessor:
 
             # generate an UUID for the request
             req_id = str(uuid4())
-            graphURI = "http://ns#%s" % req_id
+            graphURI = "http://m2.audiocommons.org/graphs/%s" % req_id
+            mainActionURI = "http://m2.audiocommons.org/actions/%s" % req_id
 
             # init a thread list
             threads = []
@@ -138,21 +149,52 @@ class AudioClipProcessor:
 
         if self.gs is not None:
             try:
+                self.gs.sparqlUpdate("""
+                    PREFIX schema: <http://schema.org/>
+                    INSERT {
+                        GRAPH <%s> {
+                            <%s>
+                                a schema:SearchAction ;
+                                schema:object <https://m2.audiocommons.org/> ;
+                                schema:query "%s" ;
+                                schema:actionStatus schema:CompletedActionStatus ;
+                                schema:result ?result ;
+                                schema:error ?error .
+                        }
+                    }
+                    WHERE {
+                        BIND(BNODE() AS ?searchAction)
+                        GRAPH <%s> {
+                            {?action schema:result ?result}
+                            UNION
+                            {?action schema:error ?error}
+                        }
+                    }""" % (graphURI, mainActionURI, pattern, graphURI))
+            except Exception as e:
+                msg = "Error while collating results: " + e.text
+                logging.error(msg)
+                self.stats.requests["failed"] += 1
+                self.stats.requests["paths"][path]["failed"] += 1
+                print(traceback.print_exc())
+                return json.dumps(error(msg)), -1
+            try:
                 resultsTurtle = self.gs.getGraph(graphURI)
                 g = rdflib.Graph()
                 g.parse(data=resultsTurtle, format="n3")
                 resultsJsonLd = g.serialize(format="json-ld")
-                logging.debug(resultsJsonLd)
-                frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
+                logging.debug(json.loads(resultsJsonLd))
+                frameTemplate = self.conf.resources["jsonld-frames"]["audioclips"]["search"]
+                frame = json.loads(frameTemplate.replace("$mainAction", mainActionURI))
                 context = json.loads(self.conf.resources["jsonld-context"])
                 jres = QueryUtils.frameAndCompact(json.loads(resultsJsonLd), frame, context)
+                logging.debug(jres)
             except Exception as e:
                 msg = "Error while getting RDF data as JSON-LD: " + e.text
                 logging.error(msg)
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
-                return json.dumps({"status": "failure", "cause": msg}), -1
+                return json.dumps(error(msg)), -1
 
         else:
             # assembly results
@@ -178,16 +220,16 @@ class AudioClipProcessor:
                 logging.error(msg)
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
-                return json.dumps({"status": "failure", "cause": msg}), -1
+                return json.dumps(error(msg)), -1
 
         # return
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
 
         if cacheEntry:
-            return json.dumps({"status": "ok", "results": jres}), cacheEntry
+            return json.dumps(jres), cacheEntry
         else:
-            return json.dumps({"status": "ok", "results": jres}), req_id
+            return json.dumps(jres), req_id
 
 
     def show(self, path, audioclipId, source, cacheEntry):
