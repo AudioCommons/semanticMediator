@@ -8,6 +8,13 @@
   "foaf": "http://xmlns.com/foaf/0.1/",
   "schema": "http://schema.org/",
   "cc": "https://creativecommons.org/ns#",
+  "ebu": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
+
+  "mp3": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4",
+  "ogg": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26",
+  "wav": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_28",
+  "flac": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_22",
+
 
   "AC_API": "https://m2.audiocommons.org/",
   "actionStatus": {"@id": "schema:actionStatus", "@type": "@id"},
