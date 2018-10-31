@@ -7,6 +7,9 @@
   "prov": "http://www.w3.org/ns/prov#",
   "foaf": "http://xmlns.com/foaf/0.1/",
   "schema": "http://schema.org/",
+  "cc": "https://creativecommons.org/ns#",
+
+  "AC_API": "https://m2.audiocommons.org/",
   "actionStatus": {"@id": "schema:actionStatus", "@type": "@id"},
   "object": {"@id": "schema:object", "@type": "@id"},
   "query": "schema:query",
@@ -17,5 +20,8 @@
   "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
   "content": {"@id": "ac:nodeContent", "@type": "@id"},
   "from": {"@reverse": "schema:result"},
-  "raisedBy": {"@reverse": "schema:error"}
+  "raisedBy": {"@reverse": "schema:error"},
+  "license": {"@id": "cc:license", "@type": "@id"},
+  "author": {"@id": "ac:author", "@type": "@id"},
+  "audioCategory": {"@id": "ac:audioCategory", "@type": "@id"}
 }
