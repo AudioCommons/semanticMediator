@@ -3,7 +3,7 @@ mediator:
 
 resources:
   jsonld-context:
-    file: "output-context.jsonld"
+    file: "static/context.jsonld"
   jsonld-frames:
     audioclips:
       search:

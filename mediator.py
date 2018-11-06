@@ -16,7 +16,7 @@ from lib.StatsProcessor import *
 from lib.CollectionProcessor import *
 
 # initialize app
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 # main
 if __name__ == "__main__":
@@ -25,7 +25,7 @@ if __name__ == "__main__":
     configFileName = None
     logLevel = None
     conf = None
-    
+
     # initialize logging
     logging.basicConfig(level=logging.DEBUG)
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
                 logLevel = value
             else:
                 logging.error("Unknown option %s!" % name)
-                sys.exit()                            
+                sys.exit()
     except getopt.GetoptError as err:
         print("Error: %s" %(err))
         sys.exit()
@@ -76,6 +76,10 @@ if __name__ == "__main__":
         rpcService = rpcConn.root
 
 
+    # @app.route('/')
+    # def root():
+    #     return app.send_static_file('index.html')
+
     ###########################################
     #
     # routes for the audioclips
@@ -83,7 +87,7 @@ if __name__ == "__main__":
     # curl -v -H "Content-Type: application/json" -X GET http://localhost:9027/audioclips/search?pattern=whale
     #
     ###########################################
-    
+
     @app.route("/audioclips/search")
     def audioclipSearch():
         """
@@ -97,7 +101,7 @@ if __name__ == "__main__":
 
         # read arguments
         pattern = request.args.get("pattern")
-        
+
         if conf.isExtensionActive("space.colabo.search_extension"):
             flow = request.args.get("flow")
             print("[/audioclips/search]parameters pattern: %s" %(pattern));
@@ -108,25 +112,25 @@ if __name__ == "__main__":
                 r = rpcService.get_synonyms(pattern)
                 pattern = (',').join(r)
                 print("[/audioclips/search] extended pattern: %s" %(pattern));
-       
+
         sources = request.args.get("source").split(",") if request.args.get("source") else None
-        
+
         # see if the request is present in cache
         cacheEntry = cm.getEntry(request.path, pattern)
-        if cacheEntry and not request.args.get("nocache"):            
-            logging.debug("Entry found in cache")  
+        if cacheEntry and not request.args.get("nocache"):
+            logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
         results, req_id = tp.search(request.path, pattern, cacheEntry, sources)
-        
+
         # store entry in cache
         if not cacheEntry:
             cm.setEntry(request.path, pattern, req_id)
 
         # return
         return results
-    
+
 
     @app.route("/audioclips/<audioclip_id>/analyse")
     def audioclipAnalyse(audioclip_id):
@@ -134,11 +138,11 @@ if __name__ == "__main__":
         # read arguments
         source = request.args.get("source")
         descriptor = request.args.get("plugin")
-        
+
         # see if the request is present in cache
         cacheEntry = cm.getEntry(request.path, audioclip_id)
-        if cacheEntry and not request.args.get("nocache"):            
-            logging.debug("Entry found in cache")        
+        if cacheEntry and not request.args.get("nocache"):
+            logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
@@ -157,11 +161,11 @@ if __name__ == "__main__":
 
         # read arguments
         source = request.args.get("source")
-        
+
         # see if the request is present in cache
         cacheEntry = cm.getEntry(request.path, audioclip_id)
-        if cacheEntry and not request.args.get("nocache"):            
-            logging.debug("Entry found in cache")        
+        if cacheEntry and not request.args.get("nocache"):
+            logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
@@ -174,7 +178,7 @@ if __name__ == "__main__":
         # return
         return results
 
-    
+
     ###########################################
     #
     # routes for the collections
@@ -184,15 +188,15 @@ if __name__ == "__main__":
 
     @app.route("/collections/search")
     def collectionSearch():
-        
+
         # read pattern
         pattern = request.args.get("pattern")
         sources = request.args.get("source").split(",") if request.args.get("source") else None
-        
+
         # see if the request is present in cache
         cacheEntry = cm.getEntry(request.path, pattern)
-        if cacheEntry and not request.args.get("nocache"):            
-            logging.debug("Entry found in cache")        
+        if cacheEntry and not request.args.get("nocache"):
+            logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = CollectionProcessor(conf, sm)
@@ -211,18 +215,18 @@ if __name__ == "__main__":
     # routes for the stats
     #
     ###########################################
-    
+
     @app.route("/stats")
     def stats():
         sp = StatsProcessor(sm)
         res = sp.getStats()
         return render_template("stats.html", stats=res)
 
-    
+
     ###########################################
     #
     # start the app!
     #
     ###########################################
-    
+
     app.run(port=conf.server["port"], threaded=True)
