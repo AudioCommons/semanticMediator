@@ -4,14 +4,18 @@
     "ac": "https://w3id.org/ac-ontology/aco#",
     "schema": "http://schema.org/",
     "schema:object": {"@type": "@id"},
+    "results": {"@id": "schema:result", "@type": "@id", "@container": "@set"},
+    "errors": {"@id": "schema:error", "@type": "@id", "@container": "@set"},
+    "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
     "from": {"@reverse": "schema:result"},
-    "raisedBy": {"@reverse": "schema:error"}
+    "raisedBy": {"@reverse": "schema:error"},
+    "members": {"@id": "ac:memberNode", "@type": "@id", "@container": "@set"}
   },
   "@requireAll": true,
   "@id": "$mainAction",
-  "schema:result": {
-    "ac:memberNode": {
-      "@order": "ac:nodeIndex"
+  "results": {
+    "members": {
+      "@order": "index"
     },
     "from": {
       "@explicit": true,

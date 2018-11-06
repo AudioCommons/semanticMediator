@@ -53,6 +53,27 @@ class QueryUtils:
         return insertData
 
     @staticmethod
+    def addDatatypes(jsonldObject):
+        logging.debug("addDatatypes")
+        logging.debug(jsonldObject)
+        if isinstance(jsonldObject, list):
+            for item in jsonldObject:
+                QueryUtils.addDatatypes(item)
+        elif isinstance(jsonldObject, dict):
+            # logging.debug("addDatatypes")
+            # logging.debug(jsonldObject)
+            if "@value" in jsonldObject and "@type" not in jsonldObject:
+                value = jsonldObject["@value"]
+                if type(value) is int:
+                    jsonldObject["@type"] = "http://www.w3.org/2001/XMLSchema#integer"
+                elif type(value) is float:
+                    jsonldObject["@type"] = "http://www.w3.org/2001/XMLSchema#float"
+            else:
+                for key, value in jsonldObject.items():
+                    QueryUtils.addDatatypes(value)
+
+
+    @staticmethod
     def getOrderFromFrame(frame):
         if not isinstance(frame, dict):
             return None
@@ -87,6 +108,8 @@ class QueryUtils:
     @staticmethod
     def frameAndCompact(input, frame, context):
         orderStruct = QueryUtils.getOrderFromFrame(frame)
+        QueryUtils.addDatatypes(input)
+        logging.debug(input)
         framedResults = jsonld.frame(input, frame)
         compactedResults = jsonld.compact(framedResults, context)
         if "@graph" in compactedResults:
