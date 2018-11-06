@@ -18,6 +18,7 @@
 
   "AC_API": "https://m2.audiocommons.org/",
   "actionStatus": {"@id": "schema:actionStatus", "@type": "@id"},
+  "acActions": "http://m2.audiocommons.org/actions/",
   "object": {"@id": "schema:object", "@type": "@id"},
   "query": "schema:query",
   "result": {"@id": "schema:result", "@type": "@id"},
