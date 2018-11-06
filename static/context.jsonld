@@ -25,17 +25,32 @@
   "errors": {"@id": "schema:error", "@type": "@id", "@container": "@set"},
   "startTime": {"@id": "schema:startTime", "@type": "xsd:dateTime"},
   "endTime": {"@id": "schema:endTime", "@type": "xsd:dateTime"},
+
   "members": {"@id": "ac:memberNode", "@type": "@id", "@container": "@set"},
   "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
   "content": {"@id": "ac:nodeContent", "@type": "@id"},
   "from": {"@reverse": "schema:result"},
   "raisedBy": {"@reverse": "schema:error"},
+
+  "title": {"@id": "dc:title"},
+  "description": {"@id": "dc:description"},
   "license": {"@id": "cc:license", "@type": "@id"},
   "author": {"@id": "ac:author", "@type": "@id"},
   "images": {"@id": "ac:image", "@type": "@id", "@container": "@set"},
   "audioCategories": {"@id": "ac:audioCategory", "@type": "@id", "@container": "@set"},
   "availableAs": {"@id": "ac:available_as", "@type": "@id", "@container": "@set"},
   "originalFile": {"@id": "ac:originalFile", "@type": "@id"},
+
+  "audioChannelNumber": {"@id": "ebu:audioChannelNumber", "@type": "xsd:integer"},
+  "bitRate": {"@id": "ebu:bitRate", "@type": "xsd:integer"},
+  "hasAudioEncodingFormat": {"@id": "ebu:hasAudioEncodingFormat", "@type": "@id"},
+  "locator": {"@id": "ebu:locator", "@type": "@id"},
+  "sampleRate": {"@id": "ebu:sampleRate", "@type": "xsd:float"},
+  "sampleSize": {"@id": "ebu:sampleSize", "@type": "xsd:integer"},
+
+  "frameHeight": {"@id": "ebu:frameHeight", "@type": "xsd:integer"},
+  "frameWidth": {"@id": "ebu:frameWidth", "@type": "xsd:integer"},
+  "prefLabel": {"@id": "skos:prefLabel"},
 
   "freesound-sounds": "https://w3id.org/audiocommons/services/freesound/sounds/",
   "freesound-users": "https://w3id.org/audiocommons/services/freesound/users/",
