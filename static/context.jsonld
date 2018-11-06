@@ -35,6 +35,7 @@
   "title": {"@id": "dc:title"},
   "description": {"@id": "dc:description"},
   "license": {"@id": "cc:license", "@type": "@id"},
+  "duration": {"@id": "ac:duration", "@type": "xsd:integer"},
   "author": {"@id": "ac:author", "@type": "@id"},
   "images": {"@id": "ac:image", "@type": "@id", "@container": "@set"},
   "audioCategories": {"@id": "ac:audioCategory", "@type": "@id", "@container": "@set"},
