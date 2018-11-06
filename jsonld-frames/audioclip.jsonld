@@ -3,7 +3,7 @@
     "@version": 1.1,
     "ac": "https://w3id.org/ac-ontology/aco#",
     "schema": "http://schema.org/",
-    "schema:object": {"@type": "@id"},
+    "object": {"@id": "schema:object", "@type": "@id"},
     "results": {"@id": "schema:result", "@type": "@id", "@container": "@set"},
     "errors": {"@id": "schema:error", "@type": "@id", "@container": "@set"},
     "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
@@ -20,7 +20,7 @@
     "from": {
       "@explicit": true,
       "@type": {},
-      "schema:object": {"@embed": "@never"},
+      "object": {"@embed": "@never"},
       "schema:actionStatus": {},
       "schema:startTime": {},
       "schema:endTime": {}

@@ -54,14 +54,10 @@ class QueryUtils:
 
     @staticmethod
     def addDatatypes(jsonldObject):
-        logging.debug("addDatatypes")
-        logging.debug(jsonldObject)
         if isinstance(jsonldObject, list):
             for item in jsonldObject:
                 QueryUtils.addDatatypes(item)
         elif isinstance(jsonldObject, dict):
-            # logging.debug("addDatatypes")
-            # logging.debug(jsonldObject)
             if "@value" in jsonldObject and "@type" not in jsonldObject:
                 value = jsonldObject["@value"]
                 if type(value) is int:
@@ -88,8 +84,17 @@ class QueryUtils:
         return newDict if len(newDict) > 0 else None
 
     @staticmethod
+    def executePath(input, path):
+        if path == "":
+            return input
+        if not isinstance(input, dict):
+            return None
+        pathHead, pathSep, pathTail = path.partition(".")
+        return QueryUtils.executePath(input[pathHead] if pathHead in input else None, pathTail)
+
+    @staticmethod
     def executeOrderList(input, order):
-        input.sort(key=lambda item: item[order] if order in item else None)
+        input.sort(key=lambda item: QueryUtils.executePath(item, order))
 
     @staticmethod
     def executeOrder(input, order):
@@ -109,7 +114,6 @@ class QueryUtils:
     def frameAndCompact(input, frame, context):
         orderStruct = QueryUtils.getOrderFromFrame(frame)
         QueryUtils.addDatatypes(input)
-        logging.debug(input)
         framedResults = jsonld.frame(input, frame)
         compactedResults = jsonld.compact(framedResults, context)
         if "@graph" in compactedResults:
