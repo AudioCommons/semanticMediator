@@ -1,0 +1,46 @@
+{
+  "openapi" : "3.0.0",
+  "servers" : [ {
+    "description" : "Main Access Point",
+    "url" : "http://m2.audiocommons.org/api"
+  } ],
+  "info" : {
+    "description" : "Creative Commons encourages the reuse of creative works by offering them under generous, standardized terms.\n\n[AudioCommons](http://audiocommons.org) is an EU funded project that provides access to Creative Commons licensed audio and develops search, retrieval and audio production tools embedded in Digital Audio Workstations and sound design software.\n\nOur API offers the largest collection of audio content from Freesound, Jamendo and Europeana sounds including sound effects, field recordings, loops, samples and music available under permissive licenses. It also provides a unified search interface.\n",
+    "version" : "2.0.0",
+    "title" : "AudioCommons Mediator",
+    "contact" : {
+      "email" : "m.ceriani@qmul.ac.uk"
+    }
+  },
+  "tags" : [ {
+    "name" : "search",
+    "description" : "Search operations on the audio content providers"
+  } ],
+  "paths" : {
+    "/audioclips/search" : {
+      "get" : {
+        "tags" : [ "search" ],
+        "summary" : "Free text search for audio clips",
+        "description" : "Search the content providers for audio clips with content whose metadata contain the provided text",
+        "operationId" : "searchAudioClips",
+        "parameters" : [ {
+          "name" : "pattern",
+          "in" : "query",
+          "description" : "Free text used to search for audio clips",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "securitySchemes" : null
+  }
+}
