@@ -85,6 +85,7 @@ if __name__ == "__main__":
     # routes for the audioclips
     # curl -v -H "Content-Type: application/ld+json" -X GET http://localhost:9027/audioclips/search?pattern=whale
     # curl -v -H "Content-Type: application/json" -X GET http://localhost:9027/audioclips/search?pattern=whale
+    # curl -v -H "Content-Type: application/ld+json" -X GET http://m2.audiocommons.org/api/audioclips/search?pattern=whale
     #
     ###########################################
 
@@ -116,16 +117,16 @@ if __name__ == "__main__":
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path, pattern)
-        if cacheEntry and not request.args.get("nocache"):
+        cacheEntryUuid = cm.getEntryUiid(request.path, pattern)
+        if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
-        results, req_id = tp.search(request.path, pattern, cacheEntry, sources)
+        results, req_id = tp.search(request.path, pattern, cacheEntryUuid, sources)
 
         # store entry in cache
-        if not cacheEntry:
+        if not cacheEntryUuid:
             cm.setEntry(request.path, pattern, req_id)
 
         # return
@@ -140,16 +141,16 @@ if __name__ == "__main__":
         descriptor = request.args.get("plugin")
 
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path, audioclip_id)
-        if cacheEntry and not request.args.get("nocache"):
+        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id)
+        if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
-        results, req_id = tp.analyse(request.path, audioclip_id, source, descriptor, cacheEntry)
+        results, req_id = tp.analyse(request.path, audioclip_id, source, descriptor, cacheEntryUuid)
 
         # store entry in cache
-        if not cacheEntry:
+        if not cacheEntryUuid:
             cm.setEntry(request.path, audioclip_id, req_id)
 
         # return
@@ -163,16 +164,16 @@ if __name__ == "__main__":
         source = request.args.get("source")
 
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path, audioclip_id)
-        if cacheEntry and not request.args.get("nocache"):
+        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id)
+        if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
-        results, req_id = tp.show(request.path, audioclip_id, source, cacheEntry)
+        results, req_id = tp.show(request.path, audioclip_id, source, cacheEntryUuid)
 
         # store entry in cache
-        if not cacheEntry:
+        if not cacheEntryUuid:
             cm.setEntry(request.path, audioclip_id, req_id)
 
         # return
@@ -194,16 +195,16 @@ if __name__ == "__main__":
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
         # see if the request is present in cache
-        cacheEntry = cm.getEntry(request.path, pattern)
-        if cacheEntry and not request.args.get("nocache"):
+        cacheEntryUuid = cm.getEntryUiid(request.path, pattern)
+        if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = CollectionProcessor(conf, sm)
-        results, req_id = tp.search(request.path, pattern, cacheEntry, sources)
+        results, req_id = tp.search(request.path, pattern, cacheEntryUuid, sources)
 
         # store entry in cache
-        if not cacheEntry:
+        if not cacheEntryUuid:
             cm.setEntry(request.path, pattern, req_id)
 
         # return

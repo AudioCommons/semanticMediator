@@ -43,12 +43,12 @@ class AudioClipProcessor:
             "schema:error": msg
         }
 
-    def search(self, path, pattern, cacheEntry, sources):
+    def search(self, path, pattern, cacheEntryUuid, sources):
         """
         Performs search for audioclips
         :param path:
         :param pattern: what we are searching against
-        :param cacheEntry: a string reference to a cache entry stored in a graphstore (it forms: `graphURI = "http://ns#%s" % cacheEntry`)
+        :param cacheEntryUuid: a string reference to a cache entry stored in a graphstore (it forms: `graphURI = "http://ns#%s" % cacheEntryUuid`)
         :param sources: sources we should search against, can be None (=all)
         :return results: a JSON response of metadata and results
         :return req_id: UUID of the request
@@ -64,7 +64,7 @@ class AudioClipProcessor:
         self.stats.requests["paths"][path]["total"] += 1
 
         # initialize
-        if not cacheEntry:
+        if not cacheEntryUuid:
 
             # generate an UUID for the request
             req_id = str(uuid4())
@@ -145,7 +145,9 @@ class AudioClipProcessor:
             logging.debug("Ready to query SEPA")
 
         else:
-            graphURI = "http://ns#%s" % cacheEntry
+            # graphURI = "http://ns#%s" % cacheEntryUuid
+            graphURI = "http://m2.audiocommons.org/graphs/%s" % cacheEntryUuid
+            mainActionURI = "http://m2.audiocommons.org/actions/%s" % cacheEntryUuid
 
         if self.gs is not None:
             try:
@@ -226,13 +228,13 @@ class AudioClipProcessor:
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
 
-        if cacheEntry:
-            return json.dumps(jres), cacheEntry
+        if cacheEntryUuid:
+            return json.dumps(jres), cacheEntryUuid
         else:
             return json.dumps(jres), req_id
 
 
-    def show(self, path, audioclipId, source, cacheEntry):
+    def show(self, path, audioclipId, source, cacheEntryUuid):
 
         # debug print
         logging.debug("New audioclip show request")
@@ -244,7 +246,7 @@ class AudioClipProcessor:
         self.stats.requests["paths"][path]["total"] += 1
 
         # verify if cache exists
-        if not cacheEntry:
+        if not cacheEntryUuid:
 
             # generate an UUID for the request
             req_id = str(uuid4())
@@ -281,7 +283,7 @@ class AudioClipProcessor:
                     logging.debug("Process %s completed!" % source)
 
         else:
-            graphURI = "http://ns#%s" % cacheEntry
+            graphURI = "http://ns#%s" % cacheEntryUuid
 
         logging.debug("Ready to query SEPA")
 
@@ -305,13 +307,13 @@ class AudioClipProcessor:
         # return
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
-        if cacheEntry:
-            return json.dumps({"status":"ok", "results":results}), cacheEntry
+        if cacheEntryUuid:
+            return json.dumps({"status":"ok", "results":results}), cacheEntryUuid
         else:
             return json.dumps({"status":"ok", "results":results}), req_id
 
 
-    def analyse(self, path, audioclipId, cp, descriptor, cacheEntry):
+    def analyse(self, path, audioclipId, cp, descriptor, cacheEntryUuid):
 
         # update stats
         if not path in self.stats.requests["paths"]:
@@ -320,7 +322,7 @@ class AudioClipProcessor:
         self.stats.requests["paths"][path]["total"] += 1
 
         # verify if cache exists
-        # if not cacheEntry:
+        # if not cacheEntryUuid:
 
         # generate an UUID for the request
         req_id = str(uuid4())
@@ -333,7 +335,7 @@ class AudioClipProcessor:
         req = requests.get(fullURI, headers=headers)
 
         # else:
-        #     graphURI = "http://ns#%s" % cacheEntry
+        #     graphURI = "http://ns#%s" % cacheEntryUuid
 
         # TODO -- parse and "semanticize" results
         results = req.text
@@ -342,7 +344,7 @@ class AudioClipProcessor:
         # return
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
-        if cacheEntry:
-            return json.dumps({"status":"ok", "results":results}), cacheEntry
+        if cacheEntryUuid:
+            return json.dumps({"status":"ok", "results":results}), cacheEntryUuid
         else:
             return json.dumps({"status":"ok", "results":results}), req_id

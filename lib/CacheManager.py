@@ -31,7 +31,7 @@ class CacheManager:
         self.entries[path][pattern] = {"id": uuid, "timestamp": datetime.datetime.now()}
 
     
-    def getEntry(self, path, pattern):
+    def getEntryUiid(self, path, pattern):
 
         # if a request to that path, with that pattern is found
         # in the cache, then return the results
