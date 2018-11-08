@@ -23,16 +23,37 @@
         "summary" : "Free text search for audio clips",
         "description" : "Search the content providers for audio clips with content whose metadata contain the provided text",
         "operationId" : "searchAudioClips",
-        "parameters" : [ {
-          "name" : "pattern",
-          "in" : "query",
-          "description" : "Free text used to search for audio clips",
-          "required" : true,
-          "schema" : {
-            "type" : "string"
+        "parameters" : [
+          {
+            "name" : "pattern",
+            "in" : "query",
+            "description" : "Free text used to search for audio clips",
+            "required" : true,
+            "schema" : {
+              "type" : "string"
+            },
+            "example": "dog"
           },
-          "example": "dog"
-        } ],
+          {
+            "name" : "source",
+            "in" : "query",
+            "description" : "Optionally choose the sources to use (by default all of them are used)",
+            "required" : false,
+            "schema" : {
+              "type" : "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "freesound",
+                  "jamendo",
+                  "europeana",
+                ]
+              }
+            },
+            "style": "simple",
+            "example": "freesound,jamendo"
+          }
+        ],
         "responses" : {
           "200" : {
             "$ref": "#/components/responses/searchAudioClipsResponse"
@@ -100,6 +121,9 @@
           "label": {
             "type": "string",
             "example": "Jamendo Api Invalid Client Id Error: Your credential is not authorized.."
+          },
+          "raisedBy": {
+            "$ref": "#/components/schemas/providerSearchAction"
           }
         }
       },
