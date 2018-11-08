@@ -225,6 +225,7 @@ if __name__ == "__main__":
 
     @app.after_request
     def apply_global_headers(response):
+        response.headers["Content-Type"] = "application/json"
         response.headers["Link"] = "<https://json-ld.org/contexts/person.jsonld>; rel=\"http://www.w3.org/ns/json-ld#context\"; type=\"application/ld+json\""
         response.headers["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept"
         response.headers["Access-Control-Allow-Origin"] = "*"
