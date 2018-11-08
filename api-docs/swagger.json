@@ -182,7 +182,10 @@
           "content": {
             "$ref": "#/components/schemas/audioClip"
           },
-          "index": {"type": "integer"}
+          "index": {"type": "integer"},
+          "isMemberOf": {
+            "type": "string"
+          }
         }
       },
       "audioCollection": {

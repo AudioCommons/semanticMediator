@@ -9,14 +9,22 @@
     "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
     "from": {"@reverse": "schema:result"},
     "raisedBy": {"@reverse": "schema:error"},
-    "members": {"@id": "ac:memberNode", "@type": "@id", "@container": "@set"}
+    "members": {"@id": "ac:memberNode", "@type": "@id", "@container": "@set"},
+    "isMemberOf": {"@reverse": "ac:memberNode"}
   },
   "@requireAll": true,
   "@id": "$mainAction",
   "results": {
     "@order": "from.object",
     "members": {
-      "@order": "index"
+      "@order": "index",
+      "content": {
+        "defaultContainerNode": {
+          "isMemberOf": {
+            "@type": "ac:AudioCollection"
+          }
+        }
+      }
     },
     "from": {
       "@explicit": true,

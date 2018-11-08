@@ -1,4 +1,5 @@
 {
+  "@version": 1.1,
   "ac": "https://w3id.org/ac-ontology/aco#",
   "dc": "http://purl.org/dc/elements/1.1/",
   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -35,7 +36,7 @@
   "title": {"@id": "dc:title"},
   "description": {"@id": "dc:description"},
   "license": {"@id": "cc:license", "@type": "@id"},
-  "duration": {"@id": "ac:duration", "@type": "xsd:integer"},
+  "duration": {"@id": "ac:duration", "@type": "xsd:float"},
   "author": {"@id": "ac:author", "@type": "@id"},
   "images": {"@id": "ac:image", "@type": "@id", "@container": "@set"},
   "audioCategories": {"@id": "ac:audioCategory", "@type": "@id", "@container": "@set"},
@@ -43,6 +44,7 @@
   "originalFile": {"@id": "ac:originalFile", "@type": "@id"},
   "license": {"@id": "cc:license", "@type": "@id"},
   "defaultContainerNode": {"@id": "ac:defaultContainerNode", "@type": "@id"},
+  "isMemberOf": {"@reverse": "ac:memberNode"},
 
   "audioChannelNumber": {"@id": "ebu:audioChannelNumber", "@type": "xsd:integer"},
   "bitRate": {"@id": "ebu:bitRate", "@type": "xsd:integer"},
