@@ -40,7 +40,7 @@
   "author": {"@id": "ac:author", "@type": "@id"},
   "images": {"@id": "ac:image", "@type": "@id", "@container": "@set"},
   "audioCategories": {"@id": "ac:audioCategory", "@type": "@id", "@container": "@set"},
-  "availableAs": {"@id": "ac:available_as", "@type": "@id", "@container": "@set"},
+  "availableAs": {"@id": "ac:availableAs", "@type": "@id", "@container": "@set"},
   "originalFile": {"@id": "ac:originalFile", "@type": "@id"},
   "license": {"@id": "cc:license", "@type": "@id"},
   "defaultContainerNode": {"@id": "ac:defaultContainerNode", "@type": "@id"},
