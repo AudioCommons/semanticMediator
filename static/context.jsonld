@@ -7,7 +7,7 @@
   "prov": "http://www.w3.org/ns/prov#",
   "foaf": "http://xmlns.com/foaf/0.1/",
   "schema": "http://schema.org/",
-  "cc": "https://creativecommons.org/ns#",
+  "cc": "http://creativecommons.org/ns#",
   "ebu": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
   "skos": "http://www.w3.org/2004/02/skos/core#",
 
@@ -41,6 +41,8 @@
   "audioCategories": {"@id": "ac:audioCategory", "@type": "@id", "@container": "@set"},
   "availableAs": {"@id": "ac:available_as", "@type": "@id", "@container": "@set"},
   "originalFile": {"@id": "ac:originalFile", "@type": "@id"},
+  "license": {"@id": "cc:license", "@type": "@id"},
+  "defaultContainerNode": {"@id": "ac:defaultContainerNode", "@type": "@id"},
 
   "audioChannelNumber": {"@id": "ebu:audioChannelNumber", "@type": "xsd:integer"},
   "bitRate": {"@id": "ebu:bitRate", "@type": "xsd:integer"},
