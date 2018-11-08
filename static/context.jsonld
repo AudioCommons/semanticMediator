@@ -11,6 +11,7 @@
   "cc": "http://creativecommons.org/ns#",
   "ebu": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
   "skos": "http://www.w3.org/2004/02/skos/core#",
+  "mo": "http://purl.org/ontology/mo/",
 
   "mp3": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4",
   "ogg": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26",
@@ -40,6 +41,8 @@
   "author": {"@id": "ac:author", "@type": "@id"},
   "images": {"@id": "ac:image", "@type": "@id", "@container": "@set"},
   "audioCategories": {"@id": "ac:audioCategory", "@type": "@id", "@container": "@set"},
+  "genres": {"@id": "mo:genre", "@type": "@id", "@container": "@set"},
+  "instruments": {"@id": "mo:instrument", "@type": "@id", "@container": "@set"},
   "availableAs": {"@id": "ac:availableAs", "@type": "@id", "@container": "@set"},
   "originalFile": {"@id": "ac:originalFile", "@type": "@id"},
   "license": {"@id": "cc:license", "@type": "@id"},
