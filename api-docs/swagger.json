@@ -250,8 +250,7 @@
             ]
           },
           "object": {
-            "type": "string",
-            "enum": ["http://m2.audiocommons.org/"]
+            "$ref": "#/components/schemas/APIversion"
           },
           "query": {
             "type": "string",
@@ -264,6 +263,27 @@
           "errors": {
             "type": "array",
             "items": {"$ref": "#/components/schemas/error"}
+          }
+        }
+      },
+      "APIversion": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": ["doap:Version"]
+          },
+          "@id": {
+            "type": "string",
+            "example": "AC_API:v2.1.0"
+          },
+          "revision": {
+            "type": "string",
+            "example": "2.1.0"
+          },
+          "releaseOf": {
+            "type": "string",
+            "enum": ["https://m2.audiocommons.org/api/"]
           }
         }
       }
