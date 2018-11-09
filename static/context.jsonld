@@ -9,7 +9,6 @@
   "foaf": "http://xmlns.com/foaf/0.1/",
   "schema": "http://schema.org/",
   "cc": "http://creativecommons.org/ns#",
-  "cc-licenses": "http://creativecommons.org/licenses/",
   "ebu": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
   "skos": "http://www.w3.org/2004/02/skos/core#",
   "mo": "http://purl.org/ontology/mo/",

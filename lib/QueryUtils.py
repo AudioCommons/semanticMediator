@@ -111,9 +111,29 @@ class QueryUtils:
                 QueryUtils.executeOrder(item, order)
 
     @staticmethod
+    def invertContext(context):
+        invContext = {}
+        for k, v in context.items():
+            if isinstance(v, str):
+                invContext[v] = k
+        return invContext
+
+    @staticmethod
+    def dirtyCompactFullIRIs(input, invContext):
+        if isinstance(input, dict):
+            for key, value in input.items():
+                if isinstance(value, str) and (value in invContext):
+                    input[key] = invContext[value] + ":"
+                QueryUtils.dirtyCompactFullIRIs(value, invContext)
+        elif isinstance(input, list):
+            for item in input:
+                QueryUtils.dirtyCompactFullIRIs(item, invContext)
+
+    @staticmethod
     def frameAndCompact(input, frame, context):
         orderStruct = QueryUtils.getOrderFromFrame(frame)
         QueryUtils.addDatatypes(input)
+        QueryUtils.dirtyCompactFullIRIs(input, QueryUtils.invertContext(context))
         framedResults = jsonld.frame(input, frame)
         compactedResults = jsonld.compact(framedResults, context)
         if "@graph" in compactedResults:
