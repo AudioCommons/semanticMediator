@@ -9,10 +9,13 @@
   "foaf": "http://xmlns.com/foaf/0.1/",
   "schema": "http://schema.org/",
   "cc": "http://creativecommons.org/ns#",
+  "cc-licenses": "http://creativecommons.org/licenses/",
   "ebu": "http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#",
   "skos": "http://www.w3.org/2004/02/skos/core#",
   "mo": "http://purl.org/ontology/mo/",
+  "doap": "http://usefulinc.com/ns/doap#",
 
+  "ebu-codecs": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#",
   "mp3": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4",
   "ogg": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26",
   "wav": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_28",
@@ -27,6 +30,9 @@
   "errors": {"@id": "schema:error", "@type": "@id", "@container": "@set"},
   "startTime": {"@id": "schema:startTime", "@type": "xsd:dateTime"},
   "endTime": {"@id": "schema:endTime", "@type": "xsd:dateTime"},
+
+  "releaseOf": {"@reverse": "doap:release"},
+  "revision": {"@id": "doap:revision"},
 
   "members": {"@id": "ac:memberNode", "@type": "@id", "@container": "@set"},
   "index": {"@id": "ac:nodeIndex", "@type": "xsd:integer"},
@@ -73,6 +79,5 @@
   "jamendo-tags-instruments": "https://w3id.org/audiocommons/services/jamendo/tags/instruments/",
   "jamendo-tags-vartags": "https://w3id.org/audiocommons/services/jamendo/tags/vartags/",
 
-  "europeana-res": "https://w3id.org/audiocommons/services/europeana/resources"
-
+  "europeana-res": "https://w3id.org/audiocommons/services/europeana/resources/"
 }

@@ -18,6 +18,8 @@ import pdb
 # local requirements
 from .QueryUtils import *
 
+VERSION = "2.1.0"
+
 class AudioClipProcessor:
 
     def __init__(self, conf, stats):
@@ -36,11 +38,16 @@ class AudioClipProcessor:
     def error(pattern, msg):
         return {
             "@type": "schema:SearchAction",
-            "schema:query": pattern ,
+            "query": pattern ,
             # "schema:startTime": startTime ,
             # "schema:endTime": endTime ,
-            "schema:actionStatus": "schema:FailedActionStatus" ,
-            "schema:error": msg
+            "actionStatus": "schema:FailedActionStatus" ,
+            "error": msg,
+            "object": {
+                "@type": "doap:Version",
+                "revision": VERSION,
+                "releaseOf": "https://m2.audiocommons.org/"
+            }
         }
 
     def search(self, path, pattern, cacheEntryUuid, sources):
@@ -153,15 +160,20 @@ class AudioClipProcessor:
             try:
                 self.gs.sparqlUpdate("""
                     PREFIX schema: <http://schema.org/>
+                    PREFIX doap: <http://usefulinc.com/ns/doap#>
                     INSERT {
                         GRAPH <%s> {
                             <%s>
                                 a schema:SearchAction ;
-                                schema:object <https://m2.audiocommons.org/> ;
                                 schema:query "%s" ;
                                 schema:actionStatus schema:CompletedActionStatus ;
+                                schema:object <https://m2.audiocommons.org/v%s> ;
                                 schema:result ?result ;
                                 schema:error ?error .
+                            <https://m2.audiocommons.org/v%s>
+                                a doap:Version;
+                                doap:revision "%s".
+                            <https://m2.audiocommons.org/> doap:release <https://m2.audiocommons.org/v%s>.
                         }
                     }
                     WHERE {
@@ -171,7 +183,7 @@ class AudioClipProcessor:
                             UNION
                             {?action schema:error ?error}
                         }
-                    }""" % (graphURI, mainActionURI, pattern, graphURI))
+                    }""" % (graphURI, mainActionURI, pattern, VERSION, VERSION, VERSION, VERSION, graphURI))
             except Exception as e:
                 msg = "Error while collating results: " + e.text
                 logging.error(msg)
