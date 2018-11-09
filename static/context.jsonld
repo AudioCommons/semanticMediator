@@ -21,7 +21,7 @@
   "wav": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_28",
   "flac": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_22",
 
-  "AC_API": "https://m2.audiocommons.org/",
+  "AC_API": "https://m2.audiocommons.org/api/",
   "actionStatus": {"@id": "schema:actionStatus", "@type": "@id"},
   "acActions": "http://m2.audiocommons.org/actions/",
   "object": {"@id": "schema:object", "@type": "@id"},

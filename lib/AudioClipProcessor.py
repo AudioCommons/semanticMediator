@@ -167,13 +167,13 @@ class AudioClipProcessor:
                                 a schema:SearchAction ;
                                 schema:query "%s" ;
                                 schema:actionStatus schema:CompletedActionStatus ;
-                                schema:object <https://m2.audiocommons.org/v%s> ;
+                                schema:object <https://m2.audiocommons.org/api/v%s> ;
                                 schema:result ?result ;
                                 schema:error ?error .
-                            <https://m2.audiocommons.org/v%s>
+                            <https://m2.audiocommons.org/api/v%s>
                                 a doap:Version;
                                 doap:revision "%s".
-                            <https://m2.audiocommons.org/> doap:release <https://m2.audiocommons.org/v%s>.
+                            <https://m2.audiocommons.org/api/> doap:release <https://m2.audiocommons.org/api/v%s>.
                         }
                     }
                     WHERE {
