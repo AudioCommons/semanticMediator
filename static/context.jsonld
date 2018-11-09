@@ -71,6 +71,8 @@
   "jamendo-tags": "https://w3id.org/audiocommons/services/jamendo/tags/",
   "jamendo-tags-genres": "https://w3id.org/audiocommons/services/jamendo/tags/genres/",
   "jamendo-tags-instruments": "https://w3id.org/audiocommons/services/jamendo/tags/instruments/",
-  "jamendo-tags-vartags": "https://w3id.org/audiocommons/services/jamendo/tags/vartags/"
+  "jamendo-tags-vartags": "https://w3id.org/audiocommons/services/jamendo/tags/vartags/",
+
+  "europeana-res": "https://w3id.org/audiocommons/services/europeana/resources"
 
 }
