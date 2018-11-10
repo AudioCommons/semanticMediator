@@ -117,7 +117,7 @@ if __name__ == "__main__":
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, pattern)
+        cacheEntryUuid = cm.getEntryUiid(request.path, pattern, sources)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
@@ -127,7 +127,7 @@ if __name__ == "__main__":
 
         # store entry in cache
         if not cacheEntryUuid:
-            cm.setEntry(request.path, pattern, req_id)
+            cm.setEntry(request.path, pattern, sources, req_id)
 
         # return
         return results
@@ -141,7 +141,7 @@ if __name__ == "__main__":
         descriptor = request.args.get("plugin")
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id)
+        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id, source)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
@@ -151,7 +151,7 @@ if __name__ == "__main__":
 
         # store entry in cache
         if not cacheEntryUuid:
-            cm.setEntry(request.path, audioclip_id, req_id)
+            cm.setEntry(request.path, audioclip_id, source, req_id)
 
         # return
         return results
@@ -164,7 +164,7 @@ if __name__ == "__main__":
         source = request.args.get("source")
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id)
+        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id, source)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
         # store entry in cache
         if not cacheEntryUuid:
-            cm.setEntry(request.path, audioclip_id, req_id)
+            cm.setEntry(request.path, audioclip_id, source, req_id)
 
         # return
         return results
@@ -195,7 +195,7 @@ if __name__ == "__main__":
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, pattern)
+        cacheEntryUuid = cm.getEntryUiid(request.path, pattern, sources)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
@@ -205,7 +205,7 @@ if __name__ == "__main__":
 
         # store entry in cache
         if not cacheEntryUuid:
-            cm.setEntry(request.path, pattern, req_id)
+            cm.setEntry(request.path, pattern, sources, req_id)
 
         # return
         return results
