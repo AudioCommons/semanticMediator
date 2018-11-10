@@ -31,5 +31,5 @@ class GraphStoreClient:
 
     def insertRDF(self, rdfTxt, graph=None, contentType='text/turtle'):
         parameters = {self.conf['insert-rdf-graphParam']: graph} if graph is not None else {}
-        response = requests.post(self.conf['insert-rdf-url'], params=parameters, headers={'Content-Type': contentType}, data=rdfTxt)
+        response = requests.post(self.conf['insert-rdf-url'], params=parameters, headers={'Content-Type': contentType + "; charset=utf8"}, data=rdfTxt.encode("utf-8"))
         response.raise_for_status()

@@ -6,7 +6,7 @@
   } ],
   "info" : {
     "description" : "Creative Commons encourages the reuse of creative works by offering them under generous, standardized terms.\n\n[AudioCommons](http://audiocommons.org) is an EU funded project that provides access to Creative Commons licensed audio and develops search, retrieval and audio production tools embedded in Digital Audio Workstations and sound design software.\n\nOur API offers the largest collection of audio content from Freesound, Jamendo and Europeana sounds including sound effects, field recordings, loops, samples and music available under permissive licenses. It also provides a unified search interface.\n",
-    "version" : "2.2.1",
+    "version" : "2.2.2",
     "title" : "AudioCommons Mediator",
     "contact" : {
       "email" : "m.ceriani@qmul.ac.uk"
@@ -275,11 +275,11 @@
           },
           "@id": {
             "type": "string",
-            "example": "AC_API:v2.2.1"
+            "example": "AC_API:v2.2.2"
           },
           "revision": {
             "type": "string",
-            "example": "2.2.1"
+            "example": "2.2.2"
           },
           "releaseOf": {
             "type": "string",
