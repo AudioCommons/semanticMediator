@@ -78,7 +78,7 @@ class ConfigManager:
                         raise MediatorConfigManagerException("Extension '%s' config should have 'general.exists' key!" % (extensionName))
                     if 'active' not in generalExtensionConfig:
                         raise MediatorConfigManagerException("Extension '%s' config should have 'general.active' key!" % (extensionName))
-                    
+
                     self.extensions[extensionName] = self.config["extensions"][extensionName];
 
         except (KeyError, TypeError):
@@ -136,7 +136,7 @@ class ConfigManager:
 
                                 # if a key is given, put it into the mapping!
                                 if cp in self.config["contentProviders"]["keys"]:
-                                    q = q.replace("$token", self.config["contentProviders"]["keys"][cp])
+                                    q = q.replace("$token", "\"" + self.config["contentProviders"]["keys"][cp] + "\"")
 
                                 # store the mapping
                                 self.mappings[entity][action][cp] = q
@@ -176,4 +176,3 @@ class ConfigManager:
                 return False;
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Problem accessing '%s' extension in configuration file: " % extensionName)
-        

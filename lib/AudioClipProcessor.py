@@ -139,7 +139,8 @@ class AudioClipProcessor:
                     datetimeNow = "\"" + datetime.datetime.now().isoformat() + "\"" + "^^<http://www.w3.org/2001/XMLSchema#dateTime>"
 
                     # build the SPARQL-generate query
-                    sg_query = self.conf.mappings["audioclips"]["search"][cp].replace("$pattern", pattern).replace("$startTime", datetimeNow)
+                    baseQuery = self.conf.mappings["audioclips"]["search"][cp]
+                    sg_query = baseQuery.replace("$pattern", "\"" + pattern + "\"").replace("$startTime", datetimeNow)
 
                     # for every mapping spawn a thread
                     t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
