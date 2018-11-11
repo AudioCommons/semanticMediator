@@ -41,7 +41,7 @@
     window.onload = function() {
       // Begin Swagger UI call region
       const ui = SwaggerUIBundle({
-        url: "http://m2.audiocommons.org/swagger.json",
+        url: window.location.protocol + "//" + window.location.host + "/swagger.json",
         dom_id: '#swagger-ui',
         deepLinking: true,
         presets: [
