@@ -1,7 +1,10 @@
 {
   "openapi" : "3.0.0",
   "servers" : [ {
-    "description" : "Main Access Point",
+    "description" : "HTTPS Access Point",
+    "url" : "https://m2.audiocommons.org/api"
+  }, {
+    "description" : "HTTP Access Point",
     "url" : "http://m2.audiocommons.org/api"
   } ],
   "info" : {
