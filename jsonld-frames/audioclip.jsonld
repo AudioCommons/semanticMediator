@@ -19,6 +19,8 @@
     "releaseOf": {}
   },
   "results": {
+    "@requireAll": false,
+    "@type": "ac:AudioCollection",
     "@order": "from.object",
     "members": {
       "@order": "index",
