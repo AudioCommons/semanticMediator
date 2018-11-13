@@ -11,6 +11,22 @@ from pyld import jsonld
 class QueryUtils:
 
     @staticmethod
+    def splitPrologueFromGenerateQuery(query):
+        generateIndex = query.upper().find("\nGENERATE")
+        return query[:generateIndex], query[generateIndex:]
+
+    @staticmethod
+    def bindInGenerateQuery(query, bindings):
+        prologue, originalQuery = QueryUtils.splitPrologueFromGenerateQuery(query)
+        return prologue + '''
+            GENERATE {
+            ''' + originalQuery + '''.
+            }
+            WHERE {
+            ''' + " ".join((map(lambda p: "BIND(" + p[1] + " AS $" + p[0] + ").", bindings.items()))) + '''
+            } '''
+
+    @staticmethod
     def getTriplesFromTurtle(turtle):
 
         # # parse turtle file

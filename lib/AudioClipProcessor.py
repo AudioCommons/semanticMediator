@@ -19,6 +19,7 @@ import pdb
 from .QueryUtils import *
 
 VERSION = "2.2.2"
+DEFAULT_RESULTS_LIMIT = 12
 
 class AudioClipProcessor:
 
@@ -140,7 +141,14 @@ class AudioClipProcessor:
 
                     # build the SPARQL-generate query
                     baseQuery = self.conf.mappings["audioclips"]["search"][cp]
-                    sg_query = baseQuery.replace("$pattern", "\"" + pattern + "\"").replace("$startTime", datetimeNow)
+                    sg_query = QueryUtils.bindInGenerateQuery(baseQuery, {
+                        "pattern": "\"" + pattern + "\"",
+                        "startTime": datetimeNow,
+                        "limit": str(DEFAULT_RESULTS_LIMIT)
+                    })
+                    # sg_query = baseQuery.replace("$pattern", "\"" + pattern + "\"").replace("$startTime", datetimeNow)
+                    logging.debug('Modified query')
+                    logging.debug(sg_query)
 
                     # for every mapping spawn a thread
                     t = threading.Thread(target=worker, args=(self.conf, sg_query, cp))
