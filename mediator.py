@@ -96,12 +96,14 @@ if __name__ == "__main__":
 
         Arguments:
         pattern - what we are searching for
+        limit - max number of results from each provider
         source - what sources from
         nocache - avoid cache
         """
 
         # read arguments
         pattern = request.args.get("pattern")
+        limit = request.args.get("limit")
 
         if conf.isExtensionActive("space.colabo.search_extension"):
             flow = request.args.get("flow")
@@ -116,18 +118,23 @@ if __name__ == "__main__":
 
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
+        queryParams = {
+            "pattern": pattern,
+            "limit": limit
+        }
+
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, pattern, sources)
+        cacheEntryUuid = cm.getEntryUiid(request.path, queryParams, sources)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
-        results, req_id = tp.search(request.path, pattern, cacheEntryUuid, sources)
+        results, req_id = tp.search(request.path, queryParams, cacheEntryUuid, sources)
 
         # store entry in cache
         if not cacheEntryUuid:
-            cm.setEntry(request.path, pattern, sources, req_id)
+            cm.setEntry(request.path, queryParams, sources, req_id)
 
         # return
         return results

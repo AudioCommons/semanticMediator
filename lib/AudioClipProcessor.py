@@ -18,7 +18,7 @@ import pdb
 # local requirements
 from .QueryUtils import *
 
-VERSION = "2.2.2"
+VERSION = "2.3.1"
 DEFAULT_RESULTS_LIMIT = 12
 
 class AudioClipProcessor:
@@ -36,10 +36,10 @@ class AudioClipProcessor:
         if 'graphstore' in self.conf.tools:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
-    def error(pattern, msg):
+    def error(params, msg):
         return {
             "@type": "schema:SearchAction",
-            "query": pattern ,
+            "query": params["pattern"] ,
             # "schema:startTime": startTime ,
             # "schema:endTime": endTime ,
             "actionStatus": "schema:FailedActionStatus" ,
@@ -51,11 +51,11 @@ class AudioClipProcessor:
             }
         }
 
-    def search(self, path, pattern, cacheEntryUuid, sources):
+    def search(self, path, params, cacheEntryUuid, sources):
         """
         Performs search for audioclips
         :param path:
-        :param pattern: what we are searching against
+        :param params: dictionary of query parameteres (pattern: what we are searching against)
         :param cacheEntryUuid: a string reference to a cache entry stored in a graphstore (it forms: `graphURI = "http://ns#%s" % cacheEntryUuid`)
         :param sources: sources we should search against, can be None (=all)
         :return results: a JSON response of metadata and results
@@ -135,16 +135,16 @@ class AudioClipProcessor:
 
                 if (sources and cp in sources) or (not sources):
 
-                    logging.debug("Searching for %s on %s" % (pattern, cp))
+                    logging.debug("Searching for %s on %s" % (params["pattern"], cp))
 
                     datetimeNow = "\"" + datetime.datetime.now().isoformat() + "\"" + "^^<http://www.w3.org/2001/XMLSchema#dateTime>"
 
                     # build the SPARQL-generate query
                     baseQuery = self.conf.mappings["audioclips"]["search"][cp]
                     sg_query = QueryUtils.bindInGenerateQuery(baseQuery, {
-                        "pattern": "\"" + pattern + "\"",
+                        "pattern": "\"" + params["pattern"] + "\"",
                         "startTime": datetimeNow,
-                        "limit": str(DEFAULT_RESULTS_LIMIT)
+                        "limit": str(params["limit"] or DEFAULT_RESULTS_LIMIT)
                     })
                     # sg_query = baseQuery.replace("$pattern", "\"" + pattern + "\"").replace("$startTime", datetimeNow)
                     logging.debug('Modified query')
@@ -192,14 +192,14 @@ class AudioClipProcessor:
                             UNION
                             {?action schema:error ?error}
                         }
-                    }""" % (graphURI, mainActionURI, pattern, VERSION, VERSION, VERSION, VERSION, graphURI))
+                    }""" % (graphURI, mainActionURI, params["pattern"], VERSION, VERSION, VERSION, VERSION, graphURI))
             except Exception as e:
                 msg = "Error while collating results: " + e.text
                 logging.error(msg)
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
-                return json.dumps(error(msg)), -1
+                return json.dumps(error(params, msg)), -1
             try:
                 resultsTurtle = self.gs.getGraph(graphURI)
                 g = rdflib.Graph()
@@ -217,7 +217,7 @@ class AudioClipProcessor:
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
-                return json.dumps(error(msg)), -1
+                return json.dumps(error(params, msg)), -1
 
         else:
             # assembly results
@@ -243,7 +243,7 @@ class AudioClipProcessor:
                 logging.error(msg)
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
-                return json.dumps(error(msg)), -1
+                return json.dumps(error(params, msg)), -1
 
         # return
         self.stats.requests["successful"] += 1
