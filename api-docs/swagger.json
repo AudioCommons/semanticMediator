@@ -49,6 +49,17 @@
             "example": 5
           },
           {
+            "name" : "page",
+            "in" : "query",
+            "description" : "Page of results (for all the sources)",
+            "required" : false,
+            "schema" : {
+              "type" : "integer",
+              "default": 1
+            },
+            "example": 1
+          },
+          {
             "name" : "source",
             "in" : "query",
             "description" : "Optionally choose the sources to use (by default all of them are used)",

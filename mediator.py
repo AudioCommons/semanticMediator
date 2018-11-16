@@ -97,6 +97,7 @@ if __name__ == "__main__":
         Arguments:
         pattern - what we are searching for
         limit - max number of results from each provider
+        page - page of results (for all the providers)
         source - what sources from
         nocache - avoid cache
         """
@@ -104,6 +105,7 @@ if __name__ == "__main__":
         # read arguments
         pattern = request.args.get("pattern")
         limit = request.args.get("limit")
+        page = request.args.get("page")
 
         if conf.isExtensionActive("space.colabo.search_extension"):
             flow = request.args.get("flow")
@@ -120,7 +122,8 @@ if __name__ == "__main__":
 
         queryParams = {
             "pattern": pattern,
-            "limit": limit
+            "limit": limit,
+            "page": page
         }
 
         # see if the request is present in cache

@@ -144,7 +144,8 @@ class AudioClipProcessor:
                     sg_query = QueryUtils.bindInGenerateQuery(baseQuery, {
                         "pattern": "\"" + params["pattern"] + "\"",
                         "startTime": datetimeNow,
-                        "limit": str(params["limit"] or DEFAULT_RESULTS_LIMIT)
+                        "limit": str(params["limit"] or DEFAULT_RESULTS_LIMIT),
+                        "page": str(params["page"] or 1)
                     })
                     # sg_query = baseQuery.replace("$pattern", "\"" + pattern + "\"").replace("$startTime", datetimeNow)
                     logging.debug('Modified query')
