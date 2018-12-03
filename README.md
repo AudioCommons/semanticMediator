@@ -211,6 +211,8 @@ cd SEPA
 java -jar engine-v0.9.1.jar
 ```
 
+3rd terminal. Run SPARQL-generator web service:
+
 ```sh
 cd sparql-generate-ws/
 java -jar target/sparql-generate-ws.jar 6060
@@ -218,6 +220,13 @@ java -jar target/sparql-generate-ws.jar 6060
 
 ```sh
 source qmul-infrastructure-2-env/bin/activate
+cd semanticMediator-ng
+# cd /var/repos/semanticMediator-ng/
+# source /var/services/qmul-infrastructure-2-env/bin/activate
+
+python3 mediator.py -c <CONFIG_FILE.yaml>
+# for example
+python3 mediator.py -c mediaconf.yaml
 ```
 
 # Tests
