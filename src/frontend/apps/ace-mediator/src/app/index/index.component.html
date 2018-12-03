@@ -1,0 +1,64 @@
+<div fxLayout="column" fxFlexFill style="height: 100%;">
+
+    <!-- toolbar -->
+    <div fxFlex="64px" style="overflow-y: hidden;">
+        <mat-toolbar class="toolbar flexible mat-theme-indigo" color="primary" style="width: 100%;">
+            <img src="/assets/images/logo.jpg" height="55px" style="margin-right: 7px; opacity: 0.9; border-radius: 7px;" /> Mediator Interface @ ACE
+        </mat-toolbar>
+    </div>
+
+    <div fxFlex style="/*background-color: yellow;*/ overflow-y:scroll; margin: 15px">
+        <!--TODO: to make localized (in Serbian) form field names and info -->
+        <div *ngIf="isLoggedIn">
+            <p>
+                Hi,
+                <b>{{loggedUser?.dataContent?.firstName}} ACE-ian</b>. <br/> You can:
+            </p>
+            <p>
+                <a routerLink="/colaboflow-audits">
+                    <button mat-raised-button color="primary" style="width: 75%; max-width: 500px;">ColaboFlow Audits</button>
+                </a>
+            </p>
+
+            <hr/>
+            <p style="text-align: center">
+                <img src="/assets/images/audio-commons-logo-horizontal_1800px.png" height="30px" style="margin-right: 7px; opacity: 0.9; border-radius: 7px;" />
+            </p>
+
+            <!-- <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <hr/>
+
+            <p>
+                <a routerLink="/moderator">
+                    <button mat-raised-button color="primary" style="width: 75%; max-width: 500px;">M</button>
+                </a>
+            </p> -->
+
+        </div>
+
+        <div *ngIf="!isLoggedIn">
+            <p>
+                If you <b>have account</b> please:
+            </p>
+            <a routerLink="/rima-login">
+                <button mat-raised-button color="primary">Login</button>
+            </a>
+
+            <p>
+                or register first if you <b>do not have account:</b>
+            </p>
+            <a routerLink="/rima-register">
+                <button mat-raised-button color="primary">Register</button>
+            </a>
+
+        </div>
+    </div>
+</div>

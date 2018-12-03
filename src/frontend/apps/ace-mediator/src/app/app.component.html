@@ -1,0 +1,44 @@
+<!-- logo -->
+<div style="
+          position: absolute;
+          z-index: -2000;
+          top: 100px;
+          right: 10px;
+          color: blue;
+          opacity: 0.5;
+      ">
+    <img class="bg-logo" src="/assets/images/colabo-logo-url-square-trans.jpg" />
+</div>
+
+<div style="
+  background-color: #aaaaff;
+  visibility:hidden;
+  position: absolute;
+  z-index: 2000;
+  bottom: 5px;
+  right: 5px;
+  color: blue;
+  opacity: 0.75;
+">
+    <nav> <!-- this is hidden through CSS. IndexComponent is used instead for Home Navigation -->
+        <a routerLink="/" routerLinkActive="active">Home</a>
+        <a routerLink="/rima-register" routerLinkActive="active">Register</a>
+        <a routerLink="/rima-login" routerLinkActive="active">Login</a>
+        <a routerLink="/select-sdgs" routerLinkActive="active">Select SDGs</a>
+        <a routerLink="/cwc" routerLinkActive="active">Coaching</a>
+        <a routerLink="/avatar" routerLinkActive="active">Avatar (Work in Progress)</a>
+        <!-- <a routerLink="/insights" routerLinkActive="active">Insights</a> -->
+        <!-- <a routerLink="/ui-sms" routerLinkActive="active">SMS Interaction</a>
+        <a routerLink="/prompts-presentation" routerLinkActive="active">Prompts Presentation</a>
+        <a routerLink="/users-profiling" routerLinkActive="active">Users Profiling</a>
+        <a routerLink="/users-clustering" routerLinkActive="active">Users Clustering</a>
+        <a routerLink="/users-population" routerLinkActive="active">Users Population</a>
+        <a routerLink="/tags-population" routerLinkActive="active">Tags Population</a>
+        <a routerLink="/users-groups" routerLinkActive="active">User Groups</a> -->
+    </nav>
+</div>
+
+<div class="full-container" style="/*background-color: red;*/ ">
+    <!-- the <router-outlet> tells the router where to display routed views -->
+    <router-outlet></router-outlet>
+</div>

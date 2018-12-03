@@ -1,0 +1,17 @@
+/* .button
+.mat-button
+{
+  background-color: lightblue;
+} */
+
+.clickable{
+  cursor: pointer;
+}
+
+.bg-logo{
+  width:300px;
+}
+
+.hidden {
+  display:none;
+}
