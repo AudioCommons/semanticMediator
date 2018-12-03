@@ -46,7 +46,7 @@ if (!globalSet.hasOwnProperty('dbConfig')) {
     console.log("Setting up globalSet.dbConfig");
     globalSet.dbConfig = {
         newConnect: true,
-        dbName: "KnAllEdge",
+        dbName: "ACE",
         domain: '127.0.0.1',
         port: 27017,
         user: 'user',
@@ -57,24 +57,6 @@ if (!globalSet.hasOwnProperty('dbConfig')) {
 if (!globalSet.hasOwnProperty('puzzles')) {
     console.log("Setting up globalSet.puzzles");
     globalSet.puzzles = {
-        '@colabo-topichat/b-core': {
-            debug: false
-        },
-        '@colabo-topichat/b-talk': {
-            saveTalkToMap: false,
-            emitMessages: true,
-            mapId: "5be3fddce1b7970d8c6df406",
-            iAmId: "1b96619b86f3cc8057216a05",
-            nodeId: ""
-        },
-        '@colabo-topichat/b-clients-orchestration': {
-            saveTalkToMap: true,
-            emitMessages: true,
-            emitMessagesToSender: true,
-            mapId: "5be3fddce1b7970d8c6df406",
-            iAmId: "1b96619b86f3cc8057216a05",
-            nodeId: ""
-        },
         '@colabo-flow/b-services': {
             debug: true,
 
@@ -93,15 +75,6 @@ if (!globalSet.hasOwnProperty('puzzles')) {
             shouldListenOnSeparateResponseQueue: false,
             separateResponseQueue: 'colabo-service-response'
                 // separateResponseQueue: 'colabo-service-response-localhost'
-        },
-        '@colabo-flow/b-topichat': {
-            saveFlowInteractionToMap: true,
-            mockupQueueAccess: false,
-            mapId: "5be3fddce1b7970d8c6df406"
-        },
-        '@colabo-media/b-upload': {
-            tmpUpload: '/tmp/uploads',
-            imagesFolder: '/tmp/images'
         }
     };
 }

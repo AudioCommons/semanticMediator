@@ -32,7 +32,12 @@ if (!globalSet.hasOwnProperty('general')) {
         //OLD:
         // 'http://api.colabo.space',
         // 'http://158.39.75.120:6001', // colabo-space-1 (old)
-
+        branding: {
+            title: "ACE-Mediator",
+            toolbarTitle: "Mediator Interface @ ACE",
+            subToolbarTitle: "@ ACE Mediator",
+            logo: "/assets/images/logo.jpg"
+        },
         imagesFolder: 'images',
 
         // active map
@@ -67,6 +72,40 @@ if (!globalSet.hasOwnProperty('puzzles')) {
         '@colabo-topichat/f-talk': {
             messagesNumberMin: 3,
             messagesNumberMax: 5
+        },
+        '@colabo-flow/f-audit': {
+            flowImages: [{
+                name: 'search',
+                imageUrl: "/assets/images/flows/flow-search.jpg",
+                actions: [{
+                        name: 'start',
+                        selectArea: {
+                            x: 55,
+                            y: 165,
+                            width: 40,
+                            height: 40
+                        }
+                    },
+                    {
+                        name: 'searchSoundsNoCache',
+                        selectArea: {
+                            x: 115,
+                            y: 155,
+                            width: 60,
+                            height: 40
+                        }
+                    },
+                    {
+                        name: 'searchSoundsWithCache',
+                        selectArea: {
+                            x: 280,
+                            y: 120,
+                            width: 60,
+                            height: 40
+                        }
+                    }
+                ]
+            }]
         }
     };
 }
