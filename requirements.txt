@@ -8,6 +8,5 @@ flask==1.0.2
 # check README.md for sepy
 # sepy, https://github.com/arces-wot/SEPA-python3-APIs
 
-# word-forms service
-rpyc
-nltk
+# colabo.space
+colabo.flow.audit
