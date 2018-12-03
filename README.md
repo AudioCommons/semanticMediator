@@ -1,4 +1,6 @@
-# Java
+# Install
+
+## Java
 
 ***NOTE***: It seems that BlazeGraph has problem with Java v10.0.0
 + https://github.com/blazegraph/database/issues/89
@@ -19,7 +21,30 @@ sudo update-alternatives --config java
 java -version
 ```
 
-# Before running the mediator
+## Preparing virtual environment
+
+```sh
+sudo -H virtualenv qmul-infrastructure-2-env
+sudo chown -R `whoami` qmul-infrastructure-2-env
+source qmul-infrastructure-2-env/bin/activate
+sudo -H python -m pip install -r requirements.txt
+```
+
+### Installing dependencies
+
+```sh
+pip3 install virtualenv
+ /home/mprinc/.local/bin/virtualenv
+# probably some better place later
+cd /var/services
+/home/mprinc/.local/bin/virtualenv qmul-infrastructure-2-env
+source /var/services/qmul-infrastructure-2-env/bin/activate
+cd /var/repos/semanticMediator-ng/
+pip3 install -r requirements.txt
+# pip3 install rpyc
+```
+
+## Blazegraph & SEPA
 
 Ensure you have a running instance of Blazegraph and SEPA. They can be downloaded from [GitHub](https://github.com/desmovalvo/FFSEPABins.git).
 To run blazegraph, enter in folder `Endpoints` and run:
@@ -37,29 +62,17 @@ cd SEPA
 java -jar engine-v0.9.1.jar
 ```
 
-# Installing
-
-## Preparing virtual environment
+### Install sepy library
 
 ```sh
-sudo -H virtualenv qmul-infrastructure-2-env
-sudo chown -R `whoami` qmul-infrastructure-2-env
-source qmul-infrastructure-2-env/bin/activate
-sudo -H python -m pip install -r requirements.txt
-```
-
-## Installing dependencies
-
-```sh
-pip3 install virtualenv
- /home/mprinc/.local/bin/virtualenv
-# probably some better place later
-cd /var/services
-/home/mprinc/.local/bin/virtualenv qmul-infrastructure-2-env
+git clone https://github.com/arces-wot/SEPA-python3-APIs
+cd SEPA-python3-APIs/
+# cd /var/repos/SEPA-python3-APIs
 source /var/services/qmul-infrastructure-2-env/bin/activate
 cd /var/repos/semanticMediator-ng/
-pip3 install -r requirements.txt
-# pip3 install rpyc
+python3 setup.py build
+# this you might to run as sudo if you do not use virtual environment
+python3 setup.py install
 ```
 
 ## Installing sparqlGenerate
@@ -147,27 +160,16 @@ cd sparql-generate-ws
 java -jar target/sparql-generate-ws.jar 6060
 ```
 
-## Install external git mappings
+## Installing Mediator
+
+### Install external git mappings
 
 ```sh
 git submodule init
 git submodule update
 ```
 
-## Install sepy library
-
-```sh
-git clone https://github.com/arces-wot/SEPA-python3-APIs
-cd SEPA-python3-APIs/
-# cd /var/repos/SEPA-python3-APIs
-source /var/services/qmul-infrastructure-2-env/bin/activate
-cd /var/repos/semanticMediator-ng/
-python3 setup.py build
-# this you might to run as sudo if you do not use virtual environment
-python3 setup.py install
-```
-
-# Configuring the mediator
+## Configuring the mediator
 
 There is a default version of the YAML configuration file `mediaconf.example.yaml` that you should copy into `mediaconf.yaml` and set properly.
 
@@ -175,7 +177,7 @@ Edit the YAML configuration file to add your API keys for Freesound, Jamendo and
 
 If needed, change the URIs of the underlying services (SEPA, SPARQL-Generate) as needed.
 
-# Running the mediator
+## Running the mediator
 
 ```sh
 cd semanticMediator-ng
@@ -185,6 +187,37 @@ cd semanticMediator-ng
 python3 mediator.py -c <CONFIG_FILE.yaml>
 # for example
 # python3 mediator.py -c mediaconf.yaml
+```
+
+# Run
+
+```sh
+# cd /Users/sasha/Documents/data/development/QMUL/infrastructure-2
+cd <mediator-repos>
+```
+
+1st terminal. Run blazegraph:
+
+```sh
+cd SEPA
+java -jar blazegraph.jar
+```
+
+2nd terminal. Run SEPA:
+
+```sh
+cd SEPA
+# java -jar SEPAEngine_0.8.4.jar
+java -jar engine-v0.9.1.jar
+```
+
+```sh
+cd sparql-generate-ws/
+java -jar target/sparql-generate-ws.jar 6060
+```
+
+```sh
+source qmul-infrastructure-2-env/bin/activate
 ```
 
 # Tests
