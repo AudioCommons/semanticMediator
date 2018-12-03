@@ -1,0 +1,2349 @@
+{
+    "@id": "http://m2.audiocommons.org/actions/7fdcd74e-fc57-43f6-8928-2e7e655ef342",
+    "@type": "schema:SearchAction",
+    "actionStatus": "schema:CompletedActionStatus",
+    "object": "https://m2.audiocommons.org/",
+    "query": "dog",
+    "result": [{
+            "from": {
+                "@type": "schema:SearchAction",
+                "actionStatus": "schema:CompletedActionStatus",
+                "endTime": "2018-11-01T14:49:03.789000+00:00",
+                "object": "http://freesound.org",
+                "startTime": "2018-11-01T14:49:02.951000+00:00"
+            },
+            "@type": "ac:AudioCollection",
+            "members": [{
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/398729",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "A dog scratching at a sidelight.\r\n\r\nRecorded with a Tascam DR-40.",
+                        "dc:title": "dog - scratch at door - front 01.wav",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratch",
+                            "https://w3id.org/audiocommons/services/freesound/tags/window",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratching",
+                            "https://w3id.org/audiocommons/services/freesound/tags/sidelight",
+                            "https://w3id.org/audiocommons/services/freesound/tags/door",
+                            "https://w3id.org/audiocommons/services/freesound/tags/sidelite",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratched"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Anthousai",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398729_5923045-hq.mp3"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398729_5923045-lq.ogg"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398729_5923045-hq.ogg"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398729_5923045-lq.mp3"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b64"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 787.177,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398729_5923045_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398729_5923045_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398729_5923045_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398729_5923045_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b64",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 96000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 14
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/276267",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "Recording of my alaskan malamute barking.",
+                        "dc:title": "Mr Dog_01.wav",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/Creature",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Big",
+                            "https://w3id.org/audiocommons/services/freesound/tags/wolf",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Growl",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/growling",
+                            "https://w3id.org/audiocommons/services/freesound/tags/angry"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/apolloaiello",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/276/276267_5284496-hq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/276/276267_5284496-hq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/276/276267_5284496-lq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/276/276267_5284496-lq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b145"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 79776.5,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/276/276267_5284496_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/276/276267_5284496_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/276/276267_5284496_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/276/276267_5284496_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b145",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 1,
+                            "ebu:sampleRate": 44100.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 5
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/413758",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "A dog barking",
+                        "dc:title": "dogbarking.mp3",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/big",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/lala_davis554",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/413/413758_7958399-hq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 0
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/413/413758_7958399-lq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 0
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/413/413758_7958399-lq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 0
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/413/413758_7958399-hq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 0
+                            },
+                            {
+                                "@id": "_:b93"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 8867.119999999999,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/413/413758_7958399_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/413/413758_7958399_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/413/413758_7958399_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/413/413758_7958399_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b93",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 44100.0,
+                            "ebu:sampleSize": 0
+                        }
+                    },
+                    "ac:nodeIndex": 4
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/421810",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "This was recording near a dog crate with dogs",
+                        "dc:title": "dogs_1.WAV",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/outdoor",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/woof",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/growling"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/lupalenzuela",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/421/421810_2286319-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/421/421810_2286319-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/421/421810_2286319-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/421/421810_2286319-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b79"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 87374.7,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/421/421810_2286319_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/421/421810_2286319_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/421/421810_2286319_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/421/421810_2286319_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b79",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 8
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/321178",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "A squeaker toy that my dog enjoys a great deal. Captured with yeti mic.",
+                        "dc:title": "Dog squeak toy",
+                        "license": "http://creativecommons.org/licenses/by/3.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/ball",
+                            "https://w3id.org/audiocommons/services/freesound/tags/squeaker",
+                            "https://w3id.org/audiocommons/services/freesound/tags/squeeze",
+                            "https://w3id.org/audiocommons/services/freesound/tags/squeak",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/toy"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Jickle",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321178_5444324-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321178_5444324-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321178_5444324-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321178_5444324-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@id": "_:b171"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 3720.65,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321178_5444324_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321178_5444324_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321178_5444324_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321178_5444324_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b171",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 1,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 32
+                        }
+                    },
+                    "ac:nodeIndex": 11
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/327666",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "A furious dog barking.\r\n\r\n",
+                        "dc:title": "Dog Bark.wav",
+                        "license": "http://creativecommons.org/licenses/by-nc/3.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/dogs",
+                            "https://w3id.org/audiocommons/services/freesound/tags/roar",
+                            "https://w3id.org/audiocommons/services/freesound/tags/woof",
+                            "https://w3id.org/audiocommons/services/freesound/tags/yap",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barked",
+                            "https://w3id.org/audiocommons/services/freesound/tags/aggressive",
+                            "https://w3id.org/audiocommons/services/freesound/tags/shout",
+                            "https://w3id.org/audiocommons/services/freesound/tags/breaking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/big",
+                            "https://w3id.org/audiocommons/services/freesound/tags/yell",
+                            "https://w3id.org/audiocommons/services/freesound/tags/OWI",
+                            "https://w3id.org/audiocommons/services/freesound/tags/fierce",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bawl",
+                            "https://w3id.org/audiocommons/services/freesound/tags/yelp",
+                            "https://w3id.org/audiocommons/services/freesound/tags/thunder",
+                            "https://w3id.org/audiocommons/services/freesound/tags/intimidating",
+                            "https://w3id.org/audiocommons/services/freesound/tags/angrily",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bay",
+                            "https://w3id.org/audiocommons/services/freesound/tags/snap",
+                            "https://w3id.org/audiocommons/services/freesound/tags/cry",
+                            "https://w3id.org/audiocommons/services/freesound/tags/snarl",
+                            "https://w3id.org/audiocommons/services/freesound/tags/aggressively",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bellow",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/growl",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Juan_Merie_Venter",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/327/327666_5632380-lq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/327/327666_5632380-lq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/327/327666_5632380-hq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/327/327666_5632380-hq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b206"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 6472.47,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/327/327666_5632380_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/327/327666_5632380_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/327/327666_5632380_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/327/327666_5632380_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b206",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 44100.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 2
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/398728",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "A dog scratching at a sidelight.\r\n\r\nRecorded with a Tascam DR-40.",
+                        "dc:title": "dog - scratch at door - front 02.wav",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/sidelight",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratch",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratching",
+                            "https://w3id.org/audiocommons/services/freesound/tags/sidelite",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratched",
+                            "https://w3id.org/audiocommons/services/freesound/tags/door",
+                            "https://w3id.org/audiocommons/services/freesound/tags/window"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Anthousai",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398728_5923045-hq.ogg"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398728_5923045-hq.mp3"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398728_5923045-lq.ogg"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398728_5923045-lq.mp3"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b187"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 800.01,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398728_5923045_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398728_5923045_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398728_5923045_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398728_5923045_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b187",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 96000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 13
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/321179",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "My small dog growling near the mic. Captured on a USB yeti mic.",
+                        "dc:title": "Small growling dog",
+                        "license": "http://creativecommons.org/licenses/by/3.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/small",
+                            "https://w3id.org/audiocommons/services/freesound/tags/beast",
+                            "https://w3id.org/audiocommons/services/freesound/tags/grunt",
+                            "https://w3id.org/audiocommons/services/freesound/tags/moan",
+                            "https://w3id.org/audiocommons/services/freesound/tags/miniature",
+                            "https://w3id.org/audiocommons/services/freesound/tags/groan",
+                            "https://w3id.org/audiocommons/services/freesound/tags/guttural",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/growl"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Jickle",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321179_5444324-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321179_5444324-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321179_5444324-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 1,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/321/321179_5444324-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 32
+                            },
+                            {
+                                "@id": "_:b159"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 32909.6,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321179_5444324_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321179_5444324_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321179_5444324_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/321/321179_5444324_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b159",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 1,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 32
+                        }
+                    },
+                    "ac:nodeIndex": 10
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/398727",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "A dog scratching at a sidelight.\r\n\r\nRecorded with a Tascam DR-40.",
+                        "dc:title": "dog - scratch at door - front 03.wav",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/sidelight",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratch",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratching",
+                            "https://w3id.org/audiocommons/services/freesound/tags/sidelite",
+                            "https://w3id.org/audiocommons/services/freesound/tags/scratched",
+                            "https://w3id.org/audiocommons/services/freesound/tags/door",
+                            "https://w3id.org/audiocommons/services/freesound/tags/window",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Anthousai",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398727_5923045-hq.mp3"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398727_5923045-lq.ogg"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398727_5923045-hq.ogg"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/398/398727_5923045-lq.mp3"
+                                },
+                                "ebu:sampleRate": 96000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b253"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 1589.65,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398727_5923045_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398727_5923045_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398727_5923045_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/398/398727_5923045_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b253",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 96000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 15
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/163459",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "Recorded in Marantz PMD620 with onboard condenser mics 24-bit 48khz",
+                        "dc:title": "LBS_FX DOG Small Alert Bark001.wav",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/Chihuahua",
+                            "https://w3id.org/audiocommons/services/freesound/tags/FX",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Small",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/LittleBigSounds",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/163/163459_2965892-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/163/163459_2965892-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/163/163459_2965892-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/163/163459_2965892-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b198"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 1953.88,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/163/163459_2965892_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/163/163459_2965892_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/163/163459_2965892_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/163/163459_2965892_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b198",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 7
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/337101",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "Group of angry dogs.",
+                        "dc:title": "Group_of_Dogs_Barking.WAV",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/anger",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Group",
+                            "https://w3id.org/audiocommons/services/freesound/tags/angry",
+                            "https://w3id.org/audiocommons/services/freesound/tags/growl",
+                            "https://w3id.org/audiocommons/services/freesound/tags/pet",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dogs",
+                            "https://w3id.org/audiocommons/services/freesound/tags/pets",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/growling",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Bark"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/ivolipa",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/337/337101_3474310-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/337/337101_3474310-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/337/337101_3474310-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/337/337101_3474310-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b17"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 21758.7,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/337/337101_3474310_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/337/337101_3474310_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/337/337101_3474310_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/337/337101_3474310_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b17",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 3
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/392617",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "Dog toy sound fx.",
+                        "dc:title": "Dog Toy",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/squeal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/play",
+                            "https://w3id.org/audiocommons/services/freesound/tags/toy",
+                            "https://w3id.org/audiocommons/services/freesound/tags/cat",
+                            "https://w3id.org/audiocommons/services/freesound/tags/childs-toy",
+                            "https://w3id.org/audiocommons/services/freesound/tags/whine",
+                            "https://w3id.org/audiocommons/services/freesound/tags/funny",
+                            "https://w3id.org/audiocommons/services/freesound/tags/animal",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/ScreamStudio",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/392/392617_7383104-lq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/392/392617_7383104-hq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/392/392617_7383104-hq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/392/392617_7383104-lq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b6"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 4704.31,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/392/392617_7383104_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/392/392617_7383104_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/392/392617_7383104_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/392/392617_7383104_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b6",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 44100.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 1
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/406085",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "My neighbour's dog never stops... so I finally decided to get something out of it - here is a snippet. The barks have a natural echo from the surrounding countryside, and some nearby birds were chirping. I have applied occasional EQ to reduce the bass frequencies. A little bit of handling noise.\n\nIf any of these sounds have been of help, and you are feeling charitable, please do consider donating to Freesound to help keep the site running (a link is also on the home page). Any donations are greatly appreciated! And for more awesome sounds, do please check out my sound libraries.\n\nPlease comment on where you intend to use the sound, and feel free to post a link to the work where you used it if you want (I enjoy watching/listening to anything you create!)\n\nYou don't have to worry about crediting this sound if you are using it for non-commercial projects unless you want to (e.g. educational or non-profit activities), but if you use the sound for a commercial project you must credit the sound. If you would prefer to not have to give attribution for commercial projects, then take a look at the attribution-free license.\n\nAn example of how you might credit is by putting this in the description/credits:\n\"Dog Barking, Single, A.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org\n\nThe sound was recorded using a \"H1 Zoom recorder\" on 25th October 2017.\n\nNote: Audio quality is always better when downloaded.",
+                        "dc:title": "Dog Barking, Single, A.wav",
+                        "license": "http://creativecommons.org/licenses/by/3.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/growling",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/Growling",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/InspectorJ",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/406/406085_5121236-hq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/406/406085_5121236-hq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/406/406085_5121236-lq.mp3"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/406/406085_5121236-lq.ogg"
+                                },
+                                "ebu:sampleRate": 44100.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b28"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 66667.59999999999,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/406/406085_5121236_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/406/406085_5121236_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/406/406085_5121236_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/406/406085_5121236_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b28",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 44100.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 6
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/180977",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "This is a recording of my Highland West Terrier dog, happily barking after discovering that she was about to be taken out to the streets for a walk with me. Recorded with a Zoom H4n Stereo at 48Khz 24bits",
+                        "dc:title": "Barking Dog",
+                        "license": "http://creativecommons.org/publicdomain/zero/1.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/loud",
+                            "https://w3id.org/audiocommons/services/freesound/tags/bark",
+                            "https://w3id.org/audiocommons/services/freesound/tags/barking",
+                            "https://w3id.org/audiocommons/services/freesound/tags/happy",
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Suprasummun",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/180/180977_3370987-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/180/180977_3370987-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/180/180977_3370987-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/180/180977_3370987-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b231"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 27572.0,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/180/180977_3370987_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/180/180977_3370987_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/180/180977_3370987_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/180/180977_3370987_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b231",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 12
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/freesound/sounds/188879",
+                        "@type": "ac:AudioClip",
+                        "dc:description": "Sound of my dog happilly chewing a snack.",
+                        "dc:title": "Dog Chewing Snack.wav",
+                        "license": "http://creativecommons.org/licenses/by/3.0/",
+                        "audioCategory": [
+                            "https://w3id.org/audiocommons/services/freesound/tags/dog",
+                            "https://w3id.org/audiocommons/services/freesound/tags/chew",
+                            "https://w3id.org/audiocommons/services/freesound/tags/noise",
+                            "https://w3id.org/audiocommons/services/freesound/tags/biscuit"
+                        ],
+                        "author": "https://w3id.org/audiocommons/services/freesound/users/Suprasummun",
+                        "ac:available_as": [{
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 128000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/188/188879_3370987-hq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 64000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_8.4"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/188/188879_3370987-lq.mp3"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 80000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/188/188879_3370987-lq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@type": "ebu:MediaResource",
+                                "ebu:audioChannelNumber": 2,
+                                "ebu:bitRate": 192000,
+                                "ebu:hasAudioEncodingFormat": {
+                                    "@id": "http://www.ebu.ch/metadata/ontologies/skos/ebu_AudioCompressionCodeCS#_26"
+                                },
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/previews/188/188879_3370987-hq.ogg"
+                                },
+                                "ebu:sampleRate": 48000.0,
+                                "ebu:sampleSize": 24
+                            },
+                            {
+                                "@id": "_:b40"
+                            }
+                        ],
+                        "ac:defaultContainerNode": {},
+                        "ac:duration": 59453.299999999996,
+                        "ac:image": [{
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/188/188879_3370987_spec_L.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 71,
+                                "ebu:frameWidth": 120,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/188/188879_3370987_wave_M.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 50,
+                                "ebu:frameWidth": 50,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/188/188879_3370987_spec_M.jpg"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Spectrogram"
+                            },
+                            {
+                                "@type": "ebu:Picture",
+                                "ebu:frameHeight": 201,
+                                "ebu:frameWidth": 900,
+                                "ebu:locator": {
+                                    "@id": "http://freesound.org/data/displays/188/188879_3370987_wave_L.png"
+                                },
+                                "http://www.w3.org/2004/02/skos/core#prefLabel": "Waveform"
+                            }
+                        ],
+                        "ac:originalFile": {
+                            "@id": "_:b40",
+                            "@type": "ebu:MediaResource",
+                            "ebu:audioChannelNumber": 2,
+                            "ebu:sampleRate": 48000.0,
+                            "ebu:sampleSize": 24
+                        }
+                    },
+                    "ac:nodeIndex": 9
+                }
+            ]
+        },
+        {
+            "from": {
+                "@type": "schema:SearchAction",
+                "actionStatus": "schema:CompletedActionStatus",
+                "endTime": "2018-11-01T14:49:04.004000+00:00",
+                "object": "http://europeana.eu",
+                "startTime": "2018-11-01T14:49:02.980000+00:00"
+            },
+            "@type": "ac:AudioCollection",
+            "members": [{
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_S_378_3_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Nyctereutes procyonoides Gray, 1834"
+                    },
+                    "ac:nodeIndex": 8
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_S_1049_1_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Nyctereutes procyonoides Gray, 1834"
+                    },
+                    "ac:nodeIndex": 10
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1829_21_2.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Speothos venaticus Lund, 1842"
+                    },
+                    "ac:nodeIndex": 1
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_S_1138_4_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Nyctereutes procyonoides Gray, 1834"
+                    },
+                    "ac:nodeIndex": 9
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1660_4_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Speothos venaticus Lund, 1842"
+                    },
+                    "ac:nodeIndex": 3
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1659_1_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Speothos venaticus Lund, 1842"
+                    },
+                    "ac:nodeIndex": 5
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1659_31_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Speothos venaticus Lund, 1842"
+                    },
+                    "ac:nodeIndex": 4
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1829_15_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Speothos venaticus Lund, 1842"
+                    },
+                    "ac:nodeIndex": 2
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Lycaon_pictus_V_2134_25_2.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Lycaon pictus Temminck, 1820"
+                    },
+                    "ac:nodeIndex": 12
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_V_2093_9_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Nyctereutes procyonoides Gray, 1834"
+                    },
+                    "ac:nodeIndex": 6
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_DIG_103_5_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Nyctereutes procyonoides Gray, 1834"
+                    },
+                    "ac:nodeIndex": 11
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_V_1457_2_1.json?wskey=6NPvpkHH4",
+                        "@type": "ac:AudioClip",
+                        "dc:title": "Nyctereutes procyonoides Gray, 1834"
+                    },
+                    "ac:nodeIndex": 7
+                }
+            ]
+        },
+        {
+            "from": {
+                "@type": "schema:SearchAction",
+                "actionStatus": "schema:CompletedActionStatus",
+                "endTime": "2018-11-01T14:49:03.417000+00:00",
+                "object": "http://jamendo.com",
+                "startTime": "2018-11-01T14:49:02.950000+00:00"
+            },
+            "@type": "ac:AudioCollection",
+            "members": [{
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1118391",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                        },
+                        "dc:title": "Wanna Be",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/443360",
+                        "ac:available_as": {
+                            "@id": "_:b217"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 5
+                        },
+                        "ac:duration": 234000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam2.jamendo.com/albums/s133/133646/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b217",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1118391/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 5
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1272521",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                        },
+                        "dc:title": "Une Vie De Roi",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/7805",
+                        "ac:available_as": {
+                            "@id": "_:b224"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 8
+                        },
+                        "ac:duration": 302000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam1.jamendo.com/albums/s151/151942/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b224",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1272521/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 8
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1272518",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                        },
+                        "dc:title": "Dialogue Avec Mon Chien",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/7805",
+                        "ac:available_as": {
+                            "@id": "_:b239"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 6
+                        },
+                        "ac:duration": 169000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam1.jamendo.com/albums/s151/151942/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b239",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1272518/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 10
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1116701",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                        },
+                        "dc:title": "Bluegrass Dog",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/443173",
+                        "ac:available_as": {
+                            "@id": "_:b249"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 1
+                        },
+                        "ac:duration": 26000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam1.jamendo.com/albums/s133/133419/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b249",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1116701/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 6
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1243160",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                        },
+                        "dc:title": "Curious Day With Rufus Hot Sauce, Op 192",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/368701",
+                        "ac:available_as": {
+                            "@id": "_:b87"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 1
+                        },
+                        "ac:duration": 269000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam2.jamendo.com/albums/s148/148953/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b87",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1243160/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 4
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1118390",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                        },
+                        "dc:title": "GotDamIt ALL",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/443360",
+                        "ac:available_as": {
+                            "@id": "_:b14"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 1
+                        },
+                        "ac:duration": 271000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam1.jamendo.com/albums/s133/133646/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b14",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1118390/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 9
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1157664",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-nc-nd/2.0/fr/"
+                        },
+                        "dc:title": "Alain (instrumental)",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/360970",
+                        "ac:available_as": {
+                            "@id": "_:b58"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 2
+                        },
+                        "ac:duration": 229000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam2.jamendo.com/albums/s138/138923/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b58",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1157664/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 1
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1244606",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                        },
+                        "dc:title": "Reaction 7 - Cool Dog",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/355034",
+                        "ac:available_as": {
+                            "@id": "_:b72"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 12
+                        },
+                        "ac:duration": 187000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam1.jamendo.com/albums/s149/149125/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b72",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1244606/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 2
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1118387",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                        },
+                        "dc:title": "Life Like a Lambo",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/443360",
+                        "ac:available_as": {
+                            "@id": "_:b51"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 2
+                        },
+                        "ac:duration": 245000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam1.jamendo.com/albums/s133/133646/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b51",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1118387/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 7
+                },
+                {
+                    "@type": "ac:AudioCollectionNode",
+                    "content": {
+                        "@id": "https://w3id.org/audiocommons/services/jamendo/tracks/1285629",
+                        "@type": "ac:AudioClip",
+                        "http://creativecommons.org/ns#license": {
+                            "@id": "http://creativecommons.org/licenses/by/3.0/"
+                        },
+                        "dc:title": "YUKON - Limping Dog",
+                        "author": "https://w3id.org/audiocommons/services/jamendo/artists/484070",
+                        "ac:available_as": {
+                            "@id": "_:b222"
+                        },
+                        "ac:defaultContainerNode": {
+                            "@type": "ac:AudioCollectionNode",
+                            "ac:nodeIndex": 10
+                        },
+                        "ac:duration": 251000,
+                        "ac:image": {
+                            "@type": "ebu:Picture",
+                            "ebu:locator": "https://imgjam2.jamendo.com/albums/s153/153317/covers/1.200.jpg"
+                        },
+                        "ac:originalFile": {
+                            "@id": "_:b222",
+                            "@type": "ebu:MediaResource",
+                            "ebu:locator": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1285629/mp32/"
+                            }
+                        }
+                    },
+                    "ac:nodeIndex": 3
+                }
+            ]
+        }
+    ]
+}

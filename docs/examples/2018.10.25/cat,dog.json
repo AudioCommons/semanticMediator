@@ -1,0 +1,945 @@
+{
+    "status": "ok",
+    "results": [{
+            "@type": "schema:SearchAction",
+            "actionStatus": "schema:CompletedActionStatus",
+            "endTime": "2018-10-23T05:19:32.082000+00:00",
+            "object": "http://jamendo.com",
+            "query": "cat,dog",
+            "result": {
+                "@type": [
+                    "prov:Entity",
+                    "ac:AudioCollection"
+                ],
+                "prov:wasAttributedTo": {
+                    "@id": "http://jamendo.com"
+                },
+                "members": [{
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1244606",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Reaction 7 - Cool Dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1244606/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/355034"
+                            }
+                        },
+                        "ac:nodeIndex": 2
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1538543",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Red Cat feat. Ivan Dyma",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1538543/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/494669"
+                            }
+                        },
+                        "ac:nodeIndex": 4
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1243160",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Curious Day With Rufus Hot Sauce, Op 192",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1243160/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/368701"
+                            }
+                        },
+                        "ac:nodeIndex": 5
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1156442",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                            },
+                            "dc:title": "Drop By Drop",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1156442/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/422198"
+                            }
+                        },
+                        "ac:nodeIndex": 6
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1519316",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Black Cat",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1519316/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/347734"
+                            }
+                        },
+                        "ac:nodeIndex": 7
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1037751",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                            },
+                            "dc:title": "Raining Cats and Dogs",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1037751/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/434110"
+                            }
+                        },
+                        "ac:nodeIndex": 10
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1272521",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                            },
+                            "dc:title": "Une Vie De Roi",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1272521/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/7805"
+                            }
+                        },
+                        "ac:nodeIndex": 9
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1443291",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "S padlem",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1443291/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/499561"
+                            }
+                        },
+                        "ac:nodeIndex": 3
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1157664",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/2.0/fr/"
+                            },
+                            "dc:title": "Alain (instrumental)",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1157664/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/360970"
+                            }
+                        },
+                        "ac:nodeIndex": 1
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1285629",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "dc:title": "YUKON - Limping Dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com",
+                                "@type": [
+                                    "prov:Agent",
+                                    "foaf:Organization"
+                                ],
+                                "foaf:name": "Jamendo"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1285629/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/484070"
+                            }
+                        },
+                        "ac:nodeIndex": 8
+                    }
+                ]
+            },
+            "startTime": "2018-10-23T05:19:31.695000+00:00"
+        },
+        {
+            "@type": "schema:SearchAction",
+            "actionStatus": "schema:CompletedActionStatus",
+            "endTime": "2018-10-23T05:19:32.141000+00:00",
+            "object": {
+                "@id": "http://europeana.eu",
+                "@type": [
+                    "prov:Agent",
+                    "foaf:Organization"
+                ],
+                "foaf:name": "Europeana"
+            },
+            "query": "cat,dog",
+            "startTime": "2018-10-23T05:19:31.705000+00:00"
+        },
+        {
+            "@type": "schema:SearchAction",
+            "actionStatus": "schema:CompletedActionStatus",
+            "endTime": "2018-10-23T05:19:32.361000+00:00",
+            "object": "http://freesound.org",
+            "query": "cat,dog",
+            "result": {
+                "@type": [
+                    "prov:Entity",
+                    "ac:AudioCollection"
+                ],
+                "prov:wasAttributedTo": {
+                    "@id": "http://freesound.org"
+                },
+                "members": [{
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60241",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "10.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60241_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1451.24716553,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60241_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 3
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60258",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "19.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60258_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 3494.6031746,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60258_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 12
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60252",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "15.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60252_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1149.3877551,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60252_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 8
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60259",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "2.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60259_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 2054.96598639,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60259_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 13
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60243",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "11.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60243_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 3378.50340136,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60243_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 4
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60245",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "12.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60245_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 4017.0521542,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60245_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 5
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60256",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "18.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60256_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1671.83673469,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60256_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 11
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60260",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "3.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60260_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1393.19727891,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60260_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 14
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60247",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "13.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60247_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 3227.5736961499997,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60247_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 6
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/183989",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "Night scene with dog and cat.",
+                            "dc:title": "dog barking at night",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22field-recording%22,%22dog%22,%22tascam%22,%22dr-100%22,%22night%22,%22cat%22,%22outdoor%22,%22barks%22,%22meows%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/saphe"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/183/183989_1337920-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 150000,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 0,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/183/183989_1337920_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 1
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60250",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "14.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60250_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1915.6462585,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60250_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 7
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60254",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "17.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60254_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1509.29705215,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60254_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 10
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60253",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "16.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60253_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1660.22675737,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60253_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 9
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60261",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "4.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60261_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1660.22675737,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60261_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 15
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/60239",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "an angry synthesized dog and cat going at it. \nTwEak the Mods",
+                            "dc:title": "1.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org",
+                                "@type": [
+                                    "foaf:Organization",
+                                    "prov:Agent"
+                                ],
+                                "foaf:name": "Freesound"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22acid%22,%22alesis%22,%22ambient%22,%22base%22,%22bass%22,%22beats%22,%22chords%22,%22electro%22,%22glitch%22,%22idm%22,%22kat%22,%22leftfield%22,%22micron%22,%22small%22,%22synth%22,%22thumb%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/KatHakaku"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/60/60239_164285-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1753.1065759599999,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 16,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/60/60239_164285_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 2
+                    }
+                ]
+            },
+            "startTime": "2018-10-23T05:19:31.696000+00:00"
+        }
+    ]
+}

@@ -1,0 +1,1133 @@
+{
+    "status": "ok",
+    "results": [{
+            "@type": "schema:SearchAction",
+            "actionStatus": "schema:CompletedActionStatus",
+            "endTime": "2018-11-01T14:34:58.929000+00:00",
+            "object": "http://europeana.eu",
+            "query": "dog",
+            "result": {
+                "@type": [
+                    "ac:AudioCollection",
+                    "prov:Entity"
+                ],
+                "prov:wasAttributedTo": {
+                    "@id": "http://europeana.eu"
+                },
+                "members": [{
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_V_2093_9_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Nyctereutes procyonoides Gray, 1834",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 6
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1659_31_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Speothos venaticus Lund, 1842",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 4
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Lycaon_pictus_V_2134_25_2.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:title": "Lycaon pictus Temminck, 1820",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 12
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_DIG_103_5_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:title": "Nyctereutes procyonoides Gray, 1834",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 11
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_S_378_3_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Nyctereutes procyonoides Gray, 1834",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 8
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1829_21_2.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:title": "Speothos venaticus Lund, 1842",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 1
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_V_1457_2_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Nyctereutes procyonoides Gray, 1834",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 7
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1660_4_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:title": "Speothos venaticus Lund, 1842",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 3
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1659_1_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Speothos venaticus Lund, 1842",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 5
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Speothos_venaticus_V_1829_15_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Speothos venaticus Lund, 1842",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 2
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_S_1138_4_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:title": "Nyctereutes procyonoides Gray, 1834",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu"
+                            }
+                        },
+                        "ac:nodeIndex": 9
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.europeana.eu/api/v2/record/11622/_TIERSTIMMENARCHIV_MFN_GERMANY_TSA_Nyctereutes_procyonoides_S_1049_1_1.json?wskey=6NPvpkHH4",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:title": "Nyctereutes procyonoides Gray, 1834",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://europeana.eu",
+                                "@type": [
+                                    "foaf:Organization",
+                                    "prov:Agent"
+                                ],
+                                "foaf:name": "Europeana"
+                            }
+                        },
+                        "ac:nodeIndex": 10
+                    }
+                ]
+            },
+            "startTime": "2018-11-01T14:34:58.191000+00:00"
+        },
+        {
+            "@type": "schema:SearchAction",
+            "actionStatus": "schema:CompletedActionStatus",
+            "endTime": "2018-11-01T14:34:59.037000+00:00",
+            "object": "http://freesound.org",
+            "query": "dog",
+            "result": {
+                "@type": [
+                    "prov:Entity",
+                    "ac:AudioCollection"
+                ],
+                "prov:wasAttributedTo": {
+                    "@id": "http://freesound.org"
+                },
+                "members": [{
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/398729",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "A dog scratching at a sidelight.\r\n\r\nRecorded with a Tascam DR-40.",
+                            "dc:title": "dog - scratch at door - front 01.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22scratching%22,%22animal%22,%22window%22,%22dog%22,%22sidelight%22,%22sidelite%22,%22scratch%22,%22door%22,%22scratched%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Anthousai"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/398/398729_5923045-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 787.177,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 96000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/398/398729_5923045_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 14
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/276267",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "Recording of my alaskan malamute barking.",
+                            "dc:title": "Mr Dog_01.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22growling%22,%22Growl%22,%22barking%22,%22Big%22,%22angry%22,%22Dog%22,%22dog%22,%22wolf%22,%22Animal%22,%22bark%22,%22Creature%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/apolloaiello"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/276/276267_5284496-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 79776.5,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 44100.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/276/276267_5284496_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 5
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/327666",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "A furious dog barking.\r\n\r\n",
+                            "dc:title": "Dog Bark.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc/3.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22bellow%22,%22barking%22,%22intimidating%22,%22angrily%22,%22bark%22,%22aggressive%22,%22barked%22,%22growl%22,%22OWI%22,%22thunder%22,%22breaking%22,%22yap%22,%22woof%22,%22shout%22,%22snap%22,%22dogs%22,%22big%22,%22Dog%22,%22bawl%22,%22snarl%22,%22fierce%22,%22aggressively%22,%22yelp%22,%22roar%22,%22cry%22,%22dog%22,%22bay%22,%22yell%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Juan_Merie_Venter"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/327/327666_5632380-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 6472.47,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 44100.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/327/327666_5632380_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 2
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/163459",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "Recorded in Marantz PMD620 with onboard condenser mics 24-bit 48khz",
+                            "dc:title": "LBS_FX DOG Small Alert Bark001.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22Chihuahua%22,%22FX%22,%22Dog%22,%22dog%22,%22Small%22,%22bark%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/LittleBigSounds"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/163/163459_2965892-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1953.88,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/163/163459_2965892_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 7
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/188879",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "Sound of my dog happilly chewing a snack.",
+                            "dc:title": "Dog Chewing Snack.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22chew%22,%22biscuit%22,%22noise%22,%22dog%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Suprasummun"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/188/188879_3370987-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 59453.299999999996,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/188/188879_3370987_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 9
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/321179",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "My small dog growling near the mic. Captured on a USB yeti mic.",
+                            "dc:title": "Small growling dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22moan%22,%22growl%22,%22groan%22,%22dog%22,%22beast%22,%22miniature%22,%22animal%22,%22small%22,%22grunt%22,%22guttural%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Jickle"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/321/321179_5444324-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 32909.6,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 32,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/321/321179_5444324_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 10
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/406085",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "My neighbour's dog never stops... so I finally decided to get something out of it - here is a snippet. The barks have a natural echo from the surrounding countryside, and some nearby birds were chirping. I have applied occasional EQ to reduce the bass frequencies. A little bit of handling noise.\n\nIf any of these sounds have been of help, and you are feeling charitable, please do consider donating to Freesound to help keep the site running (a link is also on the home page). Any donations are greatly appreciated! And for more awesome sounds, do please check out my sound libraries.\n\nPlease comment on where you intend to use the sound, and feel free to post a link to the work where you used it if you want (I enjoy watching/listening to anything you create!)\n\nYou don't have to worry about crediting this sound if you are using it for non-commercial projects unless you want to (e.g. educational or non-profit activities), but if you use the sound for a commercial project you must credit the sound. If you would prefer to not have to give attribution for commercial projects, then take a look at the attribution-free license.\n\nAn example of how you might credit is by putting this in the description/credits:\n\"Dog Barking, Single, A.wav\" by InspectorJ (www.jshaw.co.uk) of Freesound.org\n\nThe sound was recorded using a \"H1 Zoom recorder\" on 25th October 2017.\n\nNote: Audio quality is always better when downloaded.",
+                            "dc:title": "Dog Barking, Single, A.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22barking%22,%22bark%22,%22Bark%22,%22Dog%22,%22dog%22,%22growling%22,%22Barking%22,%22Growling%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/InspectorJ"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/406/406085_5121236-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 66667.59999999999,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 44100.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/406/406085_5121236_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 6
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/398727",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "A dog scratching at a sidelight.\r\n\r\nRecorded with a Tascam DR-40.",
+                            "dc:title": "dog - scratch at door - front 03.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22scratching%22,%22animal%22,%22window%22,%22dog%22,%22sidelight%22,%22sidelite%22,%22scratch%22,%22door%22,%22scratched%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Anthousai"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/398/398727_5923045-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 1589.65,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 96000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/398/398727_5923045_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 15
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/398728",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "A dog scratching at a sidelight.\r\n\r\nRecorded with a Tascam DR-40.",
+                            "dc:title": "dog - scratch at door - front 02.wav",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22scratching%22,%22animal%22,%22window%22,%22dog%22,%22sidelight%22,%22sidelite%22,%22scratch%22,%22door%22,%22scratched%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Anthousai"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/398/398728_5923045-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 800.01,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 96000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/398/398728_5923045_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 13
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/321178",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "dc:description": "A squeaker toy that my dog enjoys a great deal. Captured with yeti mic.",
+                            "dc:title": "Dog squeak toy",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22toy%22,%22squeaker%22,%22dog%22,%22ball%22,%22squeak%22,%22squeeze%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Jickle"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/321/321178_5444324-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 3720.65,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 32,
+                                "ac:channels": 1,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/321/321178_5444324_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 11
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/337101",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "Group of angry dogs.",
+                            "dc:title": "Group_of_Dogs_Barking.WAV",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22growling%22,%22growl%22,%22Group%22,%22barking%22,%22animal%22,%22pet%22,%22angry%22,%22Dog%22,%22dog%22,%22bark%22,%22anger%22,%22Bark%22,%22Dogs%22,%22pets%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/ivolipa"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/337/337101_3474310-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 21758.7,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/337/337101_3474310_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 3
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/421810",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "This was recording near a dog crate with dogs",
+                            "dc:title": "dogs_1.WAV",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22animal%22,%22woof%22,%22dog%22,%22barking%22,%22outdoor%22,%22growling%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/lupalenzuela"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/421/421810_2286319-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 87374.7,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/421/421810_2286319_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 8
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/413758",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "A dog barking",
+                            "dc:title": "dogbarking.mp3",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22barking%22,%22Dog%22,%22dog%22,%22bark%22,%22big%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/lala_davis554"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/413/413758_7958399-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 8867.119999999999,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 0,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 44100.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/413/413758_7958399_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 4
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/180977",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "This is a recording of my Highland West Terrier dog, happily barking after discovering that she was about to be taken out to the streets for a walk with me. Recorded with a Zoom H4n Stereo at 48Khz 24bits",
+                            "dc:title": "Barking Dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22bark%22,%22happy%22,%22loud%22,%22dog%22,%22barking%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/Suprasummun"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/180/180977_3370987-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 27572.0,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 48000.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/180/180977_3370987_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 12
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "https://w3id.org/audiocommons/services/freesound/sounds/392617",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "dc:description": "Dog toy sound fx.",
+                            "dc:title": "Dog Toy",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://freesound.org",
+                                "@type": [
+                                    "foaf:Organization",
+                                    "prov:Agent"
+                                ],
+                                "foaf:name": "Freesound"
+                            },
+                            "https://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/publicdomain/zero/1.0/"
+                            },
+                            "ac:audioCategory": {
+                                "@id": "file:///var/services/sparqlGenerate-ws/[%22squeal%22,%22childs-toy%22,%22animal%22,%22cat%22,%22Dog%22,%22whine%22,%22dog%22,%22toy%22,%22play%22,%22funny%22]"
+                            },
+                            "ac:author": {
+                                "@id": "https://w3id.org/audiocommons/services/freesound/users/ScreamStudio"
+                            },
+                            "ac:available_as": {
+                                "@id": "http://freesound.org/data/previews/392/392617_7383104-lq.ogg",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:defaultContainerNode": {
+                                "@type": "ac:AudioCollectionNode"
+                            },
+                            "ac:duration": 4704.31,
+                            "ac:encodesDigitalSignal": {
+                                "@type": "ac:DigitalSignal",
+                                "ac:bitsPerSample": 24,
+                                "ac:channels": 2,
+                                "ac:sampleRate": 44100.0
+                            },
+                            "ac:image": {
+                                "@id": "http://freesound.org/data/displays/392/392617_7383104_wave_M.png"
+                            }
+                        },
+                        "ac:nodeIndex": 1
+                    }
+                ]
+            },
+            "startTime": "2018-11-01T14:34:58.191000+00:00"
+        },
+        {
+            "@type": "schema:SearchAction",
+            "actionStatus": "schema:CompletedActionStatus",
+            "endTime": "2018-11-01T14:34:58.499000+00:00",
+            "object": "http://jamendo.com",
+            "query": "dog",
+            "result": {
+                "@type": [
+                    "ac:AudioCollection",
+                    "prov:Entity"
+                ],
+                "prov:wasAttributedTo": {
+                    "@id": "http://jamendo.com"
+                },
+                "members": [{
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1272518",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                            },
+                            "dc:title": "Dialogue Avec Mon Chien",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1272518/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/7805"
+                            }
+                        },
+                        "ac:nodeIndex": 10
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1118391",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                            },
+                            "dc:title": "Wanna Be",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1118391/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/443360"
+                            }
+                        },
+                        "ac:nodeIndex": 5
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1285629",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by/3.0/"
+                            },
+                            "dc:title": "YUKON - Limping Dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1285629/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/484070"
+                            }
+                        },
+                        "ac:nodeIndex": 3
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1243160",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Curious Day With Rufus Hot Sauce, Op 192",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1243160/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/368701"
+                            }
+                        },
+                        "ac:nodeIndex": 4
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1157664",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/2.0/fr/"
+                            },
+                            "dc:title": "Alain (instrumental)",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1157664/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/360970"
+                            }
+                        },
+                        "ac:nodeIndex": 1
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1118387",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                            },
+                            "dc:title": "Life Like a Lambo",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1118387/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/443360"
+                            }
+                        },
+                        "ac:nodeIndex": 7
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1272521",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+                            },
+                            "dc:title": "Une Vie De Roi",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1272521/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/7805"
+                            }
+                        },
+                        "ac:nodeIndex": 8
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1116701",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Bluegrass Dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1116701/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/443173"
+                            }
+                        },
+                        "ac:nodeIndex": 6
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1118390",
+                            "@type": [
+                                "prov:Entity",
+                                "ac:AudioClip"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-sa/3.0/"
+                            },
+                            "dc:title": "GotDamIt ALL",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1118390/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/443360"
+                            }
+                        },
+                        "ac:nodeIndex": 9
+                    },
+                    {
+                        "@type": "ac:AudioCollectionNode",
+                        "content": {
+                            "@id": "http://www.jamendo.com/track/1244606",
+                            "@type": [
+                                "ac:AudioClip",
+                                "prov:Entity"
+                            ],
+                            "http://creativecommons.org/ns#license": {
+                                "@id": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+                            },
+                            "dc:title": "Reaction 7 - Cool Dog",
+                            "prov:wasAttributedTo": {
+                                "@id": "http://jamendo.com",
+                                "@type": [
+                                    "prov:Agent",
+                                    "foaf:Organization"
+                                ],
+                                "foaf:name": "Jamendo"
+                            },
+                            "ac:available_as": {
+                                "@id": "https://mp3d.jamendo.com/download/track/1244606/mp32/",
+                                "@type": "ac:AudioFile"
+                            },
+                            "ac:compiled": {
+                                "@id": "http://www.jamendo.com/artist/355034"
+                            }
+                        },
+                        "ac:nodeIndex": 2
+                    }
+                ]
+            },
+            "startTime": "2018-11-01T14:34:58.185000+00:00"
+        }
+    ]
+}
