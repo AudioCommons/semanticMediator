@@ -43,7 +43,7 @@ class ConfigManager:
         try:
             self.config = yaml.load(open(configFile, "r"))
         except FileNotFoundError:
-            raise MediatorConfigManagerException("File not found!")
+            raise MediatorConfigManagerException("Configuration file not found at: "+ configFile)
 
         # read server conf
         try:
