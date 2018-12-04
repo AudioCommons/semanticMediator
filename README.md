@@ -39,7 +39,7 @@ pip3 install virtualenv
 cd /var/services
 /home/mprinc/.local/bin/virtualenv qmul-infrastructure-2-env
 source /var/services/qmul-infrastructure-2-env/bin/activate
-cd /var/repos/semanticMediator-ng/
+cd /var/repos/semanticMediator/
 pip3 install -r requirements.txt
 # pip3 install rpyc
 ```
@@ -69,7 +69,7 @@ git clone https://github.com/arces-wot/SEPA-python3-APIs
 cd SEPA-python3-APIs/
 # cd /var/repos/SEPA-python3-APIs
 source /var/services/qmul-infrastructure-2-env/bin/activate
-cd /var/repos/semanticMediator-ng/
+cd /var/repos/semanticMediator/
 python3 setup.py build
 # this you might to run as sudo if you do not use virtual environment
 python3 setup.py install
@@ -189,8 +189,8 @@ If needed, change the URIs of the underlying services (SEPA, SPARQL-Generate) as
 ## Running the mediator
 
 ```sh
-cd semanticMediator-ng
-# cd /var/repos/semanticMediator-ng/
+cd semanticMediator
+# cd /var/repos/semanticMediator/
 # source /var/services/qmul-infrastructure-2-env/bin/activate
 
 python3 mediator.py -c <CONFIG_FILE.yaml>
@@ -229,9 +229,12 @@ java -jar target/sparql-generate-ws.jar 6060
 
 ```sh
 source qmul-infrastructure-2-env/bin/activate
-cd semanticMediator-ng
-# cd /var/repos/semanticMediator-ng/
+cd semanticMediator/src/services/mediator
+# cd /var/repos/semanticMediator/src/services/mediator
 # source /var/services/qmul-infrastructure-2-env/bin/activate
+
+# or (when inside the mediator)
+source ../../../../qmul-infrastructure-2-env/bin/activat
 
 python3 mediator.py -c <CONFIG_FILE.yaml>
 # for example

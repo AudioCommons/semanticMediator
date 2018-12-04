@@ -80,14 +80,23 @@ if (!globalSet.hasOwnProperty('puzzles')) {
                 actions: [{
                         name: 'start',
                         selectArea: {
-                            x: 55,
-                            y: 165,
-                            width: 40,
-                            height: 40
+                            x: 25,
+                            y: 77,
+                            width: 60,
+                            height: 80
                         }
                     },
                     {
-                        name: 'searchSoundsNoCache',
+                        name: 'checkCredentials',
+                        selectArea: {
+                            x: 115,
+                            y: 77,
+                            width: 150,
+                            height: 60
+                        }
+                    },
+                    {
+                        name: 'searchUser',
                         selectArea: {
                             x: 115,
                             y: 155,
@@ -96,10 +105,28 @@ if (!globalSet.hasOwnProperty('puzzles')) {
                         }
                     },
                     {
-                        name: 'searchSoundsWithCache',
+                        name: 'parseResponse',
                         selectArea: {
                             x: 280,
                             y: 120,
+                            width: 60,
+                            height: 40
+                        }
+                    },
+                    {
+                        name: 'end',
+                        selectArea: {
+                            x: 515,
+                            y: 150,
+                            width: 60,
+                            height: 40
+                        }
+                    },
+                    {
+                        name: 'checkCache',
+                        selectArea: {
+                            x: 315,
+                            y: 200,
                             width: 60,
                             height: 40
                         }
