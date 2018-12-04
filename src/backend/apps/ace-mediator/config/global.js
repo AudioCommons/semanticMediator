@@ -57,6 +57,9 @@ if (!globalSet.hasOwnProperty('dbConfig')) {
 if (!globalSet.hasOwnProperty('puzzles')) {
     console.log("Setting up globalSet.puzzles");
     globalSet.puzzles = {
+        '@colabo-flow/b-audit': {
+            limitFindNo: 100
+        },
         '@colabo-flow/b-services': {
             debug: true,
 

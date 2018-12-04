@@ -76,7 +76,7 @@ if (!globalSet.hasOwnProperty('puzzles')) {
         '@colabo-flow/f-audit': {
             flowImages: [{
                 name: 'search',
-                imageUrl: "/assets/images/flows/flow-search.jpg",
+                imageUrl: "assets/images/flows/flow-search.jpg",
                 actions: [{
                         name: 'start',
                         selectArea: {
