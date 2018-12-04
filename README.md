@@ -167,6 +167,15 @@ java -jar target/sparql-generate-ws.jar 6060
 ```sh
 git submodule init
 git submodule update
+
+# If there is a problem try to remove `.gitmodules` and recreate
+# https://git-scm.com/docs/git-submodule
+# https://stackoverflow.com/questions/3336995/git-will-not-init-sync-update-new-submodules
+git submodule add https://gitlab.com/desmovalvo/europeana-to-audiocommons src/services/mediator/lib/mappings/europeana-to-audiocommons
+
+git submodule add https://github.com/miguel76/freesound-to-audiocommons src/services/mediator/lib/mappings/freesound-to-audiocommons
+
+git submodule add https://gitlab.com/desmovalvo/jamendo-to-audiocommons src/services/mediator/lib/mappings/jamendo-to-audiocommons
 ```
 
 ## Configuring the mediator

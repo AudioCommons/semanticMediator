@@ -36,7 +36,7 @@ if (!globalSet.hasOwnProperty('general')) {
             title: "ACE-Mediator",
             toolbarTitle: "Mediator Interface @ ACE",
             subToolbarTitle: "@ ACE Mediator",
-            logo: "/assets/images/logo.jpg"
+            logo: "assets/images/logo.jpg"
         },
         imagesFolder: 'images',
 
