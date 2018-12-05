@@ -6,4 +6,4 @@ do
     echo "$i"
     curl -v -H "Content-Type: application/json" -X GET http://localhost:9027/audioclips/search?pattern={$i} &
     # sleep 1
-done  
+done
