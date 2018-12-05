@@ -74,7 +74,9 @@ if (!globalSet.hasOwnProperty('puzzles')) {
             messagesNumberMax: 5
         },
         '@colabo-flow/f-audit': {
-            sessions: ["sesion-test", "e123", "cat", "bird", "dog", "e124"],
+            sessions: ["sesion-test", "session-cache-hitting", "session-cache-missing",
+                "e123", "cat", "bird", "dog", "e124"
+            ],
             flowImages: [{
                 name: 'search',
                 imageUrl: "assets/images/flows/flow-search.jpg",
