@@ -74,6 +74,7 @@ if (!globalSet.hasOwnProperty('puzzles')) {
             messagesNumberMax: 5
         },
         '@colabo-flow/f-audit': {
+            sessions: ["sesion-test", "e123", "cat", "bird", "dog", "e124"],
             flowImages: [{
                 name: 'search',
                 imageUrl: "assets/images/flows/flow-search.jpg",
@@ -94,41 +95,40 @@ if (!globalSet.hasOwnProperty('puzzles')) {
                             width: 150,
                             height: 60
                         }
-                    },
-                    {
-                        name: 'searchUser',
+                    }, {
+                        name: 'checkCache',
                         selectArea: {
-                            x: 115,
-                            y: 155,
-                            width: 60,
-                            height: 40
+                            x: 290,
+                            y: 82,
+                            width: 50,
+                            height: 50
                         }
                     },
                     {
-                        name: 'parseResponse',
+                        name: 'searchSoundsWithCache',
                         selectArea: {
-                            x: 280,
-                            y: 120,
-                            width: 60,
-                            height: 40
+                            x: 360,
+                            y: 30,
+                            width: 210,
+                            height: 50
+                        }
+                    },
+                    {
+                        name: 'searchSoundsNoCache',
+                        selectArea: {
+                            x: 360,
+                            y: 161,
+                            width: 210,
+                            height: 50
                         }
                     },
                     {
                         name: 'end',
                         selectArea: {
-                            x: 515,
-                            y: 150,
-                            width: 60,
-                            height: 40
-                        }
-                    },
-                    {
-                        name: 'checkCache',
-                        selectArea: {
-                            x: 315,
-                            y: 200,
-                            width: 60,
-                            height: 40
+                            x: 690,
+                            y: 87,
+                            width: 50,
+                            height: 50
                         }
                     }
                 ]
