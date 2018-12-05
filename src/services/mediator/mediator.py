@@ -75,6 +75,31 @@ if __name__ == "__main__":
         rpcConn = rpyc.connect(searchExtensionConfig['host'], searchExtensionConfig['port'])
         rpcService = rpcConn.root
 
+    colaboFlowAuditConfig = conf.getExtensionConfig("space.colabo.flow.audit")
+    if conf.isExtensionActive("space.colabo.flow.audit"):
+        import uuid
+        # from colabo.flow.audit import ColaboFlowAudit, audit_pb2
+        from colabo.flow.audit import audit_pb2
+        from colabo.flow.audit import ColaboFlowAudit
+
+        gRpcUrl = colaboFlowAuditConfig['host']+':'+str(colaboFlowAuditConfig['port'])
+        # https://docs.python.org/2/library/uuid.html
+        flowInstanceId = str(uuid.uuid1())
+        cfAuditRequestDefualt = audit_pb2.SubmitAuditRequest(
+            bpmn_type='activity',
+            bpmn_subtype='task',
+            bpmn_subsubtype='sub-task',
+
+            flowId='searchForSounds',
+
+            userId=colaboFlowAuditConfig['userId'],
+            sessionId=colaboFlowAuditConfig['sessionId'],
+            flowInstanceId=flowInstanceId,
+
+            implementationId=colaboFlowAuditConfig['implementationId'],
+            implementerId=colaboFlowAuditConfig['implementerId']
+        )
+        colaboFlowAudit = ColaboFlowAudit(socketUrl=gRpcUrl, defaultAuditRequest=cfAuditRequestDefualt)
 
     # @app.route('/')
     # def root():
@@ -106,6 +131,12 @@ if __name__ == "__main__":
         pattern = request.args.get("pattern")
         limit = request.args.get("limit")
         page = request.args.get("page")
+        
+        if conf.isExtensionActive("space.colabo.flow.audit"):
+            cfAuditRequestDefault = colaboFlowAudit.getDefaultRequest()
+            cfAuditRequestDefault.flowInstanceId = str(uuid.uuid1())+":"+pattern
+            cfAReqStart = audit_pb2.SubmitAuditRequest(name='start')
+            cfAResStart = colaboFlowAudit.audit_create_and_finish(cfAReqStart)
 
         if conf.isExtensionActive("space.colabo.search_extension"):
             flow = request.args.get("flow")
@@ -113,10 +144,18 @@ if __name__ == "__main__":
             print("[/audioclips/search]parameters flow: %s" %(flow));
             print("[/audioclips/search]parameters source: %s" %(request.args.get("source")));
             if(flow == 'extended'):
+                if conf.isExtensionActive("space.colabo.flow.audit"):
+                    cfAReqExtSyn = audit_pb2.SubmitAuditRequest(name='extended.synonyms')
+                    cfAResExtSyn = colaboFlowAudit.audit_create(cfAReqExtSyn)
+    
+
                 # r = ['dog', 'cat']
                 r = rpcService.get_synonyms(pattern)
                 pattern = (',').join(r)
                 print("[/audioclips/search] extended pattern: %s" %(pattern));
+                if conf.isExtensionActive("space.colabo.flow.audit"):
+                    cfAResExtSyn = colaboFlowAudit.audit_finish(cfAReqExtSyn)
+    
 
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
@@ -126,10 +165,22 @@ if __name__ == "__main__":
             "page": page
         }
 
+        if conf.isExtensionActive("space.colabo.flow.audit"):
+            cfAReqChkCache = audit_pb2.SubmitAuditRequest(name='checkCache')
+            cfAResChkCache = colaboFlowAudit.audit_create_and_finish(cfAReqChkCache)
+
         # see if the request is present in cache
+        # "cheating" a bit, as this is rather "checking for cache" time
+        if conf.isExtensionActive("space.colabo.flow.audit"):
+            cfAReqSWCache = audit_pb2.SubmitAuditRequest(name='searchSoundsWithCache')
+            cfAResSWCache = colaboFlowAudit.audit_create(cfAReqSWCache)
+
         cacheEntryUuid = cm.getEntryUiid(request.path, queryParams, sources)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
+        
+            if conf.isExtensionActive("space.colabo.flow.audit"):
+                cfAResSWCache = colaboFlowAudit.audit_finish(cfAReqSWCache)
 
         # invoke the AudioClipProcessor
         tp = AudioClipProcessor(conf, sm)
@@ -137,7 +188,22 @@ if __name__ == "__main__":
 
         # store entry in cache
         if not cacheEntryUuid:
+            if conf.isExtensionActive("space.colabo.flow.audit"):
+                cfAReqSvCache = audit_pb2.SubmitAuditRequest(name='saveCache')
+                cfAResSvCache = colaboFlowAudit.audit_create(cfAReqSvCache)
+
+
             cm.setEntry(request.path, queryParams, sources, req_id)
+
+            if conf.isExtensionActive("space.colabo.flow.audit"):
+                cfAResSvCache = colaboFlowAudit.audit_finish(cfAReqSvCache)
+
+
+        if conf.isExtensionActive("space.colabo.flow.audit"):
+            cfAuditRequest = audit_pb2.SubmitAuditRequest(name='end',       flowInstanceId=cfAuditRequestDefualt.flowInstanceId+":"+pattern
+            )
+            cfAuditResult = colaboFlowAudit.audit_create_and_finish(cfAuditRequest)
+            print("cfAuditResult = %s" % (cfAuditResult))
 
         # return
         return results

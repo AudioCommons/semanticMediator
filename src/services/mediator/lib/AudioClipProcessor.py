@@ -36,6 +36,15 @@ class AudioClipProcessor:
         if 'graphstore' in self.conf.tools:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
+            colaboFlowAuditConfig = self.conf.getExtensionConfig("space.colabo.flow.audit")
+            if self.conf.isExtensionActive("space.colabo.flow.audit"):
+                import uuid
+                # from colabo.flow.audit import ColaboFlowAudit, audit_pb2
+                from colabo.flow.audit import audit_pb2
+                from colabo.flow.audit import ColaboFlowAudit
+                self.audit_pb2 = audit_pb2
+                self.colaboFlowAudit = ColaboFlowAudit()
+
     def error(params, msg):
         return {
             "@type": "schema:SearchAction",
@@ -73,6 +82,11 @@ class AudioClipProcessor:
 
         # initialize
         if not cacheEntryUuid:
+            
+            if self.conf.isExtensionActive("space.colabo.flow.audit"):
+                cfAReqSWoCache = self.audit_pb2.SubmitAuditRequest(name='searchSoundsNoCache')
+                cfAResSWoCache = self.colaboFlowAudit.audit_create(cfAReqSWoCache)
+                print("cfAResSWoCache = %s" % (cfAResSWoCache))
 
             # generate an UUID for the request
             req_id = str(uuid4())
@@ -161,7 +175,10 @@ class AudioClipProcessor:
                 t.join()
             logging.debug("Ready to query SEPA")
 
-        else:
+            if self.conf.isExtensionActive("space.colabo.flow.audit"):
+                cfAResSWoCache = self.colaboFlowAudit.audit_finish(cfAReqSWoCache)
+
+        else: # is cached
             # graphURI = "http://ns#%s" % cacheEntryUuid
             graphURI = "http://m2.audiocommons.org/graphs/%s" % cacheEntryUuid
             mainActionURI = "http://m2.audiocommons.org/actions/%s" % cacheEntryUuid
