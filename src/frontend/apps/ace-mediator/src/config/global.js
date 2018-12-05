@@ -77,6 +77,7 @@ if (!globalSet.hasOwnProperty('puzzles')) {
             sessions: ["sesion-test", "session-cache-hitting", "session-cache-missing",
                 "e123", "cat", "bird", "dog", "e124"
             ],
+            timeDivider: 1000000,
             flowImages: [{
                 name: 'search',
                 imageUrl: "assets/images/flows/flow-search.jpg",
