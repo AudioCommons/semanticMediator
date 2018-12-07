@@ -18,7 +18,7 @@ import pdb
 # local requirements
 from .QueryUtils import *
 
-VERSION = "2.3.2"
+VERSION = "2.4.1"
 DEFAULT_RESULTS_LIMIT = 12
 
 class AudioClipProcessor:
