@@ -1,6 +1,6 @@
 tornado==4.5.2
 rdflib==4.2.2
-requests==2.18.1
+requests==2.20.0
 PyYAML==3.13
 rdflib-jsonld
 PyLD
@@ -9,4 +9,4 @@ flask==1.0.2
 # sepy, https://github.com/arces-wot/SEPA-python3-APIs
 
 # colabo.space
-colabo.flow.audit
+colabo.flow.audit==0.2.1
