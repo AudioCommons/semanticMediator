@@ -216,7 +216,7 @@
             "items": {"$ref": "#/components/schemas/audioFile"}
           },
           "defaultContainerNode": {
-            "$ref": "#/components/schemas/audioCollectionNode"
+            "$ref": "#/components/schemas/audioCollectionNodeWithReverseMembership"
           },
           "images": {
             "type": "array",
@@ -234,9 +234,29 @@
           "content": {
             "$ref": "#/components/schemas/audioClip"
           },
-          "index": {"type": "integer"},
+          "index": {
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "audioCollectionNodeWithReverseMembership": {
+        "type": "object",
+        "properties": {
+          "@type": {
+            "type": "string",
+            "enum": ["ac:AudioCollectionNode"]
+          },
+          "content": {
+            "$ref": "#/components/schemas/audioClip"
+          },
+          "index": {
+            "type": "integer",
+            "example": 3
+          },
           "isMemberOf": {
-            "type": "string"
+            "type": "string",
+            "example": "jamendo-albums:34344"
           }
         }
       },
