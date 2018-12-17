@@ -51,6 +51,11 @@ class ConfigManager:
         except (KeyError, TypeError):
             raise MediatorConfigManagerException("Wrong Port Configuration!")
 
+        # read config
+        try:
+            self.caching = self.config["caching"]
+        except (KeyError, TypeError):
+            raise MediatorConfigManagerException("Wrong Caching Configuration!")
 
         # read SEPA URIs
         try:

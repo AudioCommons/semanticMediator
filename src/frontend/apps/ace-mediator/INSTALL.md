@@ -2,6 +2,11 @@
 
 # INSTALL
 
++ https://m2.audiocommons.org/dashboard/colaboflow-audits
++ https://m2.audiocommons.org/api/audioclips/search?pattern=dog
++ https://m2.audiocommons.org/dashboard/api/colabo-flow/audit/get-stats/sessions/sesion-test.json
++ https://m2.audiocommons.org/dashboard/api/colabo-flow/audit/get-audits/all/any.json
+
 ***NOTE***: Before installing this app you need to install **Colabo.Space** ***tools***, ***backend*** and ***fronted***. Please read how to install them in the [INSTALL.md](../../../INSTALL.md) document.
 
 ```sh

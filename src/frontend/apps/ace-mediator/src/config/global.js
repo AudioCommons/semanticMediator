@@ -75,7 +75,8 @@ if (!globalSet.hasOwnProperty('puzzles')) {
         },
         '@colabo-flow/f-audit': {
             sessions: ["sesion-test", "session-cache-hitting", "session-cache-missing",
-                "e123", "cat", "bird", "dog", "e124"
+                "e123", "cat", "bird", "dog", "e124",
+                "session-cache-missing-single-sparql-gen", "session-cache-missing-multiple-sparql-gen", "session-cache-missing-multiple-1-sparql-gen"
             ],
             timeDivider: 1000000,
             showActionNamesonFlow: false,
