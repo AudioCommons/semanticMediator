@@ -138,69 +138,69 @@ if (!globalSet.hasOwnProperty('puzzles')) {
                         }
                     ]
                 },
-                {
-                    name: 'json-2-rdf',
-                    title: 'Translate JSON to RDF',
-                    imageUrl: "assets/images/flows/flow-search.jpg",
-                    actions: [{
-                            name: 'start',
-                            selectArea: {
-                                x: 25,
-                                y: 77,
-                                width: 60,
-                                height: 80
-                            }
-                        },
-                        {
-                            name: 'checkCredentials',
-                            selectArea: {
-                                x: 115,
-                                y: 77,
-                                width: 150,
-                                height: 60
-                            }
-                        }, {
-                            name: 'checkCache',
-                            selectArea: {
-                                x: 290,
-                                y: 82,
-                                width: 50,
-                                height: 50
-                            }
-                        },
-                        {
-                            name: 'searchSoundsWithCache',
-                            selectArea: {
-                                x: 360,
-                                y: 30,
-                                width: 210,
-                                height: 50
-                            }
-                        },
-                        {
-                            name: 'searchSoundsNoCache',
-                            selectArea: {
-                                x: 360,
-                                y: 161,
-                                width: 210,
-                                height: 50
-                            }
-                        },
-                        {
-                            name: 'end',
-                            selectArea: {
-                                x: 690,
-                                y: 87,
-                                width: 50,
-                                height: 50
-                            }
-                        }
-                    ]
-                },
+                // {
+                //     name: 'json-2-rdf',
+                //     title: 'Translate JSON to RDF',
+                //     imageUrl: "assets/images/flows/flow-search.jpg",
+                //     actions: [{
+                //             name: 'start',
+                //             selectArea: {
+                //                 x: 25,
+                //                 y: 77,
+                //                 width: 60,
+                //                 height: 80
+                //             }
+                //         },
+                //         {
+                //             name: 'checkCredentials',
+                //             selectArea: {
+                //                 x: 115,
+                //                 y: 77,
+                //                 width: 150,
+                //                 height: 60
+                //             }
+                //         }, {
+                //             name: 'checkCache',
+                //             selectArea: {
+                //                 x: 290,
+                //                 y: 82,
+                //                 width: 50,
+                //                 height: 50
+                //             }
+                //         },
+                //         {
+                //             name: 'searchSoundsWithCache',
+                //             selectArea: {
+                //                 x: 360,
+                //                 y: 30,
+                //                 width: 210,
+                //                 height: 50
+                //             }
+                //         },
+                //         {
+                //             name: 'searchSoundsNoCache',
+                //             selectArea: {
+                //                 x: 360,
+                //                 y: 161,
+                //                 width: 210,
+                //                 height: 50
+                //             }
+                //         },
+                //         {
+                //             name: 'end',
+                //             selectArea: {
+                //                 x: 690,
+                //                 y: 87,
+                //                 width: 50,
+                //                 height: 50
+                //             }
+                //         }
+                //     ]
+                // },
                 {
                     name: 'authorize',
-                    title: 'Search Sounds',
-                    imageUrl: "assets/images/flows/flow-search.jpg",
+                    title: 'Authorize User',
+                    imageUrl: "assets/images/flows/flow-authorize.jpg",
                     actions: [{
                             name: 'start',
                             selectArea: {
@@ -219,7 +219,7 @@ if (!globalSet.hasOwnProperty('puzzles')) {
                                 height: 60
                             }
                         }, {
-                            name: 'checkCache',
+                            name: 'checkDb',
                             selectArea: {
                                 x: 290,
                                 y: 82,
@@ -228,20 +228,20 @@ if (!globalSet.hasOwnProperty('puzzles')) {
                             }
                         },
                         {
-                            name: 'searchSoundsWithCache',
+                            name: 'exists',
                             selectArea: {
                                 x: 360,
                                 y: 30,
-                                width: 210,
+                                width: 70,
                                 height: 50
                             }
                         },
                         {
-                            name: 'searchSoundsNoCache',
+                            name: 'missing',
                             selectArea: {
                                 x: 360,
                                 y: 161,
-                                width: 210,
+                                width: 70,
                                 height: 50
                             }
                         },
