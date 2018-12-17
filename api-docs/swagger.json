@@ -71,7 +71,7 @@
                 "enum": [
                   "freesound",
                   "jamendo",
-                  "europeana",
+                  "europeana"
                 ]
               }
             },
@@ -335,7 +335,6 @@
           }
         }
       }
-    },
-    "securitySchemes" : null
+    }
   }
 }
