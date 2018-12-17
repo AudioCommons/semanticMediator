@@ -80,7 +80,7 @@ if (!globalSet.hasOwnProperty('puzzles')) {
             timeDivider: 1000000,
             showActionNamesonFlow: false,
             flowImages: [{
-                    name: 'search-sounds',
+                    name: 'searchForSounds',
                     title: 'Search Sounds',
                     imageUrl: "assets/images/flows/flow-search.jpg",
                     actions: [{
