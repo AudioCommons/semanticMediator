@@ -225,6 +225,12 @@ java -jar engine-v0.9.1.jar
 ```sh
 cd sparql-generate-ws/
 java -jar target/sparql-generate-ws.jar 6060
+# or five in parallel
+java -jar target/sparql-generate-ws.jar 6061
+java -jar target/sparql-generate-ws.jar 6062
+java -jar target/sparql-generate-ws.jar 6063
+java -jar target/sparql-generate-ws.jar 6064
+java -jar target/sparql-generate-ws.jar 6065
 ```
 
 ```sh
@@ -241,6 +247,15 @@ python3 mediator.py -c <CONFIG_FILE.yaml>
 python3 mediator.py -c mediaconf.yaml
 ```
 
+# Run on server
+
+```sh
+# ssh to the server
+sudo systemctl status m-mediator
+sudo systemctl stop m-mediator
+cd /var/repos/semanticMediator/src/services/mediator/
+source /var/services/mediator3/bin/activate
+python mediator.py -c mediaconf.yaml
 # Tests
 
 # from local machine

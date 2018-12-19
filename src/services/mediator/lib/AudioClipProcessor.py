@@ -36,14 +36,27 @@ class AudioClipProcessor:
         if 'graphstore' in self.conf.tools:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
 
-            colaboFlowAuditConfig = self.conf.getExtensionConfig("space.colabo.flow.audit")
-            if self.conf.isExtensionActive("space.colabo.flow.audit"):
-                import uuid
-                # from colabo.flow.audit import ColaboFlowAudit, audit_pb2
-                from colabo.flow.audit import audit_pb2
-                from colabo.flow.audit import ColaboFlowAudit
-                self.audit_pb2 = audit_pb2
-                self.colaboFlowAudit = ColaboFlowAudit()
+        colaboFlowAuditConfig = self.conf.getExtensionConfig("space.colabo.flow.audit")
+        if self.conf.isExtensionActive("space.colabo.flow.audit"):
+            import uuid
+            # from colabo.flow.audit import ColaboFlowAudit, audit_pb2
+            from colabo.flow.audit import audit_pb2
+            from colabo.flow.audit import ColaboFlowAudit
+            self.audit_pb2 = audit_pb2
+            self.colaboFlowAudit = ColaboFlowAudit()
+
+        colaboFlowGoConfig = self.conf.getExtensionConfig("space.colabo.flow.go")
+        if self.conf.isExtensionActive("space.colabo.flow.go"):
+            import uuid
+            from colabo.flow.go import go_pb2
+            from colabo.flow.go import ColaboFlowGo
+
+            gRpcUrl = colaboFlowGoConfig['host']+':'+str(colaboFlowGoConfig['port'])
+            # https://docs.python.org/2/library/uuid.html
+            # flowInstanceId = str(uuid.uuid1())
+            self.go_pb2 = go_pb2
+            self.colaboFlowGo = ColaboFlowGo(socketUrl=gRpcUrl)
+
 
     def error(params, msg):
         return {
@@ -80,7 +93,7 @@ class AudioClipProcessor:
         self.stats.requests["total"] += 1
         self.stats.requests["paths"][path]["total"] += 1
 
-        # initialize
+        # if the cache missed
         if not cacheEntryUuid:
             
             if self.conf.isExtensionActive("space.colabo.flow.audit"):
@@ -89,50 +102,79 @@ class AudioClipProcessor:
                 print("cfAResSWoCache = %s" % (cfAResSWoCache))
 
             # generate an UUID for the request
-            req_id = str(uuid4())
-            graphURI = "http://m2.audiocommons.org/graphs/%s" % req_id
-            mainActionURI = "http://m2.audiocommons.org/actions/%s" % req_id
+            newCacheEntryUuid = str(uuid4())
+            graphURI = "http://m2.audiocommons.org/graphs/%s" % newCacheEntryUuid
+            mainActionURI = "http://m2.audiocommons.org/actions/%s" % newCacheEntryUuid
 
             # init a thread list
             threads = []
 
-            # define the worker function
-
+            # define the thread-worker function
             def worker(conf, sg_query, cp):
+                """
+                1. calls sparql-generate to access the search provider and generate RDF as a result
+                2. stores results in either
+                    a) graphstore (self.gs) if exists or
+                    b) SEPA otherwise
+
+                Arguments:
+                conf - configuration
+                sg_query - sparql-generate query
+                cp - sound provider name (`jamendo`, `freesound`, `europeana`, ...)
+                """
+
 
                 logging.debug("Sending query to SPARQL Generate")
-                logging.debug(sg_query)
+                # logging.debug(sg_query)
 
                 # do the request to SPARQL-Generate
                 try:
                     data = {"query":sg_query}
+                    logging.debug("Request sent to the SPARQL Generate:")
+                    logging.debug(data)
+
                     st = time.time()
-                    sg_req = requests.post(self.conf.tools["sparqlgen"], data=data)
+                    
+                    if self.conf.isExtensionActive("space.colabo.flow.go"):
+                        actionName = 'sparql-gen'
+                        flowId = 'search-sounds'
+                        logging.debug("Calling Sparql-gen through ColaboFlow.Go action: '%s' in flow: '%s' " % (actionName, flowId))
+                        sg_requestDataStr = json.dumps(data)
+                        sg_request = self.go_pb2.ActionExecuteRequest(
+                            flowId=flowId, name=actionName, flowInstanceId='fa23', dataIn=sg_requestDataStr)
+                        sg_response = self.colaboFlowGo.executeActionSync(sg_request)
+                        sg_respones_text = sg_response.dataOut
+                    else:
+                        logging.debug("Calling Sparql-gen directly")
+                        # NOTE: self.conf.tools["sparqlgen"] == self.config["sparql-generate"]["URI"]
+                        sg_req = requests.post(self.conf.tools["sparqlgen"], data=data)
+                        sg_respones_text = sg_req.text
                     et = time.time()
                     print(et - st)
                 except Exception as e:
-                    logging.error("Exception during request to SPARQL-Generate server")
+                    logging.error("Exception during request to SPARQL-Generate server: %s" % (e))
                     self.stats.requests["failed"] += 1
                     self.stats.requests["paths"][path]["failed"] += 1
                     print(traceback.print_exc())
                     return
 
-                logging.debug("Result from SPARQL Generate")
-                logging.debug(sg_req.text)
+                logging.debug("Result from the SPARQL Generate:")
+                logging.debug(sg_respones_text)
 
-                if self.gs is not None:
+                if self.gs is not None: # if self.gs exists use it
                     try:
-                        logging.debug("Posting data to graphstore for req_id: %s" % (req_id))
-                        self.gs.insertRDF(sg_req.text, graphURI)
+                        logging.debug("Posting data to graphstore for newCacheEntryUuid: %s" % (newCacheEntryUuid))
+                        self.gs.insertRDF(sg_respones_text, graphURI)
                     except Exception as e:
                         msg = "Error while posting RDF data on graphstore"
                         logging.error(msg)
                         print(traceback.print_exc())
-                        logging.debug("Process %s completed!" % cp)
-                else:
+                    logging.debug("Process %s completed!" % cp)
+
+                else: # otherwise use SEPA
                     # from the turtle output create a SPARQL INSERT DATA
                     logging.debug("Creating INSERT DATA query")
-                    triples = QueryUtils.getTriplesFromTurtle(sg_req.text)
+                    triples = QueryUtils.getTriplesFromTurtle(sg_respones_text)
                     update = QueryUtils.getInsertDataFromTriples(triples, graphURI)
 
                     # put data in SEPA
@@ -141,10 +183,11 @@ class AudioClipProcessor:
                         self.kp.update(self.conf.tools["sepa"]["update"], update)
                     except:
                         logging.error("Error while connecting to SEPA")
-                        logging.debug("Process %s completed!" % cp)
+                    logging.debug("Process %s completed!" % cp)
 
             # read the mappings
             results = {}
+            # cp are search engines (`jamendo`, `freesound`, `europeana`, ...) 
             for cp in self.conf.mappings["audioclips"]["search"]:
 
                 if (sources and cp in sources) or (not sources):
@@ -154,6 +197,7 @@ class AudioClipProcessor:
                     datetimeNow = "\"" + datetime.datetime.now().isoformat() + "\"" + "^^<http://www.w3.org/2001/XMLSchema#dateTime>"
 
                     # build the SPARQL-generate query
+                    # baseQuery i.e. is a content of the file: `infrastructure-2/semanticMediator/src/services/mediator/lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-text.rq`
                     baseQuery = self.conf.mappings["audioclips"]["search"][cp]
                     sg_query = QueryUtils.bindInGenerateQuery(baseQuery, {
                         "pattern": "\"" + params["pattern"] + "\"",
@@ -183,8 +227,12 @@ class AudioClipProcessor:
             graphURI = "http://m2.audiocommons.org/graphs/%s" % cacheEntryUuid
             mainActionURI = "http://m2.audiocommons.org/actions/%s" % cacheEntryUuid
 
-        if self.gs is not None:
+        # get results from graphstore or ...
+        if self.gs is not None: # if self.gs exists, use it
             try:
+                msg = "Collating results ..."
+                logging.debug(msg)
+
                 self.gs.sparqlUpdate("""
                     PREFIX schema: <http://schema.org/>
                     PREFIX doap: <http://usefulinc.com/ns/doap#>
@@ -218,7 +266,11 @@ class AudioClipProcessor:
                 self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
                 return json.dumps(error(params, msg)), -1
+
             try:
+                msg = "Getting RDF data as JSON-LD ..."
+                logging.debug(msg)
+
                 resultsTurtle = self.gs.getGraph(graphURI)
                 g = rdflib.Graph()
                 g.parse(data=resultsTurtle, format="n3")
@@ -237,7 +289,8 @@ class AudioClipProcessor:
                 print(traceback.print_exc())
                 return json.dumps(error(params, msg)), -1
 
-        else:
+        # ... or from SEPA
+        else: # no self.gs, use SEPA
             # assembly results
             query = None
             # if not sources:
@@ -252,6 +305,9 @@ class AudioClipProcessor:
             #     print(query)
 
             try:
+                msg = "Querying SEPA ..."
+                logging.debug(msg)
+
                 status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
                 frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
                 context = json.loads(self.conf.resources["jsonld-context"])
@@ -263,14 +319,14 @@ class AudioClipProcessor:
                 self.stats.requests["paths"][path]["failed"] += 1
                 return json.dumps(error(params, msg)), -1
 
-        # return
+        # return results and cache id
         self.stats.requests["successful"] += 1
         self.stats.requests["paths"][path]["successful"] += 1
 
-        if cacheEntryUuid:
+        if cacheEntryUuid: # previousely cached
             return json.dumps(jres), cacheEntryUuid
-        else:
-            return json.dumps(jres), req_id
+        else: # not cached already
+            return json.dumps(jres), newCacheEntryUuid
 
 
     def show(self, path, audioclipId, source, cacheEntryUuid):

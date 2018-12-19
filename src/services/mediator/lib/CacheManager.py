@@ -16,12 +16,24 @@ class CacheManager:
 
         # store the conf
         self.conf = conf
+        self.expirationTime = self.conf.caching['expiration-time']
 
         # create a KP
         self.kp = SEPAClient()
 
 
     def setEntry(self, path, params, sources, uuid):
+        """
+        Sets UUID and timestap for the cache entry.
+        Cache itself is stored in the triplestore.
+        Cache itself is stored in the triplestore and addressed through the UUID which represents namespaced graph.
+
+        Arguments:
+        path - request.path
+        params - search params (pattern, limit, page, ...)
+        source - what sources to search from
+        uuid - UUID of the cache (graph) entry
+        """
 
         paramStr = json.dumps(params, sort_keys=True)
 
@@ -38,7 +50,16 @@ class CacheManager:
         paramEntries[str(sources)] = {"id": uuid, "timestamp": datetime.datetime.now()}
 
 
-    def getEntryUiid(self, path, params, sources):
+    def getEntryUuid(self, path, params, sources):
+        """
+        Returns the UUID for the specific search parameters (if matched)
+        Cache itself is stored in the triplestore and addressed through the UUID which represents namespaced graph.
+
+        Arguments:
+        path - request.path
+        params - search params (pattern, limit, page, ...)
+        source - what sources to search from
+        """
 
         paramStr = json.dumps(params, sort_keys=True)
 
@@ -48,12 +69,14 @@ class CacheManager:
             if paramStr in self.entries[path]:
                 sourcesStr = str(sources)
                 if sourcesStr in self.entries[path][paramStr]:
-                    if (datetime.datetime.now() - self.entries[path][paramStr][sourcesStr]["timestamp"]).total_seconds() < 30:
-                        return self.entries[path][paramStr][sourcesStr]["id"]
+                    uuidStr = self.entries[path][paramStr][sourcesStr]["id"]
+
+                    if (datetime.datetime.now() - self.entries[path][paramStr][sourcesStr]["timestamp"]).total_seconds() < self.expirationTime: # if not expired
+                        return uuidStr
                     else:
 
                         # SPARQL update to delete the subgraph
-                        graphURI = "http://ns#%s" % self.entries[path][paramStr][sourcesStr]["id"]
+                        graphURI = "http://ns#%s" % uuidStr
                         update = """DELETE { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }""" % graphURI
                         self.kp.update(self.conf.tools["sepa"]["update"], update)
 

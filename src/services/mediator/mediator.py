@@ -175,7 +175,7 @@ if __name__ == "__main__":
             cfAReqSWCache = audit_pb2.SubmitAuditRequest(name='searchSoundsWithCache')
             cfAResSWCache = colaboFlowAudit.audit_create(cfAReqSWCache)
 
-        cacheEntryUuid = cm.getEntryUiid(request.path, queryParams, sources)
+        cacheEntryUuid = cm.getEntryUuid(request.path, queryParams, sources)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
         
@@ -217,7 +217,7 @@ if __name__ == "__main__":
         descriptor = request.args.get("plugin")
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id, source)
+        cacheEntryUuid = cm.getEntryUuid(request.path, audioclip_id, source)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
@@ -240,7 +240,7 @@ if __name__ == "__main__":
         source = request.args.get("source")
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, audioclip_id, source)
+        cacheEntryUuid = cm.getEntryUuid(request.path, audioclip_id, source)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
@@ -271,7 +271,7 @@ if __name__ == "__main__":
         sources = request.args.get("source").split(",") if request.args.get("source") else None
 
         # see if the request is present in cache
-        cacheEntryUuid = cm.getEntryUiid(request.path, pattern, sources)
+        cacheEntryUuid = cm.getEntryUuid(request.path, pattern, sources)
         if cacheEntryUuid and not request.args.get("nocache"):
             logging.debug("Entry found in cache")
 
