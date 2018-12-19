@@ -26,312 +26,357 @@
         "summary" : "Free text search for audio clips",
         "description" : "Search the content providers for audio clips with content whose metadata contain the provided text",
         "operationId" : "searchAudioClips",
-        "parameters" : [
-          {
-            "name" : "pattern",
-            "in" : "query",
-            "description" : "Free text used to search for audio clips",
-            "required" : true,
-            "schema" : {
-              "type" : "string"
-            },
-            "example": "dog"
+        "parameters" : [ {
+          "name" : "pattern",
+          "in" : "query",
+          "description" : "Free text used to search for audio clips",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
           },
-          {
-            "name" : "limit",
-            "in" : "query",
-            "description" : "Max number of results from each source",
-            "required" : false,
-            "schema" : {
-              "type" : "integer",
-              "default": 12
-            },
-            "example": 5
+          "example" : "dog"
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Max number of results from each source",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "default" : 12
           },
-          {
-            "name" : "page",
-            "in" : "query",
-            "description" : "Page of results (for all the sources)",
-            "required" : false,
-            "schema" : {
-              "type" : "integer",
-              "default": 1
-            },
-            "example": 1
+          "example" : 5
+        }, {
+          "name" : "page",
+          "in" : "query",
+          "description" : "Page of results (for all the sources)",
+          "required" : false,
+          "schema" : {
+            "type" : "integer",
+            "default" : 1
           },
-          {
-            "name" : "source",
-            "in" : "query",
-            "description" : "Optionally choose the sources to use (by default all of them are used)",
-            "required" : false,
-            "schema" : {
-              "type" : "array",
-              "items": {
-                "type": "string",
-                "enum": [
-                  "freesound",
-                  "jamendo",
-                  "europeana"
-                ]
-              }
-            },
-            "style": "form",
-            "explode": false,
-            "example": "freesound,jamendo,europeana"
-          }
-        ],
+          "example" : 1
+        }, {
+          "name" : "source",
+          "in" : "query",
+          "description" : "Optionally choose the sources to use (by default all of them are used)",
+          "required" : false,
+          "schema" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "enum" : [ "freesound", "jamendo", "europeana" ]
+            }
+          },
+          "style" : "form",
+          "explode" : false,
+          "example" : "freesound,jamendo,europeana"
+        } ],
         "responses" : {
           "200" : {
-            "$ref": "#/components/responses/searchAudioClipsResponse"
+            "$ref" : "#/components/responses/searchAudioClipsResponse"
           }
         }
       }
     }
   },
   "components" : {
-    "responses": {
-      "searchAudioClipsResponse": {
+    "responses" : {
+      "searchAudioClipsResponse" : {
         "description" : "Description of the search action status, including the list of audio clips found if successful",
-        "content": {
-          "application/json": {
-            "schema": {
-                "$ref": "#/components/schemas/mainSearchAction"
+        "content" : {
+          "application/json" : {
+            "schema" : {
+              "$ref" : "#/components/schemas/mainSearchAction"
             }
           }
         }
       }
     },
-    "schemas": {
-      "providerSearchAction": {
-        "type": "object",
-        "required": [
-          "@type", "actionStatus", "object"
-        ],
-        "properties": {
-          "@type": {
-            "type": "string",
-            "enum": ["schema:SearchAction"]
+    "schemas" : {
+      "mainSearchAction" : {
+        "type" : "object",
+        "required" : [ "@id", "@type", "actionStatus", "object", "query" ],
+        "properties" : {
+          "@id" : {
+            "type" : "string",
+            "example" : "acActions:729bc547-3ff7-43ed-938c-c25f5df9a668"
           },
-          "actionStatus": {
-            "type": "string",
-            "enum": [
-              "schema:CompletedActionStatus",
-              "schema:FailedActionStatus"
-            ]
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "schema:SearchAction" ]
           },
-          "object": {
-            "type": "string",
-            "example": "http://jamendo.com"
+          "actionStatus" : {
+            "type" : "string",
+            "enum" : [ "schema:CompletedActionStatus", "schema:FailedActionStatus" ]
           },
-          "query": {
-            "type": "string",
-            "example": "dog"
+          "object" : {
+            "$ref" : "#/components/schemas/APIversion"
           },
-          "startTime": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2018-11-08T12:25:23.978000+00:00"
+          "query" : {
+            "type" : "string",
+            "example" : "dog"
           },
-          "endTime": {
-            "type": "string",
-            "format": "date-time",
-            "example": "2018-11-08T12:25:24.546000+00:00"
+          "results" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/audioCollection"
+            }
+          },
+          "errors" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/error"
+            }
           }
         }
       },
-      "error": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "example": "jamendo-error-types:5"
+      "audioCollection" : {
+        "type" : "object",
+        "properties" : {
+          "from" : {
+            "$ref" : "#/components/schemas/providerSearchAction"
           },
-          "label": {
-            "type": "string",
-            "example": "Jamendo Api Invalid Client Id Error: Your credential is not authorized.."
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "ac:AudioCollection" ]
           },
-          "raisedBy": {
-            "$ref": "#/components/schemas/providerSearchAction"
+          "members" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/audioCollectionNode"
+            }
           }
         }
       },
-      "audioFile": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "enum": ["ebu:MediaResource"]
+      "audioCollectionNode" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "ac:AudioCollectionNode" ]
           },
-          "locator": {
-            "type": "string",
-            "example": "https://mp3d.jamendo.com/download/track/1491259/mp32/"
+          "content" : {
+            "$ref" : "#/components/schemas/audioClip"
+          },
+          "index" : {
+            "type" : "integer",
+            "example" : 1
           }
         }
       },
-      "image": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "enum": ["ebu:Picture"]
+      "audioClip" : {
+        "type" : "object",
+        "properties" : {
+          "@id" : {
+            "type" : "string",
+            "example" : "jamendo-tracks:1423948"
           },
-          "locator": {
-            "type": "string",
-            "example": "https://mp3d.jamendo.com/download/track/1491259/mp32/"
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "ac:AudioClip" ]
+          },
+          "license" : {
+            "type" : "string",
+            "example" : "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+          },
+          "title" : {
+            "type" : "string",
+            "example" : "Haven In Chaos"
+          },
+          "description" : {
+            "type" : "string",
+            "example" : "Haven In Chaos (2017)"
+          },
+          "author" : {
+            "type" : "string",
+            "example" : "jamendo-artists:504315"
+          },
+          "duration" : {
+            "type" : "integer",
+            "example" : 91000
+          },
+          "originalFile" : {
+            "$ref" : "#/components/schemas/audioFile"
+          },
+          "availableAs" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/audioFile"
+            }
+          },
+          "defaultContainerNode" : {
+            "$ref" : "#/components/schemas/audioCollectionNodeWithReverseMembership"
+          },
+          "images" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/image"
+            }
+          },
+          "audioCategories" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "example" : "jamendo-tags-vartags:car"
+            }
+          },
+          "genres" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "example" : "jamendo-tags-genres:singersongwriter"
+            }
+          },
+          "instruments" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string",
+              "example" : "jamendo-tags-instruments:piano"
+            }
           }
         }
       },
-      "audioClip": {
-        "type": "object",
-        "properties": {
-          "@id": {
-            "type": "string",
-            "example": "jamendo-tracks:1423948"
+      "audioFile" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "ebu:MediaResource" ]
           },
-          "@type": {
-            "type": "string",
-            "enum": ["ac:AudioClip"]
+          "locator" : {
+            "type" : "string",
+            "example" : "https://mp3d.jamendo.com/download/track/1491259/mp32/"
           },
-          "license": {
-            "type": "string",
-            "example": "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+          "audioChannelNumber" : {
+            "type" : "integer",
+            "example" : 2
           },
-          "title": {
-            "type": "string",
-            "example": "Haven In Chaos"
+          "sampleRate" : {
+            "type" : "integer",
+            "example" : 48000
           },
-          "author": {
-            "type": "string",
-            "example": "jamendo-artists:504315"
+          "sampleSize" : {
+            "type" : "integer",
+            "example" : 24
           },
-          "duration": {
-            "type": "integer",
-            "example": 91000
+          "bitRate" : {
+            "type" : "integer",
+            "example" : 128000
           },
-          "originalFile": {
-            "$ref": "#/components/schemas/audioFile"
-          },
-          "availableAs": {
-            "type": "array",
-            "items": {"$ref": "#/components/schemas/audioFile"}
-          },
-          "defaultContainerNode": {
-            "$ref": "#/components/schemas/audioCollectionNodeWithReverseMembership"
-          },
-          "images": {
-            "type": "array",
-            "items": {"$ref": "#/components/schemas/image"}
+          "hasAudioEncodingFormat" : {
+            "type" : "string",
+            "example" : "mp3:"
           }
         }
       },
-      "audioCollectionNode": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "enum": ["ac:AudioCollectionNode"]
+      "image" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "ebu:Picture" ]
           },
-          "content": {
-            "$ref": "#/components/schemas/audioClip"
+          "locator" : {
+            "type" : "string",
+            "example" : "https://mp3d.jamendo.com/download/track/1491259/mp32/"
           },
-          "index": {
-            "type": "integer",
-            "example": 1
+          "frameWidth" : {
+            "type" : "integer",
+            "example" : 900
+          },
+          "frameHeight" : {
+            "type" : "integer",
+            "example" : 201
+          },
+          "prefLabel" : {
+            "type" : "string",
+            "example" : "Waveform"
           }
         }
       },
-      "audioCollectionNodeWithReverseMembership": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "enum": ["ac:AudioCollectionNode"]
+      "audioCollectionNodeWithReverseMembership" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "ac:AudioCollectionNode" ]
           },
-          "content": {
-            "$ref": "#/components/schemas/audioClip"
+          "index" : {
+            "type" : "integer",
+            "example" : 3
           },
-          "index": {
-            "type": "integer",
-            "example": 3
-          },
-          "isMemberOf": {
-            "type": "string",
-            "example": "jamendo-albums:34344"
+          "isMemberOf" : {
+            "type" : "string",
+            "example" : "jamendo-albums:34344"
           }
         }
       },
-      "audioCollection": {
-        "type": "object",
-        "properties": {
-          "from": {
-            "$ref": "#/components/schemas/providerSearchAction"
+      "providerSearchAction" : {
+        "type" : "object",
+        "required" : [ "@type", "actionStatus", "object" ],
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "schema:SearchAction" ]
           },
-          "@type": {
-            "type": "string",
-            "enum": ["ac:AudioCollection"]
+          "actionStatus" : {
+            "type" : "string",
+            "enum" : [ "schema:CompletedActionStatus", "schema:FailedActionStatus" ]
           },
-          "members": {
-            "type": "array",
-            "items": {"$ref": "#/components/schemas/audioCollectionNode"}
+          "object" : {
+            "type" : "string",
+            "example" : "http://jamendo.com"
+          },
+          "query" : {
+            "type" : "string",
+            "example" : "dog"
+          },
+          "startTime" : {
+            "type" : "string",
+            "format" : "date-time",
+            "example" : "2018-11-08T12:25:23.978000+00:00"
+          },
+          "endTime" : {
+            "type" : "string",
+            "format" : "date-time",
+            "example" : "2018-11-08T12:25:24.546000+00:00"
           }
         }
       },
-      "mainSearchAction": {
-        "type": "object",
-        "required": [
-          "@id", "@type", "actionStatus", "object", "query"
-        ],
-        "properties": {
-          "@id": {
-            "type": "string",
-            "example": "acActions:729bc547-3ff7-43ed-938c-c25f5df9a668"
+      "error" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "example" : "jamendo-error-types:5"
           },
-          "@type": {
-            "type": "string",
-            "enum": ["schema:SearchAction"]
+          "label" : {
+            "type" : "string",
+            "example" : "Jamendo Api Invalid Client Id Error: Your credential is not authorized.."
           },
-          "actionStatus": {
-            "type": "string",
-            "enum": [
-              "schema:CompletedActionStatus",
-              "schema:FailedActionStatus"
-            ]
-          },
-          "object": {
-            "$ref": "#/components/schemas/APIversion"
-          },
-          "query": {
-            "type": "string",
-            "example": "dog"
-          },
-          "results": {
-            "type": "array",
-            "items": {"$ref": "#/components/schemas/audioCollection"}
-          },
-          "errors": {
-            "type": "array",
-            "items": {"$ref": "#/components/schemas/error"}
+          "raisedBy" : {
+            "$ref" : "#/components/schemas/providerSearchAction"
           }
         }
       },
-      "APIversion": {
-        "type": "object",
-        "properties": {
-          "@type": {
-            "type": "string",
-            "enum": ["doap:Version"]
+      "APIversion" : {
+        "type" : "object",
+        "properties" : {
+          "@type" : {
+            "type" : "string",
+            "enum" : [ "doap:Version" ]
           },
-          "@id": {
-            "type": "string",
-            "example": "AC_API:v2.4.1"
+          "@id" : {
+            "type" : "string",
+            "example" : "AC_API:v2.4.1"
           },
-          "revision": {
-            "type": "string",
-            "example": "2.4.1"
+          "revision" : {
+            "type" : "string",
+            "example" : "2.4.1"
           },
-          "releaseOf": {
-            "type": "string",
-            "enum": ["https://m2.audiocommons.org/api/"]
+          "releaseOf" : {
+            "type" : "string",
+            "enum" : [ "https://m2.audiocommons.org/api/" ]
           }
         }
       }
