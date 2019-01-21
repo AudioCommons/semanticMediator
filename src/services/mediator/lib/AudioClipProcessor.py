@@ -161,7 +161,7 @@ class AudioClipProcessor:
                 logging.debug("Result from the SPARQL Generate:")
                 logging.debug(sg_respones_text)
 
-                if self.gs is not None: # if self.gs exists use it
+                if self.gs is not None: # if graphstore exists use it
                     try:
                         logging.debug("Posting data to graphstore for newCacheEntryUuid: %s" % (newCacheEntryUuid))
                         self.gs.insertRDF(sg_respones_text, graphURI)
@@ -197,7 +197,7 @@ class AudioClipProcessor:
                     datetimeNow = "\"" + datetime.datetime.now().isoformat() + "\"" + "^^<http://www.w3.org/2001/XMLSchema#dateTime>"
 
                     # build the SPARQL-generate query
-                    # baseQuery i.e. is a content of the file: `infrastructure-2/semanticMediator/src/services/mediator/lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-text.rq`
+                    # baseQuery is a content of the file referred to in the config file. So for the freesound service it is the content of the file: `src/services/mediator/lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-text.rq`
                     baseQuery = self.conf.mappings["audioclips"]["search"][cp]
                     sg_query = QueryUtils.bindInGenerateQuery(baseQuery, {
                         "pattern": "\"" + params["pattern"] + "\"",
