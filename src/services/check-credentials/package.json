@@ -1,0 +1,35 @@
+{
+    "name": "@ace-mediator/service-check-credentials",
+    "version": "0.3.1",
+    "description": "A service listening on ColaboFlow.Go and checking for user credentials",
+    "private": false,
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Cha-OS/colabo"
+    },
+    "scripts": {
+        "start": "node dist/index",
+        "prepare": "colabo puzzles-offer; colabo puzzles-install; colabo puzzles-build; tsc",
+        "clean_full": "rm -r node_modules/; rm -r dev_puzzles/*/*/node_modules; rm -r dev_puzzles/*/*/dist; rm -r dist/",
+        "build": "tsc"
+    },
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "dependencies": {
+        "@grpc/proto-loader": "^0.1.0",
+        "@types/node": "^10.7.1",
+        "async": "^1.5.2",
+        "chalk": "^2.4.1",
+        "google-protobuf": "^3.0.0",
+        "grpc": "^1.11.0",
+        "lodash": "^4.6.1",
+        "minimist": "^1.2.0",
+        "pg": "^7.7.1"
+    },
+    "peerDependenciesLocal": {},
+    "devDependencies": {}
+}
