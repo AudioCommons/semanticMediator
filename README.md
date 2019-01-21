@@ -249,13 +249,80 @@ python3 mediator.py -c mediaconf.yaml
 
 # Run on server
 
+## SPARQL-Gen services
+
+```sh
+# service-1
+ssh -i ~/.ssh/sasha-iaas-no.pem mprinc@158.37.63.53
+# service-2
+ssh -i ~/.ssh/sasha-iaas-no.pem mprinc@158.37.63.178
+# service-3
+ssh -i ~/.ssh/sasha-iaas-no.pem mprinc@158.37.63.172
+
+sudo systemctl status m-sparqlGenerate-ws
+sudo systemctl stop m-sparqlGenerate-ws
+sudo systemctl restart m-sparqlGenerate-ws
+
+cd /var/services/sparqlGenerate-ws/
+
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar sparql-generate-ws.jar 6060
+```
+
+## ColaboFlow Audit Service
+
+```sh
+sudo systemctl status s-colaboflow-audit
+sudo systemctl stop s-colaboflow-audit
+sudo systemctl restart s-colaboflow-audit
+
+cd /var/repos/colabo/src/services/services/colaboflow-audit/dist/
+/usr/bin/nodejs /var/repos/colabo/src/services/services/colaboflow-audit/dist/index.js
+```
+
+## ColaboFlow Go Service
+
+```sh
+sudo systemctl status s-colaboflow-go
+sudo systemctl restart s-colaboflow-go
+
+cd /var/repos/colabo/src/services/services/colaboflow-go/dist/
+/usr/bin/nodejs /var/repos/colabo/src/services/services/colaboflow-go/dist/index.js
+```
+
+## blazegraph
+
+```sh
+sudo systemctl status m-blazegraph
+sudo systemctl stop m-blazegraph
+
+cd /var/services/sepa/
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -server -Xmx4g -jar blazegraph.jar
+```
+
+## SEPA
+
+```sh
+sudo systemctl status m-sepa
+sudo systemctl stop m-sepa
+cd /var/services/sepa/
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar engine-v0.9.1.jar
+```
+
+## SemanticMediator
+
 ```sh
 # ssh to the server
+ssh -i ~/.ssh/sasha-iaas-no.pem mprinc@158.37.63.127
+
 sudo systemctl status m-mediator
 sudo systemctl stop m-mediator
+sudo systemctl restart m-mediator
+
 cd /var/repos/semanticMediator/src/services/mediator/
 source /var/services/mediator3/bin/activate
 python mediator.py -c mediaconf.yaml
+```
+
 # Tests
 
 # from local machine
@@ -267,4 +334,34 @@ The project contains a few unit tests in folder `tests`. To run them, enter in f
 
 ```
 $ MEDIATORTEST=testconf.yaml python3 -m unittest tests.MediatorTests
+```
+
+# Changing for the test
+
+Sessions:
+
+```txt
+session-cache-missing-multiple-sparql-gen
+session-cache-missing-multiple-1-sparql-gen
+```
+
+edit: 
++ `infrastructure-2/semanticMediator/src/services/mediator/mediaconf.yaml`
+    + change `sessionId`
++ `audio-commons-provisioning/provisioning/files/services/flow/go/global-server.js`
+    + change the `list` of sparql-gen service instancs
+
+Restart services:
+
+
+```sh
+sudo systemctl restart s-colaboflow-go
+sudo systemctl restart m-mediator
+```
+
+Run ***tests***:
+
+```sh
+cd /Users/sasha/Documents/data/development/QMUL/infrastructure-2/semanticMediator/src/services/mediator/tests/
+sh ./cache-missing.sh
 ```
