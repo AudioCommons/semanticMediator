@@ -1,9 +1,9 @@
-[submodule "src/services/mediator/lib/mappings/europeana-to-audiocommons"]
-	path = src/services/mediator/lib/mappings/europeana-to-audiocommons
-	url = https://gitlab.com/desmovalvo/europeana-to-audiocommons
-[submodule "src/services/mediator/lib/mappings/freesound-to-audiocommons"]
-	path = src/services/mediator/lib/mappings/freesound-to-audiocommons
-	url = https://github.com/miguel76/freesound-to-audiocommons
-[submodule "src/services/mediator/lib/mappings/jamendo-to-audiocommons"]
-	path = src/services/mediator/lib/mappings/jamendo-to-audiocommons
-	url = https://gitlab.com/desmovalvo/jamendo-to-audiocommons
+[submodule "src/services/mediator/lib/mappings/semantic-mappings-europeana"]
+	path = src/services/mediator/lib/mappings/semantic-mappings-europeana
+	url = https://github.com/AudioCommons/semantic-mappings-europeana
+[submodule "src/services/mediator/lib/mappings/semantic-mappings-freesound"]
+	path = src/services/mediator/lib/mappings/semantic-mappings-freesound
+	url = https://github.com/AudioCommons/semantic-mappings-freesound
+[submodule "src/services/mediator/lib/mappings/semantic-mappings-jamendo"]
+	path = src/services/mediator/lib/mappings/semantic-mappings-jamendo
+	url = https://github.com/AudioCommons/semantic-mappings-jamendo
