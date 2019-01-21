@@ -12,7 +12,7 @@
         "experimentalDecorators": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "listFiles": true,
+        "listFiles": false,
         "lib": [
             "es6",
             "dom"
