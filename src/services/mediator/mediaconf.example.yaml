@@ -1,6 +1,9 @@
 mediator:
   port: 9027
 
+caching:
+  expiration-time: 86400
+
 resources:
   jsonld-context:
     file: "static/context.jsonld"
