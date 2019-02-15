@@ -46,19 +46,19 @@ contentProviders:
           args: ["pattern"]
       show:
         jamendo:
-          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/track-search-by-id.rq"
+          file: "lib/mappings/semantic-mappings-jamendo/data-adapters/track-search-by-id.rq"
           args: ["trackId", "token"]
         freesound:
-          file: "lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-id.rq"
+          file: "lib/mappings/semantic-mappings-freesound/data-adapters/audio-search-by-id.rq"
           args: ["trackId", "token"]
 
     collections:
       search:
         jamendo:
-          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/playlist-search-by-text.rq"
+          file: "lib/mappings/semantic-mappings-jamendo/data-adapters/playlist-search-by-text.rq"
           args: ["trackId", "token"]
         freesound:
-          file: "lib/mappings/freesound-to-audiocommons/data-adapters/pack-search-by-text.rq"
+          file: "lib/mappings/semantic-mappings-freesound/data-adapters/pack-search-by-text.rq"
           args: ["trackId", "token"]
 
 analysisTools:
