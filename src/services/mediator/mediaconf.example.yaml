@@ -33,14 +33,17 @@ contentProviders:
     audioclips:
       search:
         jamendo:
-          file: "lib/mappings/jamendo-to-audiocommons/data-adapters/track-search-by-text.rq"
+          file: "lib/mappings/semantic-mappings-jamendo/data-adapters/track-search-by-text.rq"
           args: ["pattern", "token"]
         freesound:
-          file: "lib/mappings/freesound-to-audiocommons/data-adapters/audio-search-by-text.rq"
+          file: "lib/mappings/semantic-mappings-freesound/data-adapters/audio-search-by-text.rq"
           args: ["pattern", "token"]
         europeana:
-          file: "lib/mappings/europeana-to-audiocommons/data-adapters/audio-search-by-text.rq"
+          file: "lib/mappings/semantic-mappings-europeana/data-adapters/audio-search-by-text.rq"
           args: ["pattern", "token"]
+        iarchive:
+          file: "lib/mappings/semantic-mappings-iarchive/data-adapters/audio-search-by-text.rq"
+          args: ["pattern"]
       show:
         jamendo:
           file: "lib/mappings/jamendo-to-audiocommons/data-adapters/track-search-by-id.rq"
