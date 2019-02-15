@@ -8,6 +8,5 @@
 	path = src/services/mediator/lib/mappings/semantic-mappings-jamendo
 	url = https://github.com/AudioCommons/semantic-mappings-jamendo
 [submodule "src/services/mediator/lib/mappings/semantic-mappings-iarchive"]
-        path = src/services/mediator/lib/mappings/semantic-mappings-iarchive
-        url = https://github.com/AudioCommons/InternetArchive4Mediator
-
+	path = src/services/mediator/lib/mappings/semantic-mappings-iarchive
+	url = https://github.com/AudioCommons/InternetArchive4Mediator.git
