@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # system-wide requirements
-from sepy.SEPAClient import *
+from sepy.SEPA import SEPA
 from uuid import uuid4
 import threading
 import requests
@@ -17,6 +17,7 @@ import pdb
 
 # local requirements
 from .QueryUtils import *
+from time import time
 
 VERSION = "2.4.1"
 DEFAULT_RESULTS_LIMIT = 12
@@ -31,7 +32,7 @@ class AudioClipProcessor:
         self.gs = None # Graphstore
 
         # create a KP
-        self.kp = SEPAClient()
+        self.engine = SEPA()
 
         if 'graphstore' in self.conf.tools:
             self.gs = GraphStoreClient(self.conf.tools['graphstore'])
@@ -56,7 +57,6 @@ class AudioClipProcessor:
             # flowInstanceId = str(uuid.uuid1())
             self.go_pb2 = go_pb2
             self.colaboFlowGo = ColaboFlowGo(socketUrl=gRpcUrl)
-
 
     def error(params, msg):
         return {
@@ -133,7 +133,7 @@ class AudioClipProcessor:
                     logging.debug("Request sent to the SPARQL Generate:")
                     logging.debug(data)
 
-                    st = time.time()
+                    st = time()
                     
                     if self.conf.isExtensionActive("space.colabo.flow.go"):
                         actionName = 'sparql-gen'
@@ -149,7 +149,7 @@ class AudioClipProcessor:
                         # NOTE: self.conf.tools["sparqlgen"] == self.config["sparql-generate"]["URI"]
                         sg_req = requests.post(self.conf.tools["sparqlgen"], data=data)
                         sg_respones_text = sg_req.text
-                    et = time.time()
+                    et = time()
                     print(et - st)
                 except Exception as e:
                     logging.error("Exception during request to SPARQL-Generate server: %s" % (e))
@@ -180,7 +180,7 @@ class AudioClipProcessor:
                     # put data in SEPA
                     try:
                         logging.debug("Sending INSERT DATA query to SEPA")
-                        self.kp.update(self.conf.tools["sepa"]["update"], update)
+                        self.engine.sparql_update(update, host=self.conf.tools["sepa"]["update"])
                     except:
                         logging.error("Error while connecting to SEPA")
                     logging.debug("Process %s completed!" % cp)
@@ -265,7 +265,7 @@ class AudioClipProcessor:
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
-                return json.dumps(error(params, msg)), -1
+                return json.dumps(AudioClipProcessor.error(params, msg)), -1
 
             try:
                 msg = "Getting RDF data as JSON-LD ..."
@@ -282,12 +282,12 @@ class AudioClipProcessor:
                 jres = QueryUtils.frameAndCompact(json.loads(resultsJsonLd), frame, context)
                 logging.debug(jres)
             except Exception as e:
-                msg = "Error while getting RDF data as JSON-LD: " + e.text
+                msg = "Error while getting RDF data as JSON-LD: {}".format(e)
                 logging.error(msg)
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
                 print(traceback.print_exc())
-                return json.dumps(error(params, msg)), -1
+                return json.dumps(AudioClipProcessor.error(params, msg)), -1
 
         # ... or from SEPA
         else: # no self.gs, use SEPA
@@ -308,7 +308,7 @@ class AudioClipProcessor:
                 msg = "Querying SEPA ..."
                 logging.debug(msg)
 
-                status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
+                results = self.engine.sparql_query(query, host=self.conf.tools["sepa"]["query"])
                 frame = json.loads(self.conf.resources["jsonld-frames"]["audioclips"]["search"])
                 context = json.loads(self.conf.resources["jsonld-context"])
                 jres = QueryUtils.getJsonLD(results, frame, context)
@@ -317,7 +317,7 @@ class AudioClipProcessor:
                 logging.error(msg)
                 self.stats.requests["failed"] += 1
                 self.stats.requests["paths"][path]["failed"] += 1
-                return json.dumps(error(params, msg)), -1
+                return json.dumps(AudioClipProcessor.error(params, msg)), -1
 
         # return results and cache id
         self.stats.requests["successful"] += 1
@@ -372,7 +372,7 @@ class AudioClipProcessor:
 
                 # put data in SEPA
                 try:
-                    self.kp.update(self.conf.tools["sepa"]["update"], update)
+                    self.engine.sparql_update(update, host=self.conf.tools["sepa"]["update"])
                 except:
                     logging.error("Error while connecting to SEPA")
                     logging.debug("Process %s completed!" % source)
@@ -390,7 +390,7 @@ class AudioClipProcessor:
         WHERE { GRAPH <%s> { ?audioClip rdf:type ac:AudioClip .
         ?audioClip dc:title ?title }}""" % graphURI
         try:
-            status, results = self.kp.query(self.conf.tools["sepa"]["query"], query)
+            results = self.engine.sparql_query(query, self.conf.tools["sepa"]["query"])
         except:
             msg = "Error while getting RDF data as JSON-LD: " + exception.text
             logging.error(msg)

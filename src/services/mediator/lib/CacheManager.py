@@ -2,11 +2,12 @@
 
 # requirements
 import datetime
-from sepy.SEPAClient import *
+from sepy.SEPA import SEPA
 
 # debug requirements
 import traceback
 import pdb
+import json
 
 class CacheManager:
 
@@ -19,7 +20,7 @@ class CacheManager:
         self.expirationTime = self.conf.caching['expiration-time']
 
         # create a KP
-        self.kp = SEPAClient()
+        self.engine = SEPA()
 
 
     def setEntry(self, path, params, sources, uuid):
@@ -78,7 +79,7 @@ class CacheManager:
                         # SPARQL update to delete the subgraph
                         graphURI = "http://ns#%s" % uuidStr
                         update = """DELETE { ?s ?p ?o } WHERE { GRAPH <%s> { ?s ?p ?o } }""" % graphURI
-                        self.kp.update(self.conf.tools["sepa"]["update"], update)
+                        self.engine.sparql_update(update, host=self.conf.tools["sepa"]["update"])
 
                         # delete cache entry
                         del self.entries[path][paramStr][sourcesStr]

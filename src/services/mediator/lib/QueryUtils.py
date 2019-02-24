@@ -147,6 +147,7 @@ class QueryUtils:
 
     @staticmethod
     def frameAndCompact(input, frame, context):
+        print(input)
         orderStruct = QueryUtils.getOrderFromFrame(frame)
         QueryUtils.addDatatypes(input)
         QueryUtils.dirtyCompactFullIRIs(input, QueryUtils.invertContext(context))

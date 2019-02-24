@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 # system-wide requirements
-from sepy.SEPAClient import *
+from sepy.SEPA import SEPA
 from uuid import uuid4
 import threading
 import requests
@@ -24,7 +24,7 @@ class CollectionProcessor:
         self.conf = conf
 
         # create a KP
-        self.kp = SEPAClient()
+        self.engine = SEPA()
 
 
     def search(self, path, pattern, cacheEntry, sources):
@@ -73,7 +73,7 @@ class CollectionProcessor:
 
                 # put data in SEPA
                 try:
-                    self.kp.update(self.conf.tools["sepa"]["update"], update)
+                    self.engine.sparql_update(update, host=self.conf.tools["sepa"]["update"])
                 except:
                     logging.error("Error while connecting to SEPA")
                 logging.debug("Process %s completed!" % cp)
@@ -114,7 +114,7 @@ class CollectionProcessor:
             print(query)
 
         try:
-            status, results = self.kp.query(self.conf.tools["sepa"]["query"], query % graphURI)
+            results = self.engine.sparql_query(query % graphURI, host=self.conf.tools["sepa"]["query"])
             frame = json.loads(self.conf.resources["jsonld-frames"]["collections"]["search"])
             context = json.loads(self.conf.resources["jsonld-context"])
             jres = QueryUtils.getJsonLD(results, frame, context)
