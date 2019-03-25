@@ -1,0 +1,89 @@
+mediator:
+  port: 9027
+  
+caching:
+  expiration-time: 86400
+
+resources:
+  jsonld-context:
+    file: "static/context.jsonld"
+  jsonld-frames:
+    audioclips:
+      search:
+        file: "jsonld-frames/audioclip.jsonld"
+      show:
+        file: "jsonld-frames/audioclip.jsonld"
+    collections:
+      search:
+        file: "jsonld-frames/collection.jsonld"
+      show:
+        file: "jsonld-frames/collection.jsonld"
+
+contentProviders:
+
+  keys:
+    jamendo: "d8d459e8"
+    europeana: "6NPvpkHH4"
+    freesound: "2aL7UlMAoppS0oDzypXExHjv1PR4UekV7rT6NKQF"
+
+  uris:
+    jamendo: "http://jamendo.com"
+    freesound: "http://freesound.org"
+    europeana: "http://europeana.eu"
+
+  mappings:
+
+    audioclips:
+      search:
+        jamendo:
+          file: "lib/mappings/semantic-mappings-jamendo/data-adapters/track-search-by-text.rq"
+          args: ["pattern", "token"]
+        freesound:
+          file: "lib/mappings/semantic-mappings-freesound/data-adapters/audio-search-by-text.rq"
+          args: ["pattern", "token"]
+        europeana:
+          file: "lib/mappings/semantic-mappings-europeana/data-adapters/audio-search-by-text.rq"
+          args: ["pattern", "token"]
+        iarchive:
+          file: "lib/mappings/semantic-mappings-iarchive/data-adapters/audio-search-by-text.rq"
+          args: ["pattern"]
+      show:
+        jamendo:
+          file: "lib/mappings/semantic-mappings-jamendo/data-adapters/track-search-by-id.rq"
+          args: ["trackId", "token"]
+        freesound:
+          file: "lib/mappings/semantic-mappings-freesound/data-adapters/audio-search-by-id.rq"
+          args: ["trackId", "token"]
+
+    collections:
+      search:
+        jamendo:
+          file: "lib/mappings/semantic-mappings-jamendo/data-adapters/playlist-search-by-text.rq"
+          args: ["trackId", "token"]
+        freesound:
+          file: "lib/mappings/semantic-mappings-freesound/data-adapters/pack-search-by-text.rq"
+          args: ["trackId", "token"]
+
+analysisTools:
+
+  baseURI: "http://localhost:8081/function/ac-analysis"
+  plugins: ["chord-estimator", "sonic-annotator", "instrument-identifier"]
+
+use-graphstore: true
+
+sparql-generate:
+
+  URI: "http://localhost:6060/transform"
+
+graphstore:
+
+  sparql-endpoint: "http://localhost:9999/blazegraph/namespace/kb/sparql"
+  insert-rdf-url: "http://localhost:9999/blazegraph/namespace/kb/sparql"
+  insert-rdf-graphParam: "context-uri"
+
+sepa:
+
+  URIs:
+    subscribe: "ws://localhost:9000/subscribe"
+    update: "http://localhost:8000/update"
+    query: "http://localhost:8000/query"
