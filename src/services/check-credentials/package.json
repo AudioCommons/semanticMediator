@@ -22,7 +22,7 @@
     "dependencies": {
         "@grpc/proto-loader": "^0.1.0",
         "@types/node": "^10.7.1",
-        "async": "^1.5.2",
+        "async": "^2.6.4",
         "chalk": "^2.4.1",
         "google-protobuf": "^3.0.0",
         "grpc": "^1.11.0",
