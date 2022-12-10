@@ -19,7 +19,7 @@
         "chalk": "^2.4.1",
         "cookie-parser": "^1.4.3",
         "deep-assign": "http://colabo.space/downloads/deep-assign-2.0.0.tgz",
-        "express": "^4.16.4",
+        "express": "^4.17.3",
         "express-resource": "http://colabo.space/downloads/express-resource-1.0.0.tgz",
         "morgan": "^1.9.1"
     },
